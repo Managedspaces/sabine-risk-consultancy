@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Über uns | Zweisprachige Arbeitsschutz & Ergonomie Beratung | Sabine";
+const description = "Sabine ist eine zweisprachige Arbeitsschutz- und Ergonomie-Spezialistin mit Expertise in deutschen, britischen und irischen Compliance-Rahmenwerken für KMU.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="de"
+  hreflangEn="https://example.com/about"
+  hreflangDe="https://example.com/de/ueber-uns"
+>
+
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <p class="section-label text-brand-accentLight mb-4">Über die Beratung</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        Über Sabine
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+        Arbeitsschutz- und Ergonomie-Spezialistin. Zweisprachig. Vollständig digital. Konzipiert für KMU, die die Expertise eines grossen Anbieters benötigen, ohne dessen Komplexität und Kosten.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="bg-brand-dark rounded-sm aspect-[4/5] flex items-center justify-center relative overflow-hidden mb-6">
+            <div class="text-center p-8">
+              <svg class="w-16 h-16 mx-auto mb-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+              <p class="text-slate-500 text-sm">Gründerfoto</p>
+            </div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="bg-white/10 backdrop-blur-sm rounded-sm p-4">
+                <p class="font-serif text-white text-lg font-semibold">Sabine</p>
+                <p class="text-slate-300 text-xs mt-1">Arbeitsschutz- &amp; Ergonomie-Spezialistin</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-sm border border-slate-100 p-6 shadow-sm">
+            <h3 class="font-serif text-base font-semibold text-brand-dark mb-4">Qualifikationen &amp; Expertise</h3>
+            <ul class="space-y-3">
+              {[
+                "Expertise gemäss Chartered Institute of Ergonomics and Human Factors (CIEHF)",
+                "Spezialkenntnisse in deutschen DGUV-, britischen HSE- und irischen HSA-Rahmenwerken",
+                "Zweisprachig: Deutsch und Englisch auf muttersprachlichem Niveau",
+                "Umfangreiche Erfahrung im Risikomanagement für Remote- und Hybrid-Belegschaften",
+                "Jurisdiktionsübergreifende Compliance: DACH, UK, Irland, Australien",
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-slate-600">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="section-label mb-4">Der Ansatz</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-6 leading-tight">
+            Verhältnismässige Expertise. Prüfungsfeste Ergebnisse. Keine generischen Checklisten.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Diese Beratung wurde auf einer einfachen Beobachtung gegründet: Die meisten KMU mit Remote- oder Hybrid-Belegschaft haben eine erhebliche Compliance-Lücke, und die verfügbaren Lösungen sind entweder zu teuer, zu generisch oder für einen anderen regulatorischen Kontext konzipiert.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Grosse Arbeitsschutzanbieter bieten Qualität, aber zu Unternehmenspreisen und -komplexität. Generische Online-Beurteilungstools bieten Erschwinglichkeit, produzieren aber Dokumentation, die einer Betriebsprüfung oder einem Rechtsstreit nicht standhalten würde. KMU müssen zwischen unzureichender Compliance und unverhältnismässigen Kosten wählen.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            Diese Beratung besetzt den Raum zwischen diesen beiden Optionen. Jede Beurteilung und jedes Audit wird von einer erfahrenen Spezialistin durchgeführt, produziert Dokumentation, die wirklich prüfungsfest ist, und wird verhältnismässig für Organisationen mit 20 bis 150 Mitarbeitern berechnet.
+          </p>
+          <a href="/de/kontakt" class="btn-primary">Beratung anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="section-label mb-4">Die Philosophie</p>
+        <blockquote class="font-serif text-2xl md:text-3xl font-medium text-brand-dark leading-relaxed mb-8">
+          „Ergonomie ist keine Wellness-Initiative. Sie ist eine gesetzliche Pflicht, ein Instrument zur Haftungsminimierung und, wenn sie richtig umgesetzt wird, ein echter Treiber für Produktivität und Mitarbeiterbindung."
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed">
+          Jede von dieser Beratung erstellte Arbeit wird mit einer Frage im Sinn konzipiert: Würde diese Dokumentation den Kunden im Falle einer Betriebsprüfung, eines Versicherungsfalles oder eines Rechtsstreits schützen? Wenn die Antwort nein ist, ist sie nicht fertig.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Mit Sabine zusammenarbeiten</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Lassen Sie uns Ihren Compliance-Bedarf besprechen.
+      </h2>
+      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beratung anfragen</a>
+    </div>
+  </section>
+
+</BaseLayout>

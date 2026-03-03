@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = "Arbeitsschutz-Retainer | Laufende Compliance-Betreuung für KMU | Sabine";
+const description = "Monatlicher Arbeitsschutz-Retainer für wachsende KMU. Quartalsweise Überprüfungen, Gefährdungsbeurteilungen für neue Mitarbeiter, Richtlinienaktualisierungen. Ab 650 EUR pro Monat.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="de"
+  hreflangEn="https://example.com/services/workplace-risk-retainer"
+  hreflangDe="https://example.com/de/leistungen/arbeitsschutz-retainer"
+>
+
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <nav class="text-xs text-slate-500 mb-8">
+        <a href="/de" class="hover:text-slate-300 transition-colors">Startseite</a>
+        <span class="mx-2">/</span>
+        <a href="/de/leistungen" class="hover:text-slate-300 transition-colors">Leistungen</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-400">Arbeitsschutz-Retainer</span>
+      </nav>
+      <p class="section-label text-brand-accentLight mb-4">Laufende Betreuung</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        Arbeitsschutz-Retainer
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mb-8">
+        Kontinuierliche Arbeitsschutz- und Compliance-Betreuung für KMU, die wachsen, sich verändern oder in mehreren Jurisdiktionen tätig sind. Ihre Compliance-Dokumentation bleibt aktuell, während Ihr Team wächst.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-start">
+        <a href="/de/kontakt" class="btn-primary">Retainer anfragen</a>
+        <div class="text-slate-400 text-sm py-3">
+          <span class="font-semibold text-white">Ab 650 EUR pro Monat</span> &nbsp;|&nbsp; Monatlich kündbar
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="section-label mb-4">Laufende Compliance ohne internen Aufwand</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">
+            Arbeitsschutz ist kein einmaliges Ereignis. Es ist eine dauernde Pflicht.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Ein einzelnes Audit oder eine Batch-Beurteilung adressiert Ihre Compliance-Situation zu einem bestimmten Zeitpunkt. Aber Organisationen verändern sich. Mitarbeiter kommen und gehen. Arbeitsbedingungen ändern sich. Vorschriften werden aktualisiert. Ohne einen Mechanismus, der Ihre Dokumentation aktuell hält, beginnt die erstellte Compliance-Basis zu erodieren.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Der Arbeitsschutz-Retainer bietet kontinuierlichen Zugang zu Arbeitsschutz-Expertise auf monatlicher Basis. Wir verwalten Ihre laufenden Compliance-Pflichten, damit Ihre Dokumentation aktuell bleibt, neue Mitarbeiter zeitnah beurteilt werden und Sie bei Bedarf Expertenunterstützung haben.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            Die meisten Retainer-Kunden beginnen mit einem Arbeitsschutz-Audit, um eine Basis zu schaffen, und wechseln dann zum Retainer für die laufende Verwaltung. Dies ist der kosteneffektivste und rechtssicherste Ansatz für wachsende KMU.
+          </p>
+          <a href="/de/leistungen/arbeitsschutz-audit" class="btn-outline">Mit einem Audit beginnen</a>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white rounded-sm border border-slate-100 p-6 shadow-sm">
+            <h3 class="font-serif text-lg font-semibold text-brand-dark mb-4">Was der Retainer umfasst</h3>
+            <ul class="space-y-3">
+              {[
+                "Quartalsweise Compliance-Überprüfung und Dokumentationsaktualisierung",
+                "Gefährdungsbeurteilungen für neue Mitarbeiter (bis 5 pro Monat, weitere zum reduzierten Preis)",
+                "Richtlinienaktualisierungen bei Rechtsänderungen",
+                "Priorisierter E-Mail- und Videokonsultationszugang",
+                "Jährlicher Arbeitsschutz-Zusammenfassungsbericht",
+                "Überwachung von Rechtsänderungen für Deutschland, Österreich, Schweiz, UK und Australien",
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-slate-600">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-brand-dark rounded-sm p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-3">Vertragsbedingungen</p>
+            <div class="space-y-2 text-xs text-slate-400">
+              <p>Monatlich kündbarer Vertrag mit 30 Tagen Kündigungsfrist.</p>
+              <p>Keine Mindestlaufzeit. Keine Einrichtungsgebühr.</p>
+              <p>Onboarding-Gespräch inklusive, um Ihr Belegschaftsprofil und Ihre Prioritäten abzustimmen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-cream">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="section-label mb-3">Preise</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark">Monatliche Retainer-Preise</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Basis</p>
+            <p class="text-xs text-slate-400 mb-3">Bis 30 Mitarbeiter</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">650 EUR</p>
+            <p class="text-xs text-slate-500">pro Monat</p>
+            <p class="text-xs text-slate-400 mt-3">Bis 3 Neueinstellungs-Beurteilungen/Monat</p>
+          </div>
+          <div class="bg-white rounded-sm border border-brand-accent p-6 text-center shadow-sm relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-semibold px-3 py-1 rounded-sm uppercase tracking-wide">Am beliebtesten</div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Wachstum</p>
+            <p class="text-xs text-slate-400 mb-3">31 bis 80 Mitarbeiter</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">990 EUR</p>
+            <p class="text-xs text-slate-500">pro Monat</p>
+            <p class="text-xs text-slate-400 mt-3">Bis 5 Neueinstellungs-Beurteilungen/Monat</p>
+          </div>
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Skalierung</p>
+            <p class="text-xs text-slate-400 mb-3">81 bis 150 Mitarbeiter</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">Auf Anfrage</p>
+            <p class="text-xs text-slate-500">Angebot auf Anfrage</p>
+            <p class="text-xs text-slate-400 mt-3">Unbegrenzte Neueinstellungs-Beurteilungen</p>
+          </div>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-6">Alle Preise zzgl. MwSt. Monatlich kündbar, 30 Tage Kündigungsfrist. Keine Einrichtungsgebühr.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Ihre Compliance dauerhaft aktuell halten</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Arbeitsschutz-Retainer anfragen.
+      </h2>
+      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Retainer anfragen</a>
+    </div>
+  </section>
+
+</BaseLayout>

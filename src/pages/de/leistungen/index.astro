@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = "Arbeitsschutz & Ergonomie Leistungen für KMU | Sabine";
+const description = "Ergonomische Gefährdungsbeurteilungen, Arbeitsschutz-Audits und laufende Betreuung für KMU mit Remote- und Hybrid-Belegschaft. Konform mit ArbSchG, ArbStättV und DGUV.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="de"
+  hreflangEn="https://example.com/services"
+  hreflangDe="https://example.com/de/leistungen"
+>
+
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <p class="section-label text-brand-accentLight mb-4">Unsere Leistungen</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        Strukturierter Arbeitsschutz für Remote-First KMU
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+        Drei fokussierte Leistungen, die Sie von der Compliance-Lücke zur dokumentierten, rechtssicheren Absicherung führen. Vollständig digital, konform mit deutschen, österreichischen, schweizerischen und britischen Vorschriften.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-brand-bg">
+    <div class="container-wide space-y-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="section-label mb-3">Individuelle Compliance</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Ergonomische Gefährdungsbeurteilung (Remote)</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">Individuelle Beurteilung für Mitarbeiter im Homeoffice oder in hybrider Arbeitsweise. Fragebogen, Foto-Auswertung, schriftlicher Bericht und prüfungsfeste Dokumentation gemäss ArbSchG, ArbStättV und Bildschirmarbeitsverordnung.</p>
+          <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">Ab 345 EUR pro Mitarbeiter</p>
+          <a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="btn-primary">Details ansehen</a>
+        </div>
+        <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
+          <ul class="space-y-3">
+            {["Strukturierter Fragebogen zur Arbeitsplatzsituation", "Foto-Auswertung des Homeoffice-Arbeitsplatzes", "Schriftlicher Gefährdungsbeurteilungsbericht mit priorisierten Massnahmen", "Prüfungsfeste Dokumentation für HR und Compliance-Unterlagen", "Mitarbeiterzusammenfassung in verständlicher Sprache"].map(item => (
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="section-label mb-3">Umfassende Compliance</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Arbeitsschutz-Audit für KMU</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">Projektbasierte Analyse Ihrer gesamten Arbeitsschutz-Compliance. Richtlinienprüfung, Risikomatrix, Massnahmenplan und Ausrichtung an ArbSchG, ArbStättV und DGUV-Vorgaben. Geeignet für Betriebsprüfungen, Versicherungsfälle und Due-Diligence-Prozesse.</p>
+          <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">Projektbasiert ab 2.100 EUR</p>
+          <a href="/de/leistungen/arbeitsschutz-audit" class="btn-primary">Details ansehen</a>
+        </div>
+        <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
+          <ul class="space-y-3">
+            {["Prüfung bestehender Arbeitsschutzrichtlinien", "Risikoerfassung der Remote- und Hybrid-Belegschaft", "Strukturierte Risikomatrix (Wahrscheinlichkeit, Schwere, Priorität)", "Management-Summary für Geschäftsführung und Beirat", "Priorisierter Massnahmenplan mit Umsetzungshinweisen", "Ausrichtungscheck an ArbSchG, ArbStättV und DGUV"].map(item => (
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="section-label mb-3">Laufende Betreuung</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Arbeitsschutz-Retainer</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">Monatliche Betreuung für wachsende KMU. Quartalsweise Überprüfungen, Beurteilungen für neue Mitarbeiter, Aktualisierungen bei Rechtsänderungen und priorisierter Beratungszugang. Ihre Dokumentation bleibt aktuell, während Ihr Team wächst.</p>
+          <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">Ab 650 EUR pro Monat</p>
+          <a href="/de/leistungen/arbeitsschutz-retainer" class="btn-primary">Details ansehen</a>
+        </div>
+        <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
+          <ul class="space-y-3">
+            {["Quartalsweise Compliance-Überprüfung und Dokumentationsaktualisierung", "Gefährdungsbeurteilungen für neue Mitarbeiter (bis 5 pro Monat)", "Richtlinienaktualisierungen bei Rechtsänderungen", "Priorisierter E-Mail- und Videokonsultationszugang", "Jährlicher Arbeitsschutz-Zusammenfassungsbericht"].map(item => (
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Nicht sicher, welche Leistung passt?</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Vereinbaren Sie ein kostenloses Erstgespräch.
+      </h2>
+      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beratung anfragen</a>
+    </div>
+  </section>
+
+</BaseLayout>

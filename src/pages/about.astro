@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "About Sabine | Bilingual Workplace Risk & Ergonomics Specialist";
+const description = "Sabine is a bilingual workplace risk and ergonomics consultant specialising in UK, Irish, and German compliance frameworks for remote-first SMEs.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  hreflangEn="https://example.com/about"
+  hreflangDe="https://example.com/de/ueber-uns"
+>
+
+  <!-- Page Header -->
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <p class="section-label text-brand-accentLight mb-4">About the Consultancy</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        About Sabine
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+        Workplace risk and ergonomics specialist. Bilingual. Remote-first. Built for SMEs that need the rigour of enterprise occupational health without the complexity or cost.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="py-20 md:py-28 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <!-- Photo placeholder -->
+          <div class="bg-brand-dark rounded-sm aspect-[4/5] flex items-center justify-center relative overflow-hidden mb-6">
+            <div class="text-center p-8">
+              <svg class="w-16 h-16 mx-auto mb-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+              <p class="text-slate-500 text-sm">Founder photo</p>
+            </div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="bg-white/10 backdrop-blur-sm rounded-sm p-4">
+                <p class="font-serif text-white text-lg font-semibold">Sabine</p>
+                <p class="text-slate-300 text-xs mt-1">Workplace Risk &amp; Ergonomics Specialist</p>
+              </div>
+            </div>
+          </div>
+          <!-- Credentials -->
+          <div class="bg-white rounded-sm border border-slate-100 p-6 shadow-sm">
+            <h3 class="font-serif text-base font-semibold text-brand-dark mb-4">Credentials &amp; Expertise</h3>
+            <ul class="space-y-3">
+              {[
+                "Chartered Institute of Ergonomics and Human Factors (CIEHF) aligned expertise",
+                "Specialist knowledge of UK HSE, Irish HSA, and German DGUV frameworks",
+                "Bilingual: native-level English and German",
+                "Extensive experience with remote and hybrid workforce risk management",
+                "Cross-jurisdictional compliance: UK, Ireland, DACH, Australia",
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-slate-600">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="section-label mb-4">The Approach</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-6 leading-tight">
+            Proportionate expertise. Defensible outputs. No generic checklists.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            This consultancy was founded on a straightforward observation: most SMEs with remote or hybrid workforces are operating with a significant compliance gap, and the solutions available to them are either too expensive, too generic, or designed for a different regulatory context entirely.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Large occupational health providers offer rigour, but at enterprise scale and enterprise cost. Generic online assessment tools offer affordability, but produce documentation that would not withstand regulatory scrutiny or a legal challenge. SMEs are left choosing between inadequate compliance and disproportionate cost.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            This consultancy occupies the space between those two options. Every assessment and audit is conducted by an experienced specialist, produces documentation that is genuinely defensible, and is priced proportionately for organisations of 20 to 150 employees.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            The bilingual capability — native-level English and German — means that organisations with employees in both the UK and the DACH region can work with a single specialist who understands both regulatory frameworks and can produce documentation appropriate for each jurisdiction.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-white rounded-sm border border-slate-100 p-5">
+              <p class="font-serif text-2xl font-semibold text-brand-accent mb-1">4</p>
+              <p class="text-xs text-slate-600">Regulatory frameworks covered: UK, Ireland, DACH, Australia</p>
+            </div>
+            <div class="bg-white rounded-sm border border-slate-100 p-5">
+              <p class="font-serif text-2xl font-semibold text-brand-accent mb-1">2</p>
+              <p class="text-xs text-slate-600">Languages: English and German, both at native level</p>
+            </div>
+          </div>
+
+          <a href="/contact" class="btn-primary">Book a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-20 bg-white">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="section-label mb-4">The Philosophy</p>
+        <blockquote class="font-serif text-2xl md:text-3xl font-medium text-brand-dark leading-relaxed mb-8">
+          "Ergonomics is not a wellness initiative. It is a legal obligation, a liability management tool, and, when done properly, a genuine driver of productivity and retention."
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed">
+          Every piece of work produced by this consultancy is designed with one question in mind: would this documentation protect the client in the event of a regulatory inspection, an insurance claim, or a legal proceeding? If the answer is no, it is not finished.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Work With Sabine</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Let us discuss your compliance requirements.
+      </h2>
+      <a href="/contact" class="btn-primary text-base px-8 py-4">Book a Consultation</a>
+    </div>
+  </section>
+
+</BaseLayout>

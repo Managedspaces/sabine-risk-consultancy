@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = "Ergonomische Gefährdungsbeurteilung für Homeoffice | Sabine";
+const description = "Individuelle ergonomische Gefährdungsbeurteilung für Remote- und Hybrid-Mitarbeiter. Konform mit ArbSchG, ArbStättV und Bildschirmarbeitsverordnung. Ab 345 EUR pro Mitarbeiter.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="de"
+  hreflangEn="https://example.com/services/remote-ergonomic-assessment"
+  hreflangDe="https://example.com/de/leistungen/ergonomische-gefaehrdungsbeurteilung"
+>
+
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <nav class="text-xs text-slate-500 mb-8">
+        <a href="/de" class="hover:text-slate-300 transition-colors">Startseite</a>
+        <span class="mx-2">/</span>
+        <a href="/de/leistungen" class="hover:text-slate-300 transition-colors">Leistungen</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-400">Ergonomische Gefährdungsbeurteilung</span>
+      </nav>
+      <p class="section-label text-brand-accentLight mb-4">Individuelle Compliance</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        Ergonomische Gefährdungsbeurteilung für Homeoffice und Hybrid-Arbeitsplätze
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mb-8">
+        Strukturierte, individuell zugeschnittene Beurteilung für Mitarbeiter im Homeoffice oder in hybrider Arbeitsweise. Prüfungsfeste Dokumentation gemäss ArbSchG, ArbStättV und Bildschirmarbeitsverordnung.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-start">
+        <a href="/de/kontakt" class="btn-primary">Beurteilung anfragen</a>
+        <div class="text-slate-400 text-sm py-3">
+          <span class="font-semibold text-white">Ab 345 EUR</span> pro Mitarbeiter &nbsp;|&nbsp; Berichte innerhalb von 5 Werktagen
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="section-label mb-4">Die rechtliche Grundlage</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">
+            Die Fürsorgepflicht endet nicht an der Bürotür.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Das Arbeitsschutzgesetz (ArbSchG) verpflichtet Arbeitgeber, für jeden Arbeitsplatz eine Gefährdungsbeurteilung durchzuführen und zu dokumentieren. Gemäss § 5 ArbSchG gilt dies ausdrücklich auch für Homeoffice-Arbeitsplätze. Die Arbeitsstättenverordnung (ArbStättV) und die Bildschirmarbeitsverordnung konkretisieren diese Anforderungen für Büro- und Bildschirmarbeitsplätze.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Eine fehlende oder unzureichende Gefährdungsbeurteilung stellt eine Ordnungswidrigkeit dar und kann bei Arbeitsunfällen oder Berufskrankheiten zu erheblichen zivilrechtlichen und strafrechtlichen Konsequenzen führen. Die meisten KMU verfügen nicht über die erforderliche Dokumentation.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            Unsere Remote-Gefährdungsbeurteilung schliesst diese Lücke mit einem strukturierten, vollständig digital durchführbaren Verfahren, das prüfungsfeste Ergebnisse liefert.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
+            <ul class="space-y-4">
+              {[
+                ["Strukturierter Fragebogen", "Erfassung von Arbeitsplatzsituation, Ausstattung, Arbeitsweise, Beleuchtung und bestehenden Beschwerden."],
+                ["Foto-Auswertung des Arbeitsplatzes", "Der Mitarbeiter sendet Fotos seines Arbeitsplatzes. Wir beurteilen Haltungsrisiken, Gerätepositionen und Umgebungsfaktoren."],
+                ["Schriftlicher Gefährdungsbeurteilungsbericht", "Klarer, individuell zugeschnittener Bericht mit identifizierten Gefährdungen, Schweregrad und priorisierten Massnahmenempfehlungen."],
+                ["Prüfungsfeste Dokumentation", "Der Bericht ist für Ihre Compliance-Unterlagen formatiert und für Betriebsprüfungen, Versicherungsfälle und arbeitsrechtliche Zwecke geeignet."],
+                ["Mitarbeiterzusammenfassung", "Verständliche Zusammenfassung für den Mitarbeiter mit Erläuterung der Befunde und empfohlenen Massnahmen."],
+              ].map(([title, desc]) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-brand-accent mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <div>
+                    <p class="text-sm font-semibold text-brand-dark">{title}</p>
+                    <p class="text-xs text-slate-500 mt-0.5">{desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-brand-dark rounded-sm p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-3">Rechtliche Grundlagen</p>
+            <div class="space-y-2 text-xs text-slate-400">
+              <p><span class="text-white font-medium">ArbSchG:</span> §§ 3, 5, 6 Arbeitsschutzgesetz</p>
+              <p><span class="text-white font-medium">ArbStättV:</span> Arbeitsstättenverordnung inkl. Anhang 6</p>
+              <p><span class="text-white font-medium">BildscharbV:</span> Bildschirmarbeitsverordnung</p>
+              <p><span class="text-white font-medium">DGUV:</span> DGUV Information 215-410</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-cream">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="section-label mb-3">Preise</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark">Transparente, verhältnismässige Preise</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Einzelner Mitarbeiter</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">345 EUR</p>
+            <p class="text-xs text-slate-500">pro Mitarbeiter</p>
+          </div>
+          <div class="bg-white rounded-sm border border-brand-accent p-6 text-center shadow-sm relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-semibold px-3 py-1 rounded-sm uppercase tracking-wide">Bestes Preis-Leistungs-Verhältnis</div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">5 bis 20 Mitarbeiter</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">285 EUR</p>
+            <p class="text-xs text-slate-500">pro Mitarbeiter</p>
+          </div>
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Ab 21 Mitarbeiter</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">Auf Anfrage</p>
+            <p class="text-xs text-slate-500">Angebot auf Anfrage</p>
+          </div>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-6">Alle Preise zzgl. MwSt. Berichte werden innerhalb von 5 Werktagen geliefert. Expresslieferung auf Anfrage möglich.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Jetzt Ihre Remote-Belegschaft absichern</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Gefährdungsbeurteilung für Homeoffice-Mitarbeiter anfragen.
+      </h2>
+      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beurteilung anfragen</a>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-dark antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-brand-accent text-white font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-brand-accentLight;
+  }
+
+  .btn-outline {
+    @apply inline-block border border-brand-dark text-brand-dark font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-brand-dark hover:text-white;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-brand-accent;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto px-6;
+  }
+}

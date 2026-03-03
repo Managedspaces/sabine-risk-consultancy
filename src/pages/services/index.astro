@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Workplace Risk & Ergonomics Services for SMEs | Sabine";
+const description = "Remote ergonomic assessments, SME workplace risk audits, and ongoing compliance retainers. Proportionate, defensible, and audit-ready. Serving UK, Ireland, DACH, and Australia.";
+
+const services = [
+  {
+    slug: "remote-ergonomic-assessment",
+    title: "Remote Ergonomic Assessment",
+    tagline: "Individual compliance for remote and hybrid employees",
+    description: "A structured individual assessment for employees working remotely or in a hybrid arrangement. Covers workstation setup, posture risk, equipment suitability, and working patterns. Produces a written risk report aligned with the Health and Safety (Display Screen Equipment) Regulations and equivalent standards in Ireland, Germany, and Australia.",
+    includes: [
+      "Pre-assessment questionnaire",
+      "Photo or video workstation review",
+      "Written risk report with prioritised recommendations",
+      "Audit-ready documentation for HR and compliance records",
+      "Follow-up summary for the employee",
+    ],
+    price: "From £295 per employee",
+    ideal: "SMEs with remote or hybrid staff requiring documented DSE compliance",
+  },
+  {
+    slug: "sme-risk-audit",
+    title: "SME Workplace Risk Audit",
+    tagline: "Comprehensive compliance review for your entire workforce",
+    description: "A project-based audit of your organisation's workplace risk posture. We review your existing policies, assess your remote and hybrid workforce exposure, and produce a structured risk matrix with a prioritised action plan. The output is designed to be defensible in the context of regulatory inspection, insurance review, or legal proceedings.",
+    includes: [
+      "Review of existing health and safety policies",
+      "Remote and hybrid workforce risk mapping",
+      "Structured risk matrix (likelihood, severity, priority)",
+      "Executive summary for leadership",
+      "Prioritised action plan with implementation guidance",
+      "Alignment check against HSE, HSA, ArbSchG, or Safe Work Australia standards",
+    ],
+    price: "Project-based from £1,800",
+    ideal: "SMEs of 20 to 150 employees needing a documented compliance baseline",
+  },
+  {
+    slug: "workplace-risk-retainer",
+    title: "Workplace Risk Retainer",
+    tagline: "Ongoing compliance advisory as your team grows and changes",
+    description: "A monthly retainer providing continuous access to workplace risk expertise. As your team evolves — through new hires, role changes, or office moves — your compliance documentation stays current. Includes regular reviews, new employee assessments, and policy updates, all delivered remotely.",
+    includes: [
+      "Quarterly compliance review and documentation update",
+      "New hire ergonomic assessments (up to 5 per month)",
+      "Policy update support as regulations change",
+      "Priority email and video consultation access",
+      "Annual risk audit summary report",
+    ],
+    price: "From £550 per month",
+    ideal: "Growing SMEs that want continuous compliance without the overhead of in-house expertise",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  hreflangEn="https://example.com/services"
+  hreflangDe="https://example.com/de/leistungen"
+>
+
+  <!-- Page Header -->
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <p class="section-label text-brand-accentLight mb-4">Our Services</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        Strategic Risk Management for Remote-First SMEs
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+        Three focused services designed to move you from compliance exposure to documented, defensible protection. All delivered remotely, all aligned with the regulatory standards that apply to your workforce.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Detail -->
+  <section class="py-20 md:py-28 bg-brand-bg">
+    <div class="container-wide space-y-16">
+      {services.map((service, index) => (
+        <div class={`grid grid-cols-1 md:grid-cols-2 gap-12 items-start ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+          <div>
+            <p class="section-label mb-3">{service.tagline}</p>
+            <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">{service.title}</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">{service.description}</p>
+            <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">{service.price}</p>
+            <a href={`/services/${service.slug}`} class="btn-primary">View Full Details</a>
+          </div>
+          <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+            <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">What is included</h3>
+            <ul class="space-y-3">
+              {service.includes.map(item => (
+                <li class="flex items-start gap-3 text-sm text-slate-600">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div class="mt-6 pt-6 border-t border-slate-100">
+              <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-1">Ideal for</p>
+              <p class="text-sm text-slate-600">{service.ideal}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Compliance Standards -->
+  <section class="py-16 bg-white border-t border-slate-100">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <p class="section-label mb-3">Regulatory Alignment</p>
+        <h2 class="font-serif text-2xl font-semibold text-brand-dark">Standards We Work To</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">United Kingdom</p>
+          <p class="text-xs text-slate-500">HSE · DSE Regulations 1992 · Management of Health and Safety at Work Regulations</p>
+        </div>
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">Ireland</p>
+          <p class="text-xs text-slate-500">HSA · Safety, Health and Welfare at Work Act 2005 · Display Screen Equipment Regulations</p>
+        </div>
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">Germany / DACH</p>
+          <p class="text-xs text-slate-500">ArbSchG · ArbStattV · Bildschirmarbeitsverordnung · DGUV Guidance</p>
+        </div>
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">Australia</p>
+          <p class="text-xs text-slate-500">Safe Work Australia · Model WHS Regulations · State and Territory WHS Acts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Not sure which service is right for you?</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Book a free 20-minute consultation to discuss your situation.
+      </h2>
+      <a href="/contact" class="btn-primary text-base px-8 py-4">Book a Consultation</a>
+    </div>
+  </section>
+
+</BaseLayout>

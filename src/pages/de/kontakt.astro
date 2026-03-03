@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Kontakt | Beratung anfragen | Sabine Arbeitsschutz Beratung";
+const description = "Kostenloses 20-minütiges Erstgespräch zu Ihrem Arbeitsschutz- und Ergonomie-Bedarf. Vollständig digital. Deutschland, Österreich, Schweiz, UK, Irland, Australien.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="de"
+  hreflangEn="https://example.com/contact"
+  hreflangDe="https://example.com/de/kontakt"
+>
+
+  <section class="bg-brand-dark py-20 md:py-24">
+    <div class="container-wide">
+      <p class="section-label text-brand-accentLight mb-4">Kontakt</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-xl">
+        Lassen Sie uns Ihren Bedarf besprechen.
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-xl">
+        Vereinbaren Sie ein kostenloses 20-minütiges Erstgespräch, um Ihren Handlungsbedarf zu analysieren und die passende Leistung zu identifizieren.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+          <h2 class="font-serif text-2xl font-semibold text-brand-dark mb-6">Anfrage senden</h2>
+          <form name="contact-de" method="POST" action="/de/kontakt/bestaetigung" class="space-y-5">
+            <input type="hidden" name="form-name" value="contact-de" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="vorname" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Vorname *</label>
+                <input type="text" id="vorname" name="vorname" required class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors" placeholder="Ihr Vorname" />
+              </div>
+              <div>
+                <label for="nachname" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Nachname *</label>
+                <input type="text" id="nachname" name="nachname" required class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors" placeholder="Ihr Nachname" />
+              </div>
+            </div>
+            <div>
+              <label for="email-de" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Geschäftliche E-Mail *</label>
+              <input type="email" id="email-de" name="email" required class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors" placeholder="sie@unternehmen.de" />
+            </div>
+            <div>
+              <label for="unternehmen" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Unternehmen</label>
+              <input type="text" id="unternehmen" name="unternehmen" class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors" placeholder="Ihr Unternehmensname" />
+            </div>
+            <div>
+              <label for="teamgroesse" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Ungefähre Teamgrösse</label>
+              <select id="teamgroesse" name="teamgroesse" class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors bg-white">
+                <option value="">Bitte wählen</option>
+                <option value="1-20">1 bis 20 Mitarbeiter</option>
+                <option value="21-50">21 bis 50 Mitarbeiter</option>
+                <option value="51-100">51 bis 100 Mitarbeiter</option>
+                <option value="101-150">101 bis 150 Mitarbeiter</option>
+                <option value="150+">Mehr als 150 Mitarbeiter</option>
+              </select>
+            </div>
+            <div>
+              <label for="leistung" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Gewünschte Leistung</label>
+              <select id="leistung" name="leistung" class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors bg-white">
+                <option value="">Bitte wählen</option>
+                <option value="gefaehrdungsbeurteilung">Ergonomische Gefährdungsbeurteilung</option>
+                <option value="audit">Arbeitsschutz-Audit</option>
+                <option value="retainer">Arbeitsschutz-Retainer</option>
+                <option value="unsicher">Noch nicht sicher</option>
+              </select>
+            </div>
+            <div>
+              <label for="nachricht" class="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">Ihre Nachricht</label>
+              <textarea id="nachricht" name="nachricht" rows="4" class="w-full border border-slate-200 rounded-sm px-4 py-2.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent transition-colors resize-none" placeholder="Beschreiben Sie kurz Ihre Situation und was Sie erreichen möchten."></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full text-center py-3">Anfrage senden</button>
+            <p class="text-xs text-slate-400 text-center">Wir antworten auf alle Anfragen innerhalb eines Werktages.</p>
+          </form>
+        </div>
+
+        <div class="space-y-8">
+          <div>
+            <p class="section-label mb-4">Was Sie erwartet</p>
+            <h2 class="font-serif text-2xl font-semibold text-brand-dark mb-5">Unkompliziert vom ersten Kontakt bis zur Lieferung.</h2>
+            <div class="space-y-5">
+              {[
+                ["1. Erste Antwort", "Wir antworten auf alle Anfragen innerhalb eines Werktages mit einem persönlichen Schreiben von Sabine."],
+                ["2. Erstgespräch", "Ein fokussiertes 20-minütiges Videogespräch, um Ihre Belegschaft, Ihren regulatorischen Kontext und Ihre Prioritäten zu verstehen."],
+                ["3. Angebot", "Nach dem Gespräch erhalten Sie ein klares schriftliches Angebot mit Leistungsumfang, Liefergegenständen, Zeitplan und Festpreis."],
+                ["4. Beauftragung", "Nach Auftragserteilung beginnen wir sofort. Die meisten Aufträge werden innerhalb von zehn Werktagen abgeschlossen."],
+              ].map(([title, desc]) => (
+                <div class="flex gap-4">
+                  <div class="w-7 h-7 bg-brand-accent text-white text-xs font-semibold rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">{title.charAt(0)}</div>
+                  <div>
+                    <p class="font-semibold text-brand-dark text-sm mb-1">{title.substring(3)}</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="bg-brand-dark rounded-sm p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-4">Sprachen</p>
+            <p class="text-slate-300 text-sm leading-relaxed mb-2">Anfragen und Beratungen sind auf Deutsch und Englisch möglich.</p>
+            <p class="text-slate-400 text-xs italic">Enquiries and consultations are available in German and English.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

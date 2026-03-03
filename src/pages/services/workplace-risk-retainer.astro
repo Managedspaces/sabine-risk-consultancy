@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Workplace Risk Retainer | Ongoing Ergonomics & Compliance Advisory | Sabine";
+const description = "Monthly workplace risk retainer for growing SMEs. Quarterly reviews, new hire assessments, policy updates, and priority advisory access. From £550 per month.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  hreflangEn="https://example.com/services/workplace-risk-retainer"
+  hreflangDe="https://example.com/de/leistungen/arbeitsschutz-retainer"
+>
+
+  <!-- Page Header -->
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <nav class="text-xs text-slate-500 mb-8">
+        <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/services" class="hover:text-slate-300 transition-colors">Services</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-400">Workplace Risk Retainer</span>
+      </nav>
+      <p class="section-label text-brand-accentLight mb-4">Ongoing Advisory</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        Workplace Risk Retainer
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mb-8">
+        Continuous workplace risk and compliance support for SMEs that are growing, changing, or operating across multiple jurisdictions. Your compliance documentation stays current as your team evolves.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-start">
+        <a href="/contact" class="btn-primary">Enquire About a Retainer</a>
+        <div class="text-slate-400 text-sm py-3">
+          <span class="font-semibold text-white">From £550 per month</span> &nbsp;|&nbsp; Rolling monthly contract
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What It Is -->
+  <section class="py-20 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="section-label mb-4">Ongoing Compliance, Without the Overhead</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">
+            Compliance is not a one-time event. It is an ongoing obligation.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            A single audit or batch of assessments addresses your compliance position at a point in time. But organisations change. People join and leave. Working arrangements shift. Regulations are updated. Without a mechanism to keep your documentation current, the compliance baseline you established begins to erode.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            The Workplace Risk Retainer provides continuous access to workplace risk expertise on a monthly basis. We manage your ongoing compliance obligations so that your documentation remains current, your new employees are assessed promptly, and you have expert support available when you need it.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            Most retainer clients begin with an SME Workplace Risk Audit to establish a baseline, then transition to the retainer for ongoing management. This is the most cost-effective and defensible approach for growing SMEs.
+          </p>
+          <a href="/services/sme-risk-audit" class="btn-outline">Start with a Risk Audit</a>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white rounded-sm border border-slate-100 p-6 shadow-sm">
+            <h3 class="font-serif text-lg font-semibold text-brand-dark mb-4">What the Retainer Includes</h3>
+            <ul class="space-y-3">
+              {[
+                "Quarterly compliance review and documentation update",
+                "New hire ergonomic assessments (up to 5 per month, additional at reduced rate)",
+                "Policy update support as regulations change",
+                "Priority email and video consultation access",
+                "Annual risk audit summary report",
+                "Regulatory change monitoring for UK, Ireland, DACH, and Australia",
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-slate-600">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-brand-dark rounded-sm p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-3">Contract Terms</p>
+            <div class="space-y-2 text-xs text-slate-400">
+              <p>Rolling monthly contract with 30 days notice to cancel.</p>
+              <p>No minimum term. No setup fee.</p>
+              <p>Onboarding call included to align on your workforce profile and priorities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-20 bg-brand-cream">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="section-label mb-3">Pricing</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark">Monthly Retainer Pricing</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Essentials</p>
+            <p class="text-xs text-slate-400 mb-3">Up to 30 employees</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">£550</p>
+            <p class="text-xs text-slate-500">per month</p>
+            <p class="text-xs text-slate-400 mt-3">Up to 3 new hire assessments/month</p>
+          </div>
+          <div class="bg-white rounded-sm border border-brand-accent p-6 text-center shadow-sm relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-semibold px-3 py-1 rounded-sm uppercase tracking-wide">Most Popular</div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Growth</p>
+            <p class="text-xs text-slate-400 mb-3">31 to 80 employees</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">£850</p>
+            <p class="text-xs text-slate-500">per month</p>
+            <p class="text-xs text-slate-400 mt-3">Up to 5 new hire assessments/month</p>
+          </div>
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Scale</p>
+            <p class="text-xs text-slate-400 mb-3">81 to 150 employees</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">POA</p>
+            <p class="text-xs text-slate-500">contact us for a quote</p>
+            <p class="text-xs text-slate-400 mt-3">Unlimited new hire assessments</p>
+          </div>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-6">All prices exclude VAT. Rolling monthly contract, 30 days notice to cancel. No setup fee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Keep your compliance current</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Enquire about a Workplace Risk Retainer today.
+      </h2>
+      <a href="/contact" class="btn-primary text-base px-8 py-4">Enquire About a Retainer</a>
+    </div>
+  </section>
+
+</BaseLayout>

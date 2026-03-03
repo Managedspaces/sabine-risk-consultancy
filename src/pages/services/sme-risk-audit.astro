@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "SME Workplace Risk Audit | Ergonomics & Health and Safety Compliance | Sabine";
+const description = "Comprehensive workplace risk audit for SMEs with remote and hybrid workforces. Policy review, risk matrix, and audit-ready action plan. From £1,800. UK, Ireland, DACH, Australia.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  hreflangEn="https://example.com/services/sme-risk-audit"
+  hreflangDe="https://example.com/de/leistungen/arbeitsschutz-audit"
+>
+
+  <!-- Page Header -->
+  <section class="bg-brand-dark py-20 md:py-28">
+    <div class="container-wide">
+      <nav class="text-xs text-slate-500 mb-8">
+        <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/services" class="hover:text-slate-300 transition-colors">Services</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-400">SME Workplace Risk Audit</span>
+      </nav>
+      <p class="section-label text-brand-accentLight mb-4">Comprehensive Compliance</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
+        SME Workplace Risk Audit
+      </h1>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mb-8">
+        A structured, project-based review of your organisation's workplace risk position. We assess your policies, map your remote and hybrid workforce exposure, and deliver a defensible compliance baseline with a clear action plan.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-start">
+        <a href="/contact" class="btn-primary">Request an Audit</a>
+        <div class="text-slate-400 text-sm py-3">
+          <span class="font-semibold text-white">From £1,800</span> &nbsp;|&nbsp; Project-based, fixed scope
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What It Is -->
+  <section class="py-20 bg-brand-bg">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="section-label mb-4">What the Audit Covers</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">
+            A compliance baseline that stands up to scrutiny.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            The SME Workplace Risk Audit is a comprehensive review of your organisation's current health and safety compliance position, with a specific focus on the risks associated with remote and hybrid working. It is designed for SMEs that have grown quickly, changed their working model, or simply never had a formal compliance review.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            The audit reviews your existing documentation, assesses the gap between your current position and the applicable regulatory requirements, and produces a structured risk matrix with a prioritised action plan. The output is suitable for presentation to your board, your insurer, and any regulatory body.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            All work is conducted remotely. We do not require site visits, which keeps costs proportionate and delivery fast.
+          </p>
+        </div>
+        <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6">Audit Deliverables</h3>
+          <ul class="space-y-4">
+            {[
+              ["Policy Review Summary", "Assessment of your existing health and safety policies against applicable regulatory requirements."],
+              ["Workforce Risk Map", "A structured overview of your remote and hybrid workforce risk exposure by role type and location."],
+              ["Risk Matrix", "A prioritised matrix covering likelihood, severity, and recommended controls for each identified risk."],
+              ["Executive Summary", "A concise briefing document suitable for leadership, board, or investor review."],
+              ["Prioritised Action Plan", "A sequenced list of recommended actions with implementation guidance and suggested timelines."],
+              ["Regulatory Alignment Report", "Confirmation of alignment (or gaps) against HSE, HSA, ArbSchG, or Safe Work Australia standards as applicable."],
+            ].map(([title, desc]) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-brand-accent mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-brand-dark">{title}</p>
+                  <p class="text-xs text-slate-500 mt-0.5">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When You Need It -->
+  <section class="py-20 bg-white">
+    <div class="container-wide">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <p class="section-label mb-3">When to Commission an Audit</p>
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark">Signs your organisation needs a formal compliance review</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          "You have moved to a remote or hybrid working model and have not updated your health and safety documentation.",
+          "Your team has grown beyond 20 employees and you have not conducted a structured risk review.",
+          "You are preparing for a regulatory inspection, insurance renewal, or due diligence process.",
+          "You have received a complaint or claim related to a workplace injury or musculoskeletal disorder.",
+          "You operate across multiple jurisdictions and are unsure which regulatory standards apply.",
+          "You have no documented evidence of ergonomic assessments for your remote workforce.",
+        ].map(trigger => (
+          <div class="flex items-start gap-4 p-6 bg-brand-bg rounded-sm border border-slate-100">
+            <svg class="w-5 h-5 text-brand-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+            <p class="text-sm text-slate-600 leading-relaxed">{trigger}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-20 bg-brand-cream">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="section-label mb-3">Pricing</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark">Fixed-Scope, Project-Based Pricing</h2>
+          <p class="text-slate-600 text-sm mt-4 max-w-xl mx-auto">All audits are priced on a fixed-scope basis. You will receive a confirmed quote before any work begins. There are no hourly rates or unexpected additional charges.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Small Team</p>
+            <p class="text-xs text-slate-400 mb-3">Up to 30 employees</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">£1,800</p>
+            <p class="text-xs text-slate-500">fixed project fee</p>
+          </div>
+          <div class="bg-white rounded-sm border border-brand-accent p-6 text-center shadow-sm relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-semibold px-3 py-1 rounded-sm uppercase tracking-wide">Most Common</div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Mid-Size Team</p>
+            <p class="text-xs text-slate-400 mb-3">31 to 100 employees</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">£2,800</p>
+            <p class="text-xs text-slate-500">fixed project fee</p>
+          </div>
+          <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Larger Team</p>
+            <p class="text-xs text-slate-400 mb-3">101 to 150 employees</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">POA</p>
+            <p class="text-xs text-slate-500">contact us for a quote</p>
+          </div>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-6">All prices exclude VAT. Multi-jurisdiction audits may attract an additional fee. Contact us to discuss your specific requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-dark">
+    <div class="container-narrow text-center">
+      <p class="section-label text-brand-accentLight mb-4">Commission a Workplace Risk Audit</p>
+      <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
+        Establish your compliance baseline before it becomes a liability.
+      </h2>
+      <a href="/contact" class="btn-primary text-base px-8 py-4">Request an Audit</a>
+    </div>
+  </section>
+
+</BaseLayout>
