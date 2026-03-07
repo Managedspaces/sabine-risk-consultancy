@@ -1,21 +1,76 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "Remote Ergonomic Assessment for Home & Hybrid Workers | Sabine";
-const description = "Individual remote ergonomic risk assessments aligned with UK DSE Regulations, HSA Ireland, and ArbSchG Germany. Audit-ready reports from £295 per employee.";
+const title = "Remote Ergonomic Assessment for Home Workers | Sabine Salowsky";
+const description = "Personalised remote ergonomic assessments for home and hybrid workers. Practical improvement plans, wellbeing documentation included. From €295. UK, Ireland, Germany, Austria, Switzerland.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const serviceAndFaqSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteURL}/services/remote-ergonomic-assessment#service`,
+    "name": "Remote Ergonomic Assessment",
+    "url": `${siteURL}/services/remote-ergonomic-assessment`,
+    "description": "Personalised remote ergonomic assessment for home and hybrid workers. Practical improvement plan, wellbeing documentation included.",
+    "provider": { "@id": `${siteURL}/#organization` },
+    "areaServed": [
+      { "@type": "Country", "name": "United Kingdom" },
+      { "@type": "Country", "name": "Ireland" },
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "Country", "name": "Austria" },
+      { "@type": "Country", "name": "Switzerland" },
+      { "@type": "Country", "name": "Australia" }
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "295",
+      "priceCurrency": "GBP",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "295", "priceCurrency": "GBP", "unitText": "per employee" }
+    },
+    "serviceType": "Ergonomic Assessment",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Remote Ergonomic Assessment Deliverables",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wellbeing questionnaire" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Photographic workstation review" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personalised improvement plan" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Regulatory compliance documentation" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does the employee actually get out of this?", "acceptedAnswer": { "@type": "Answer", "text": "Each employee receives a personalised written improvement plan in plain language. It explains what is affecting their comfort and performance, what to change, and how to change it. Most employees notice a difference within days of acting on the recommendations." } },
+      { "@type": "Question", "name": "What does the employee need to do?", "acceptedAnswer": { "@type": "Answer", "text": "The employee completes a structured questionnaire covering their workstation setup, equipment, working patterns, lighting, and any existing discomfort. They also provide photographs of their workstation from two or three angles. The entire process typically takes around 15 minutes." } },
+      { "@type": "Question", "name": "How long does it take to receive the report?", "acceptedAnswer": { "@type": "Answer", "text": "Reports are typically delivered within five working days of receiving the completed questionnaire and photographs. Expedited turnaround is available on request." } },
+      { "@type": "Question", "name": "Does this also satisfy our regulatory obligations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The assessment and report are structured to meet the requirements of the Health and Safety (Display Screen Equipment) Regulations 1992 in the UK, the equivalent Irish regulations, and the Bildschirmarbeitsverordnung and ArbSchG in Germany. Regulatory compliance is a natural output of a well-designed assessment." } },
+      { "@type": "Question", "name": "Can the assessment cover employees in multiple countries?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Assessments can be aligned with UK, Irish, German, Austrian, Swiss, or Australian regulatory standards. For organisations with employees across multiple jurisdictions, we produce reports that reference the applicable standard for each employee's location." } },
+      { "@type": "Question", "name": "Do you offer volume pricing for larger teams?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Volume pricing is available for organisations assessing five or more employees. Please contact us to discuss a package appropriate for your team size." } }
+    ]
+  }
+];
 
 const faqs = [
   {
-    q: "Is a remote ergonomic assessment legally sufficient under UK DSE Regulations?",
-    a: "Yes. The Health and Safety (Display Screen Equipment) Regulations 1992 require employers to assess the risks posed by display screen equipment workstations, but they do not prescribe that assessments must be conducted in person. A structured remote assessment that reviews the workstation through a questionnaire and photographic evidence, and produces a written risk report, meets the regulatory requirement for documented assessment."
+    q: "What does the employee actually get out of this?",
+    a: "Each employee receives a personalised written improvement plan in plain language — not a generic checklist. It explains what is affecting their comfort and performance, what to change, and how to change it. Most employees find the process genuinely useful and notice a difference within days of acting on the recommendations."
   },
   {
-    q: "What does the employee need to provide?",
-    a: "The employee completes a structured questionnaire covering their workstation setup, equipment, working patterns, and any existing discomfort. They also provide photographs of their workstation from two or three angles. The entire process typically takes the employee around 15 minutes."
+    q: "What does the employee need to do?",
+    a: "The employee completes a structured questionnaire covering their workstation setup, equipment, working patterns, lighting, and any existing discomfort. They also provide photographs of their workstation from two or three angles. The entire process typically takes around 15 minutes."
   },
   {
     q: "How long does it take to receive the report?",
     a: "Reports are typically delivered within five working days of receiving the completed questionnaire and photographs. Expedited turnaround is available on request."
+  },
+  {
+    q: "Does this also satisfy our regulatory obligations?",
+    a: "Yes. The assessment and report are structured to meet the requirements of the Health and Safety (Display Screen Equipment) Regulations 1992 in the UK, the equivalent Irish regulations, and the Bildschirmarbeitsverordnung and ArbSchG in Germany. For organisations with employees across multiple jurisdictions, each report references the applicable standard for that employee's location. Regulatory compliance is a natural output of a well-designed assessment — not a separate exercise."
   },
   {
     q: "Can the assessment cover employees in multiple countries?",
@@ -32,32 +87,20 @@ const faqs = [
   title={title}
   description={description}
   lang="en"
-  hreflangEn="https://example.com/services/remote-ergonomic-assessment"
-  hreflangDe="https://example.com/de/leistungen/ergonomische-gefaehrdungsbeurteilung"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/services/remote-ergonomic-assessment"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/services/remote-ergonomic-assessment"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/leistungen/ergonomische-gefaehrdungsbeurteilung"
+  breadcrumbs={[{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Remote Ergonomic Assessment',url:'/services/remote-ergonomic-assessment'}]}
+  pageSchema={serviceAndFaqSchema}
 >
 
-  <!-- JSON-LD Service Schema -->
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Remote Ergonomic Assessment",
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "Sabine — Workplace Risk & Ergonomics Consultancy"
-    },
-    "description": "Individual remote ergonomic risk assessment for home and hybrid workers. Aligned with UK DSE Regulations, HSA Ireland, and ArbSchG Germany.",
-    "areaServed": ["GB", "IE", "DE", "AT", "CH", "AU"],
-    "offers": {
-      "@type": "Offer",
-      "price": "295",
-      "priceCurrency": "GBP",
-      "description": "From £295 per employee"
-    }
-  })} />
-
   <!-- Page Header -->
-  <section class="bg-brand-dark py-20 md:py-28">
-    <div class="container-wide">
+  <section class="relative bg-brand-dark py-20 md:py-28 overflow-hidden" style="min-height:380px">
+    <div class="absolute inset-0">
+      <img src="/images/hero-assessment.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
+      <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.90) 0%, rgba(10,36,99,0.75) 60%, rgba(10,36,99,0.50) 100%);"></div>
+    </div>
+    <div class="container-wide relative">
       <nav class="text-xs text-slate-500 mb-8">
         <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
         <span class="mx-2">/</span>
@@ -65,17 +108,17 @@ const faqs = [
         <span class="mx-2">/</span>
         <span class="text-slate-400">Remote Ergonomic Assessment</span>
       </nav>
-      <p class="section-label text-brand-accentLight mb-4">Individual Compliance</p>
+      <p class="section-label text-brand-accentLight mb-4">Individual Wellbeing</p>
       <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
         Remote Ergonomic Assessment
       </h1>
       <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mb-8">
-        A structured, individually tailored assessment for employees working from home or in a hybrid arrangement. Produces audit-ready documentation aligned with the regulatory standards that apply to your workforce.
+        A personalised assessment for each remote or hybrid employee — looking at the whole picture of how they work, what is holding them back physically, and what practical changes will help them feel better and perform better.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
         <a href="/contact" class="btn-primary">Request an Assessment</a>
         <div class="text-slate-400 text-sm py-3">
-          <span class="font-semibold text-white">From £295</span> per employee &nbsp;|&nbsp; Reports delivered within 5 working days
+          <span class="font-semibold text-white">From €295</span> per employee &nbsp;|&nbsp; Reports delivered within 5 working days
         </div>
       </div>
     </div>
@@ -86,27 +129,27 @@ const faqs = [
     <div class="container-wide">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div>
-          <p class="section-label mb-4">Who This Service Is For</p>
+          <p class="section-label mb-4">Why It Matters</p>
           <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">
-            Your duty of care does not end at the office door.
+            Most remote workspaces were never designed. They were improvised.
           </h2>
           <p class="text-slate-600 leading-relaxed mb-5">
-            Under the Health and Safety (Display Screen Equipment) Regulations 1992, UK employers are required to assess the risks to employees who habitually use display screen equipment as a significant part of their normal work. This obligation applies equally to employees working from home.
+            When people moved to home working, they set up at kitchen tables, in spare bedrooms, or in corners of living rooms. They used whatever chair was available, whatever screen was to hand. Very few had any guidance on how to create a working environment that would support them physically and mentally over the long term.
           </p>
           <p class="text-slate-600 leading-relaxed mb-5">
-            The same principle holds in Ireland under the Safety, Health and Welfare at Work (General Application) Regulations, and in Germany under the Bildschirmarbeitsverordnung and the broader Arbeitsschutzgesetz framework. In Australia, Safe Work Australia's model WHS legislation imposes equivalent duties.
+            The cumulative effect of those improvised environments is now showing up in productivity data, absenteeism figures, and employee satisfaction scores. Research from the University of Oxford found that happy, physically comfortable employees are 13% more productive. The inverse is equally true — and equally measurable.
           </p>
           <p class="text-slate-600 leading-relaxed mb-8">
-            Most SMEs have not conducted documented assessments for their remote employees. This creates a measurable legal and insurance exposure that our Remote Ergonomic Assessment directly addresses.
+            A Remote Ergonomic Assessment gives each person a clear, personalised picture of what is affecting their comfort and performance, and exactly what to do about it. The improvement is typically noticeable within days.
           </p>
           <div class="grid grid-cols-2 gap-4">
             <div class="bg-white p-5 rounded-sm border border-slate-100">
-              <p class="font-serif text-2xl font-semibold text-brand-accent mb-1">73%</p>
-              <p class="text-xs text-slate-600">of UK remote workers report musculoskeletal discomfort related to their home workstation</p>
+              <p class="font-serif text-2xl font-semibold text-brand-accent mb-1">13%</p>
+              <p class="text-xs text-slate-600">productivity increase when employees are happy and physically comfortable at work (University of Oxford, 2019)</p>
             </div>
             <div class="bg-white p-5 rounded-sm border border-slate-100">
-              <p class="font-serif text-2xl font-semibold text-brand-accent mb-1">£1,200</p>
-              <p class="text-xs text-slate-600">Average cost of a single musculoskeletal absence claim to an employer, before legal costs</p>
+              <p class="font-serif text-2xl font-semibold text-brand-accent mb-1">60%</p>
+              <p class="text-xs text-slate-600">of workers report at least one musculoskeletal complaint in any 12-month period — most continue working, but below their potential (EU-OSHA, 2025)</p>
             </div>
           </div>
         </div>
@@ -115,11 +158,11 @@ const faqs = [
             <h3 class="font-serif text-xl font-semibold text-brand-dark mb-5">What the Assessment Includes</h3>
             <ul class="space-y-4">
               {[
-                ["Pre-assessment questionnaire", "A structured questionnaire covering workstation setup, equipment, working patterns, lighting, and any existing discomfort or symptoms."],
-                ["Photographic workstation review", "The employee submits photographs of their workstation. We review posture risk, equipment positioning, and environmental factors."],
-                ["Written risk report", "A clear, individually tailored report identifying risks, their severity, and prioritised recommendations for improvement."],
-                ["Audit-ready documentation", "The report is formatted for inclusion in your compliance records and is suitable for HR, insurance, and regulatory purposes."],
-                ["Employee summary", "A plain-language summary for the employee explaining the findings and recommended actions."],
+                ["Wellbeing questionnaire", "A structured questionnaire covering workstation setup, equipment, working patterns, lighting, screen environment, and any existing discomfort or symptoms."],
+                ["Photographic workstation review", "The employee submits photographs of their workstation. We review posture, equipment positioning, lighting quality, and environmental factors."],
+                ["Personalised improvement plan", "A clear, individually tailored written plan identifying what is affecting comfort and performance, and prioritised practical recommendations."],
+                ["Employee summary", "A plain-language summary for the employee explaining the findings and recommended actions — written to be acted on, not filed away."],
+                ["Supporting documentation", "The report is structured to satisfy regulatory requirements in the employee's jurisdiction, included as a natural output of the assessment."],
               ].map(([title, desc]) => (
                 <li class="flex items-start gap-3">
                   <svg class="w-4 h-4 text-brand-accent mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -132,11 +175,12 @@ const faqs = [
             </ul>
           </div>
           <div class="bg-brand-dark rounded-sm p-6">
-            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-3">Regulatory Alignment</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-3">Regulatory Standards Covered</p>
+            <p class="text-slate-400 text-xs mb-3">Compliance documentation is included as a natural output of every assessment.</p>
             <div class="space-y-2 text-xs text-slate-400">
               <p><span class="text-white font-medium">UK:</span> Health and Safety (DSE) Regulations 1992</p>
               <p><span class="text-white font-medium">Ireland:</span> Safety, Health and Welfare at Work (General Application) Regulations</p>
-              <p><span class="text-white font-medium">Germany:</span> Bildschirmarbeitsverordnung · ArbSchG · ArbStattV</p>
+              <p><span class="text-white font-medium">Germany / DACH:</span> Bildschirmarbeitsverordnung · ArbSchG · ArbStattV</p>
               <p><span class="text-white font-medium">Australia:</span> Safe Work Australia Model WHS Regulations</p>
             </div>
           </div>
@@ -150,14 +194,14 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <p class="section-label mb-3">The Process</p>
-        <h2 class="font-serif text-3xl font-semibold text-brand-dark">How It Works</h2>
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark">Simple, remote, and fast</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         {[
-          ["1", "Enquiry", "You contact us with your team size and jurisdiction. We confirm the appropriate regulatory framework and provide a quote."],
-          ["2", "Questionnaire", "Each employee completes a structured questionnaire and submits photographs of their workstation. This takes approximately 15 minutes."],
-          ["3", "Assessment", "We review the submissions, assess risk factors, and prepare individually tailored written reports for each employee."],
-          ["4", "Delivery", "Reports are delivered within five working days. You receive both the employer compliance documentation and the individual employee summaries."],
+          ["1", "Enquiry", "You contact us with your team size and locations. We confirm the scope and provide a clear quote. No obligation."],
+          ["2", "Questionnaire", "Each employee completes a structured wellbeing questionnaire and submits photographs of their workstation. This takes around 15 minutes."],
+          ["3", "Assessment", "We review each submission individually, assess the physical and environmental factors, and prepare a personalised improvement plan."],
+          ["4", "Delivery", "Reports are delivered within five working days — one for each employee to act on, and supporting documentation for your records."],
         ].map(([num, title, desc]) => (
           <div class="text-center">
             <div class="w-10 h-10 bg-brand-accent text-white font-serif font-semibold text-lg rounded-sm flex items-center justify-center mx-auto mb-4">{num}</div>
@@ -180,13 +224,13 @@ const faqs = [
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Single Employee</p>
-            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">£295</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">€295</p>
             <p class="text-xs text-slate-500">per employee</p>
           </div>
           <div class="bg-white rounded-sm border border-brand-accent p-6 text-center shadow-sm relative">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-semibold px-3 py-1 rounded-sm uppercase tracking-wide">Best Value</div>
             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">5 to 20 Employees</p>
-            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">£245</p>
+            <p class="font-serif text-3xl font-semibold text-brand-dark mb-1">€245</p>
             <p class="text-xs text-slate-500">per employee</p>
           </div>
           <div class="bg-white rounded-sm border border-slate-100 p-6 text-center shadow-sm">
@@ -220,12 +264,28 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Direct with Sabine -->
+  <section class="py-16 bg-brand-cream">
+    <div class="container-narrow">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0">
+          <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-28 h-28 rounded-sm object-cover object-top shadow-md" loading="lazy" width="400" height="400" />
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">A note on how we work</p>
+          <p class="font-serif text-xl font-semibold text-brand-dark mb-3">You will work directly with Sabine. Not a junior consultant. Not an account manager.</p>
+          <p class="text-slate-600 leading-relaxed">Every assessment is conducted personally by Sabine Salowsky, B.Sc. Ergotherapie, Dipl.-Biol. Your employee speaks with her directly. The report is written by her. The follow-up questions come back to her. This is not a volume service. It is a specialist one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="py-20 bg-brand-dark">
     <div class="container-narrow text-center">
-      <p class="section-label text-brand-accentLight mb-4">Ready to protect your remote workforce?</p>
+      <p class="section-label text-brand-accentLight mb-4">Ready to help your team work better?</p>
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
-        Request a Remote Ergonomic Assessment today.
+        Book a Remote Ergonomic Assessment for your team today.
       </h2>
       <a href="/contact" class="btn-primary text-base px-8 py-4">Request an Assessment</a>
     </div>

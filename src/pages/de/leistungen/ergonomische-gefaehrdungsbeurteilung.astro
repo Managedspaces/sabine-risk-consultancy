@@ -1,16 +1,51 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const title = "Ergonomische Gefährdungsbeurteilung für Homeoffice | Sabine";
-const description = "Individuelle ergonomische Gefährdungsbeurteilung für Remote- und Hybrid-Mitarbeiter. Konform mit ArbSchG, ArbStättV und Bildschirmarbeitsverordnung. Ab 345 EUR pro Mitarbeiter.";
+const title = "Persönliche Ergonomie-Analyse für Homeoffice | Sabine Salowsky";
+const description = "Individuelle Ergonomie-Analyse für Remote- und Hybrid-Mitarbeiter. Persönlicher Verbesserungsplan, Dokumentation inklusive. Ab 345 €. Deutschland, Österreich, Schweiz.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const deAssessmentSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteURL}/de/leistungen/ergonomische-gefaehrdungsbeurteilung#service`,
+    "name": "Persönliche Ergonomie-Analyse",
+    "url": `${siteURL}/de/leistungen/ergonomische-gefaehrdungsbeurteilung`,
+    "description": "Individuelle Ergonomie-Analyse für Remote- und Hybrid-Mitarbeiter. Persönlicher Verbesserungsplan und gesetzeskonforme Dokumentation inklusive.",
+    "provider": { "@id": `${siteURL}/#organization` },
+    "areaServed": [
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "Country", "name": "Austria" },
+      { "@type": "Country", "name": "Switzerland" }
+    ],
+    "offers": { "@type": "Offer", "price": "345", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "345", "priceCurrency": "EUR", "unitText": "pro Mitarbeiter" } },
+    "serviceType": "Ergonomie-Analyse",
+    "inLanguage": "de-DE"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "de-DE",
+    "mainEntity": [
+      { "@type": "Question", "name": "Was bekommt der Mitarbeiter aus der Analyse?", "acceptedAnswer": { "@type": "Answer", "text": "Jeder Mitarbeiter erhält einen persönlichen schriftlichen Verbesserungsplan in verständlicher Sprache. Er erklärt, was Komfort und Leistung beeinträchtigt, was geändert werden sollte und wie. Die meisten Mitarbeiter bemerken innerhalb weniger Tage eine Verbesserung." } },
+      { "@type": "Question", "name": "Erfüllt die Analyse auch die gesetzlichen Anforderungen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Analyse und der Bericht sind so strukturiert, dass sie die Anforderungen des ArbSchG, der ArbStättV und der Bildschirmarbeitsverordnung erfüllen. Die gesetzeskonforme Dokumentation ist ein natürliches Ergebnis einer gut gestalteten Analyse." } },
+      { "@type": "Question", "name": "Wie lange dauert es, den Bericht zu erhalten?", "acceptedAnswer": { "@type": "Answer", "text": "Berichte werden in der Regel innerhalb von fünf Werktagen nach Eingang des ausgefüllten Fragebogens und der Fotos geliefert." } }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="de"
-  hreflangEn="https://example.com/services/remote-ergonomic-assessment"
-  hreflangDe="https://example.com/de/leistungen/ergonomische-gefaehrdungsbeurteilung"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/de/leistungen/ergonomische-gefaehrdungsbeurteilung"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/services/remote-ergonomic-assessment"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/leistungen/ergonomische-gefaehrdungsbeurteilung"
+  breadcrumbs={[{name:'Startseite',url:'/de'},{name:'Leistungen',url:'/de/leistungen'},{name:'Persönliche Ergonomie-Analyse',url:'/de/leistungen/ergonomische-gefaehrdungsbeurteilung'}]}
+  pageSchema={deAssessmentSchema}
 >
 
   <section class="bg-brand-dark py-20 md:py-28">
@@ -121,11 +156,27 @@ const description = "Individuelle ergonomische Gefährdungsbeurteilung für Remo
     </div>
   </section>
 
+  <!-- Direkt mit Sabine -->
+  <section class="py-16 bg-brand-cream">
+    <div class="container-narrow">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0">
+          <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-28 h-28 rounded-sm object-cover object-top shadow-md" loading="lazy" width="400" height="400" />
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">So arbeiten wir</p>
+          <p class="font-serif text-xl font-semibold text-brand-dark mb-3">Sie arbeiten direkt mit Sabine. Kein Junior-Berater. Kein Account-Manager.</p>
+          <p class="text-slate-600 leading-relaxed">Jede Analyse wird persönlich von Sabine Salowsky, B.Sc. Ergotherapie, Dipl.-Biol., durchgeführt. Ihr Mitarbeiter spricht direkt mit ihr. Der Bericht wird von ihr verfasst. Rückfragen gehen direkt an sie. Dies ist kein Massenservice — es ist eine Fachberatung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 bg-brand-dark">
     <div class="container-narrow text-center">
-      <p class="section-label text-brand-accentLight mb-4">Jetzt Ihre Remote-Belegschaft absichern</p>
+      <p class="section-label text-brand-accentLight mb-4">Jetzt Ihr Team unterstützen</p>
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
-        Gefährdungsbeurteilung für Homeoffice-Mitarbeiter anfragen.
+        Persönliche Ergonomie-Analyse für Ihr Team anfragen.
       </h2>
       <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beurteilung anfragen</a>
     </div>

@@ -1,24 +1,72 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "About Sabine | Bilingual Workplace Risk & Ergonomics Specialist";
-const description = "Sabine is a bilingual workplace risk and ergonomics consultant specialising in UK, Irish, and German compliance frameworks for remote-first SMEs.";
+const title = "About Sabine Salowsky | Workplace Wellbeing Consultant";
+const description = "Sabine Salowsky holds a B.Sc. in Occupational Therapy and a Diplom in Physiological Psychology. Bilingual workplace wellbeing consultant serving DACH, UK and Ireland.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteURL}/#sabine`,
+  "name": "Sabine Salowsky",
+  "jobTitle": "Workplace Wellbeing Consultant",
+  "url": `${siteURL}/about`,
+  "image": `${siteURL}/sabine-salowsky.webp`,
+  "knowsLanguage": ["de", "en"],
+  "knowsAbout": [
+    "Ergonomics",
+    "Workplace Wellbeing",
+    "Occupational Therapy",
+    "Remote Work Assessment",
+    "Gefährdungsbeurteilung",
+    "Biophilic Design",
+    "Physiological Psychology"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": "B.Sc. Ergotherapie (Occupational Therapy)",
+      "recognizedBy": { "@type": "Organization", "name": "Fachhochschule Wiener Neustadt" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": "Diplom-Biologin, Physiological Psychology",
+      "recognizedBy": { "@type": "Organization", "name": "Eberhard-Karls-Universität Tübingen" }
+    }
+  ],
+  "worksFor": { "@id": `${siteURL}/#organization` },
+  "alumniOf": [
+    { "@type": "EducationalOrganization", "name": "Fachhochschule Wiener Neustadt" },
+    { "@type": "EducationalOrganization", "name": "Eberhard-Karls-Universität Tübingen" }
+  ]
+};
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="en"
-  hreflangEn="https://example.com/about"
-  hreflangDe="https://example.com/de/ueber-uns"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/about"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/about"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/ueber-uns"
+  breadcrumbs={[{name:'Home',url:'/'},{name:'About',url:'/about'}]}
+  pageSchema={personSchema}
 >
 
   <!-- Page Header -->
-  <section class="bg-brand-dark py-20 md:py-28">
-    <div class="container-wide">
+  <section class="relative bg-brand-dark py-20 md:py-28 overflow-hidden" style="min-height:380px">
+    <div class="absolute inset-0">
+      <img src="/images/hero-about.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
+      <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.90) 0%, rgba(10,36,99,0.75) 60%, rgba(10,36,99,0.55) 100%);"></div>
+    </div>
+    <div class="container-wide relative">
       <p class="section-label text-brand-accentLight mb-4">About the Consultancy</p>
       <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
-        About Sabine
+        About Sabine Salowsky
       </h1>
       <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
         Workplace risk and ergonomics specialist. Bilingual. Remote-first. Built for SMEs that need the rigour of enterprise occupational health without the complexity or cost.
@@ -31,16 +79,13 @@ const description = "Sabine is a bilingual workplace risk and ergonomics consult
     <div class="container-wide">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div>
-          <!-- Photo placeholder -->
-          <div class="bg-brand-dark rounded-sm aspect-[4/5] flex items-center justify-center relative overflow-hidden mb-6">
-            <div class="text-center p-8">
-              <svg class="w-16 h-16 mx-auto mb-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-              <p class="text-slate-500 text-sm">Founder photo</p>
-            </div>
+          <!-- Founder Photo -->
+          <div class="bg-brand-dark rounded-sm aspect-[4/5] relative overflow-hidden mb-6">
+            <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-full h-full object-cover" loading="lazy" width="400" height="400" />
             <div class="absolute bottom-6 left-6 right-6">
-              <div class="bg-white/10 backdrop-blur-sm rounded-sm p-4">
-                <p class="font-serif text-white text-lg font-semibold">Sabine</p>
-                <p class="text-slate-300 text-xs mt-1">Workplace Risk &amp; Ergonomics Specialist</p>
+              <div class="bg-brand-dark/80 backdrop-blur-sm rounded-sm p-4 border border-white/10">
+                <p class="font-serif text-white text-lg font-semibold">Sabine Salowsky</p>
+                <p class="text-brand-accentLight text-xs mt-1">B.Sc. Ergotherapie, Dipl.-Biol.</p>
               </div>
             </div>
           </div>
@@ -49,10 +94,11 @@ const description = "Sabine is a bilingual workplace risk and ergonomics consult
             <h3 class="font-serif text-base font-semibold text-brand-dark mb-4">Credentials &amp; Expertise</h3>
             <ul class="space-y-3">
               {[
-                "Chartered Institute of Ergonomics and Human Factors (CIEHF) aligned expertise",
-                "Specialist knowledge of UK HSE, Irish HSA, and German DGUV frameworks",
-                "Bilingual: native-level English and German",
-                "Extensive experience with remote and hybrid workforce risk management",
+                "B.Sc. Occupational Therapy (Ergotherapie)",
+                "Diplom-Biologin (Physiological Psychology)",
+                "Corporate Occupational Health experience (D. Swarovski KG)",
+                "Research background (Max-Planck-Institut, Tübingen)",
+                "Bilingual: native-level German and English",
                 "Cross-jurisdictional compliance: UK, Ireland, DACH, Australia",
               ].map(item => (
                 <li class="flex items-start gap-3 text-sm text-slate-600">
@@ -69,16 +115,16 @@ const description = "Sabine is a bilingual workplace risk and ergonomics consult
             Proportionate expertise. Defensible outputs. No generic checklists.
           </h2>
           <p class="text-slate-600 leading-relaxed mb-5">
-            This consultancy was founded on a straightforward observation: most SMEs with remote or hybrid workforces are operating with a significant compliance gap, and the solutions available to them are either too expensive, too generic, or designed for a different regulatory context entirely.
+            Effective ergonomics consultancy requires more than just a checklist. It requires a deep, scientific understanding of human physiology, cognition, and functional capacity.
           </p>
           <p class="text-slate-600 leading-relaxed mb-5">
-            Large occupational health providers offer rigour, but at enterprise scale and enterprise cost. Generic online assessment tools offer affordability, but produce documentation that would not withstand regulatory scrutiny or a legal challenge. SMEs are left choosing between inadequate compliance and disproportionate cost.
+            My background is rooted in this scientific rigour. I hold a <strong>B.Sc. in Occupational Therapy</strong> and a <strong>Diplom-Biologin</strong> with a specialism in Physiological Psychology. This dual qualification provides the foundation for my approach: assessing the physical and cognitive demands of the workplace through a clinical lens.
           </p>
           <p class="text-slate-600 leading-relaxed mb-5">
-            This consultancy occupies the space between those two options. Every assessment and audit is conducted by an experienced specialist, produces documentation that is genuinely defensible, and is priced proportionately for organisations of 20 to 150 employees.
+            Before establishing this consultancy, my career spanned corporate occupational health — including direct experience within the Occupational Health division of D. Swarovski KG in Austria — as well as research roles at the Max-Planck-Institut für Biologische Kybernetik and the Chair of Cognitive Neuroscience at the University of Tübingen. I have also worked extensively across clinical settings in Germany and Austria.
           </p>
           <p class="text-slate-600 leading-relaxed mb-8">
-            The bilingual capability — native-level English and German — means that organisations with employees in both the UK and the DACH region can work with a single specialist who understands both regulatory frameworks and can produce documentation appropriate for each jurisdiction.
+            Today, I apply this clinical and scientific expertise to help SMEs manage their workplace risk. My bilingual capability (native German, fluent English) and multi-jurisdictional experience mean that organisations with employees across the UK, Ireland, and the DACH region can work with a single specialist who understands the physical realities of the work and the regulatory frameworks that govern it.
           </p>
 
           <div class="grid grid-cols-2 gap-4 mb-8">

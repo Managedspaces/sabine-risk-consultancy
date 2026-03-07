@@ -1,16 +1,42 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const title = "Arbeitsschutz-Retainer | Laufende Compliance-Betreuung für KMU | Sabine";
-const description = "Monatlicher Arbeitsschutz-Retainer für wachsende KMU. Quartalsweise Überprüfungen, Gefährdungsbeurteilungen für neue Mitarbeiter, Richtlinienaktualisierungen. Ab 650 EUR pro Monat.";
+const title = "Laufende Wohlbefindens-Partnerschaft | Monatliche Beratung | Sabine Salowsky";
+const description = "Kontinuierliche Wohlbefindens-Unterstützung für wachsende Remote- und Hybrid-Teams in DACH. Monatliche Beratung, Analysen für neue Mitarbeiter, Dokumentationspflege. Ab 650 €/Monat.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const deRetainerSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteURL}/de/leistungen/arbeitsschutz-retainer#service`,
+  "name": "Laufende Wohlbefindens-Partnerschaft",
+  "url": `${siteURL}/de/leistungen/arbeitsschutz-retainer`,
+  "description": "Kontinuierliche Wohlbefindens-Beratung für Remote- und Hybrid-KMU. Monatliche Unterstützung, Analysen für neue Mitarbeiter, Dokumentationspflege und gesetzliche Aktualität.",
+  "provider": { "@id": `${siteURL}/#organization` },
+  "areaServed": [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" }
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "Essentials (bis 30 Mitarbeiter)", "price": "650", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "unitText": "pro Monat" } },
+    { "@type": "Offer", "name": "Wachstum (31-80 Mitarbeiter)", "price": "1000", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "unitText": "pro Monat" } }
+  ],
+  "serviceType": "Wohlbefindens-Beratungs-Retainer",
+  "inLanguage": "de-DE"
+};
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="de"
-  hreflangEn="https://example.com/services/workplace-risk-retainer"
-  hreflangDe="https://example.com/de/leistungen/arbeitsschutz-retainer"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/de/leistungen/arbeitsschutz-retainer"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/services/workplace-risk-retainer"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/leistungen/arbeitsschutz-retainer"
+  breadcrumbs={[{name:'Startseite',url:'/de'},{name:'Leistungen',url:'/de/leistungen'},{name:'Laufende Wohlbefindens-Partnerschaft',url:'/de/leistungen/arbeitsschutz-retainer'}]}
+  pageSchema={deRetainerSchema}
 >
 
   <section class="bg-brand-dark py-20 md:py-28">
@@ -125,13 +151,29 @@ const description = "Monatlicher Arbeitsschutz-Retainer für wachsende KMU. Quar
     </div>
   </section>
 
+  <!-- Direkt mit Sabine -->
+  <section class="py-16 bg-brand-cream">
+    <div class="container-narrow">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0">
+          <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-28 h-28 rounded-sm object-cover object-top shadow-md" loading="lazy" width="400" height="400" />
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">So arbeiten wir</p>
+          <p class="font-serif text-xl font-semibold text-brand-dark mb-3">Eine Partnerschaft mit Sabine ist eine Beziehung, kein Vertrag.</p>
+          <p class="text-slate-600 leading-relaxed">Retainer-Kunden arbeiten direkt mit Sabine Salowsky, B.Sc. Ergotherapie, Dipl.-Biol. — nicht mit einem wechselnden Beraterteam. Sie kennt Ihre Organisation, Ihr Team und Ihre Arbeitsweise. Wenn sich etwas ändert, ist sie die Person, die Sie anrufen. Diese Kontinuität des Fachwissens macht eine laufende Partnerschaft wirklich wertvoll — und nicht nur eine wiederkehrende Rechnung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 bg-brand-dark">
     <div class="container-narrow text-center">
-      <p class="section-label text-brand-accentLight mb-4">Ihre Compliance dauerhaft aktuell halten</p>
+      <p class="section-label text-brand-accentLight mb-4">Bereit, Wohlbefinden zur dauerhaften Priorität zu machen?</p>
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
-        Arbeitsschutz-Retainer anfragen.
+        Laufende Wohlbefindens-Partnerschaft anfragen.
       </h2>
-      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Retainer anfragen</a>
+      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Partnerschaft anfragen</a>
     </div>
   </section>
 

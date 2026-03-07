@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TOOLS_APP_URL } from '../../config/site';
+
+const title = "Psychosocial Risk Assessment Tool | Sabine Salowsky";
+const description = "Measure workplace stress, workload, role clarity, and work-life balance. Generates reports aligned with ISO 45003 and national legislation.";
+
+const canonicalUrl = "https://sabine-risk-consultancy.netlify.app/tools/psychosocial-risk-assessment";
+const hreflangPairs = [
+  { lang: "en", url: "https://sabine-risk-consultancy.netlify.app/tools/psychosocial-risk-assessment" }
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Tools", url: "/tools" },
+  { name: "Psychosocial Risk Assessment", url: "/tools/psychosocial-risk-assessment" }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Psychosocial Risk Assessment Tool",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "WebBrowser",
+  "description": "Measure stress, workload, role clarity, and work-life balance. Generates reports aligned with ISO 45003 standards.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+};
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  canonicalUrl={canonicalUrl}
+  hreflangPairs={hreflangPairs}
+  breadcrumbs={breadcrumbs}
+  schema={schema}
+>
+
+  <section class="pt-32 pb-20 bg-brand-dark text-white">
+    <div class="container-narrow">
+      <a href="/tools" class="inline-block text-brand-accentLight hover:text-white transition-colors mb-8">&larr; Back to all tools</a>
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <div class="flex-1">
+          <p class="section-label text-brand-accentLight mb-4">Self-Assessment Tool</p>
+          <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight mb-6">
+            Psychosocial Risk Assessment
+          </h1>
+          <p class="text-xl text-slate-300 leading-relaxed mb-8">
+            Measure stress, workload, role clarity, and work-life balance. A 20-question tool that generates a confidential employee report and a compliance-ready employer report aligned with ISO 45003.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary text-base px-8 py-4">Launch Assessment Tool</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 bg-white/5 border border-white/10 rounded-sm p-8">
+          <h3 class="font-serif text-xl font-semibold mb-4">Tool Specifications</h3>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Questions</span> <span class="font-semibold text-white">20</span>
+            </li>
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Categories</span> <span class="font-semibold text-white">5</span>
+            </li>
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Standard</span> <span class="font-semibold text-white">ISO 45003</span>
+            </li>
+            <li class="flex justify-between pb-2">
+              <span>Time required</span> <span class="font-semibold text-white">5 mins</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="container-narrow">
+      <div class="max-w-3xl">
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-6">The hidden drivers of burnout</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-10">
+          Psychosocial hazards are aspects of the design and management of work that increase the risk of work-related stress. Under modern health and safety legislation, managing these risks is a legal requirement, not an HR perk.
+        </p>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">1. Workload & Deadlines</h3>
+            <p class="text-slate-600">Measures the sustainability of task volume, time pressure, and cognitive demands.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">2. Role Clarity & Support</h3>
+            <p class="text-slate-600">Evaluates whether expectations are clear, and whether the employee has the necessary resources and managerial support.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">3. Work Environment & Culture</h3>
+            <p class="text-slate-600">Assesses psychological safety, team dynamics, and the presence of any interpersonal friction or isolation.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">4. Work-Life Balance</h3>
+            <p class="text-slate-600">Checks the ability to disconnect, boundary management in remote work, and recovery time.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">5. Employee Wellbeing</h3>
+            <p class="text-slate-600">A baseline measure of current energy levels, sleep quality, and general occupational health.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-cream">
+    <div class="container-narrow">
+      <div class="bg-white p-10 md:p-16 rounded-sm shadow-sm border border-slate-200 text-center">
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-4">How to act on the data?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+          Identifying psychosocial risk is only the first step. If your team is showing signs of burnout, you need a structured intervention plan that addresses the root causes.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">Try the Tool</a>
+          <a href="/contact" class="px-6 py-3 border-2 border-brand-dark text-brand-dark font-semibold rounded-sm hover:bg-brand-dark hover:text-white transition-colors">Speak with Sabine</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -6,26 +6,46 @@
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     scroll-behavior: smooth;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     font-family: 'Playfair Display', Georgia, serif;
+    color: #0A2463;
   }
 
   body {
-    @apply bg-brand-bg text-brand-dark antialiased;
+    @apply bg-brand-bg text-brand-textMain antialiased;
+    line-height: 1.6;
+  }
+
+  a {
+    @apply text-brand-blue transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-brand-accent;
   }
 }
 
 @layer components {
+  /* Primary CTA — Burnt Orange */
   .btn-primary {
-    @apply inline-block bg-brand-accent text-white font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-brand-accentLight;
+    @apply inline-block bg-brand-accent text-white font-semibold px-6 py-3 tracking-wide text-sm uppercase transition-all duration-200 hover:bg-brand-accentHover;
+    border-radius: 6px;
   }
 
+  /* Secondary / Outline — Navy border */
   .btn-outline {
-    @apply inline-block border border-brand-dark text-brand-dark font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-brand-dark hover:text-white;
+    @apply inline-block border-2 border-brand-dark text-brand-dark font-semibold px-6 py-3 tracking-wide text-sm uppercase transition-all duration-200 hover:bg-brand-dark hover:text-white;
+    border-radius: 6px;
+  }
+
+  /* Ghost — for use on dark backgrounds */
+  .btn-ghost {
+    @apply inline-block border border-white/50 text-white font-semibold px-6 py-3 tracking-wide text-sm uppercase transition-all duration-200 hover:bg-white hover:text-brand-dark;
+    border-radius: 6px;
   }
 
   .section-label {
@@ -38,5 +58,15 @@
 
   .container-wide {
     @apply max-w-6xl mx-auto px-6;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white border border-brand-border rounded-sm p-8 transition-all duration-200;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
   }
 }

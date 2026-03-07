@@ -1,55 +1,86 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "Workplace Risk & Ergonomics Services for SMEs | Sabine";
-const description = "Remote ergonomic assessments, SME workplace risk audits, and ongoing compliance retainers. Proportionate, defensible, and audit-ready. Serving UK, Ireland, DACH, and Australia.";
+const title = "Workplace Wellbeing Services for SMEs | Sabine Salowsky";
+const description = "Ergonomic assessments, wellbeing audits and ongoing advisory for remote and hybrid SMEs. Serving Germany, Austria, Switzerland, UK and Ireland. From €295 per employee.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const servicesListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Workplace Wellbeing Services",
+  "description": "Three focused workplace wellbeing services for remote and hybrid SMEs.",
+  "url": `${siteURL}/services`,
+  "numberOfItems": 3,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Remote Ergonomic Assessment",
+      "url": `${siteURL}/services/remote-ergonomic-assessment`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "SME Workplace Wellbeing Audit",
+      "url": `${siteURL}/services/sme-risk-audit`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ongoing Wellbeing Partnership",
+      "url": `${siteURL}/services/workplace-risk-retainer`
+    }
+  ]
+};
 
 const services = [
   {
     slug: "remote-ergonomic-assessment",
     title: "Remote Ergonomic Assessment",
-    tagline: "Individual compliance for remote and hybrid employees",
-    description: "A structured individual assessment for employees working remotely or in a hybrid arrangement. Covers workstation setup, posture risk, equipment suitability, and working patterns. Produces a written risk report aligned with the Health and Safety (Display Screen Equipment) Regulations and equivalent standards in Ireland, Germany, and Australia.",
+    tagline: "Help each person work at their best",
+    description: "A personalised, individually tailored assessment for employees working from home or in a hybrid arrangement. We look at the whole picture — workstation setup, posture, lighting, screen environment, and working patterns — and produce a clear, practical improvement plan so each person feels better and performs better. Regulatory documentation is included as a natural output.",
     includes: [
-      "Pre-assessment questionnaire",
+      "Pre-assessment questionnaire covering physical setup and wellbeing",
       "Photo or video workstation review",
-      "Written risk report with prioritised recommendations",
-      "Audit-ready documentation for HR and compliance records",
-      "Follow-up summary for the employee",
+      "Written improvement plan with prioritised recommendations",
+      "Supporting documentation for HR records",
+      "Plain-language summary for the employee to act on immediately",
     ],
-    price: "From £295 per employee",
-    ideal: "SMEs with remote or hybrid staff requiring documented DSE compliance",
+    price: "From €295 per employee",
+    ideal: "SMEs with remote or hybrid staff who want their people working comfortably and at full capacity",
   },
   {
     slug: "sme-risk-audit",
-    title: "SME Workplace Risk Audit",
-    tagline: "Comprehensive compliance review for your entire workforce",
-    description: "A project-based audit of your organisation's workplace risk posture. We review your existing policies, assess your remote and hybrid workforce exposure, and produce a structured risk matrix with a prioritised action plan. The output is designed to be defensible in the context of regulatory inspection, insurance review, or legal proceedings.",
+    title: "SME Workplace Wellbeing Audit",
+    tagline: "Understand where your team is losing energy and focus",
+    description: "A comprehensive review of how your remote or hybrid team actually works — covering physical environment, sensory conditions, and working patterns across your whole organisation. You receive a clear picture of where your people are losing energy, focus, and output, and a prioritised plan to change it. The output also satisfies your regulatory obligations across UK, Ireland, and DACH.",
     includes: [
-      "Review of existing health and safety policies",
-      "Remote and hybrid workforce risk mapping",
-      "Structured risk matrix (likelihood, severity, priority)",
+      "Review of existing health and wellbeing policies",
+      "Remote and hybrid workforce environment mapping",
+      "Wellbeing gap analysis with prioritised improvement areas",
       "Executive summary for leadership",
       "Prioritised action plan with implementation guidance",
-      "Alignment check against HSE, HSA, ArbSchG, or Safe Work Australia standards",
+      "Regulatory alignment confirmation for applicable jurisdictions",
     ],
-    price: "Project-based from £1,800",
-    ideal: "SMEs of 20 to 150 employees needing a documented compliance baseline",
+    price: "Project-based from €1,800",
+    ideal: "SMEs of 20 to 150 employees who want a clear, honest picture of their team's working environment",
   },
   {
     slug: "workplace-risk-retainer",
-    title: "Workplace Risk Retainer",
-    tagline: "Ongoing compliance advisory as your team grows and changes",
-    description: "A monthly retainer providing continuous access to workplace risk expertise. As your team evolves — through new hires, role changes, or office moves — your compliance documentation stays current. Includes regular reviews, new employee assessments, and policy updates, all delivered remotely.",
+    title: "Ongoing Wellbeing Partnership",
+    tagline: "Continuous support as your team grows and changes",
+    description: "A monthly partnership providing continuous access to workplace wellbeing expertise. As your team evolves — through new hires, role changes, or shifts in working arrangements — your wellbeing programme stays current and effective. Includes regular reviews, new employee assessments, and expert guidance whenever you need it, all delivered remotely.",
     includes: [
-      "Quarterly compliance review and documentation update",
+      "Quarterly wellbeing review and programme update",
       "New hire ergonomic assessments (up to 5 per month)",
-      "Policy update support as regulations change",
+      "Policy and guidance updates as your team changes",
       "Priority email and video consultation access",
-      "Annual risk audit summary report",
+      "Annual wellbeing summary report",
     ],
-    price: "From £550 per month",
-    ideal: "Growing SMEs that want continuous compliance without the overhead of in-house expertise",
+    price: "From €550 per month",
+    ideal: "Growing SMEs who want their people supported continuously, not just at a point in time",
   },
 ];
 ---
@@ -58,19 +89,26 @@ const services = [
   title={title}
   description={description}
   lang="en"
-  hreflangEn="https://example.com/services"
-  hreflangDe="https://example.com/de/leistungen"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/services"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/services"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/leistungen"
+  breadcrumbs={[{name:'Home',url:'/'},{name:'Services',url:'/services'}]}
+  pageSchema={servicesListSchema}
 >
 
   <!-- Page Header -->
-  <section class="bg-brand-dark py-20 md:py-28">
-    <div class="container-wide">
+  <section class="relative bg-brand-dark py-20 md:py-28 overflow-hidden" style="min-height:380px">
+    <div class="absolute inset-0">
+      <img src="/images/hero-services.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
+      <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.90) 0%, rgba(10,36,99,0.75) 60%, rgba(10,36,99,0.55) 100%);"></div>
+    </div>
+    <div class="container-wide relative">
       <p class="section-label text-brand-accentLight mb-4">Our Services</p>
       <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
-        Strategic Risk Management for Remote-First SMEs
+        Practical Wellbeing for Remote and Hybrid Teams
       </h1>
       <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
-        Three focused services designed to move you from compliance exposure to documented, defensible protection. All delivered remotely, all aligned with the regulatory standards that apply to your workforce.
+        Three focused services designed to help your people work better, feel better, and stay longer. All delivered remotely, all grounded in clinical expertise, and all aligned with the regulatory standards that apply to your workforce.
       </p>
     </div>
   </section>
@@ -109,12 +147,13 @@ const services = [
     </div>
   </section>
 
-  <!-- Compliance Standards -->
+  <!-- Regulatory Standards — positioned as reassurance, not the lead -->
   <section class="py-16 bg-white border-t border-slate-100">
     <div class="container-wide">
       <div class="text-center mb-12">
-        <p class="section-label mb-3">Regulatory Alignment</p>
-        <h2 class="font-serif text-2xl font-semibold text-brand-dark">Standards We Work To</h2>
+        <p class="section-label mb-3">Built on Solid Foundations</p>
+        <h2 class="font-serif text-2xl font-semibold text-brand-dark">Every service is aligned with the standards that apply to your workforce</h2>
+        <p class="text-slate-500 text-sm mt-4 max-w-xl mx-auto">Regulatory compliance is a natural outcome of a well-designed wellbeing programme. Every report and assessment we produce is structured to satisfy the applicable requirements in your jurisdiction — so you never have to choose between caring for your people and meeting your legal obligations.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="text-center p-6 border border-slate-100 rounded-sm">
@@ -140,9 +179,9 @@ const services = [
   <!-- CTA -->
   <section class="py-20 bg-brand-dark">
     <div class="container-narrow text-center">
-      <p class="section-label text-brand-accentLight mb-4">Not sure which service is right for you?</p>
+      <p class="section-label text-brand-accentLight mb-4">Not sure where to start?</p>
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
-        Book a free 20-minute consultation to discuss your situation.
+        Book a free conversation to talk through what your team needs.
       </h2>
       <a href="/contact" class="btn-primary text-base px-8 py-4">Book a Consultation</a>
     </div>

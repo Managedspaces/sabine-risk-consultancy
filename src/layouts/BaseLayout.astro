@@ -6,36 +6,157 @@ interface Props {
   description: string;
   lang?: string;
   canonicalURL?: string;
+  canonicalUrl?: string;
   hreflangEn?: string;
   hreflangDe?: string;
+  hreflangPairs?: Array<{ lang: string; url: string }>;
   ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  pageSchema?: object;
+  schema?: object;
 }
 
 const {
   title,
   description,
   lang = 'en',
-  canonicalURL = Astro.url.href,
+  canonicalURL,
+  canonicalUrl,
   hreflangEn,
   hreflangDe,
-  ogImage = '/og-default.jpg',
+  hreflangPairs,
+  ogImage = 'https://sabine-risk-consultancy.netlify.app/og-default.jpg',
+  ogType = 'website',
+  noindex = false,
+  breadcrumbs,
+  pageSchema,
+  schema,
 } = Astro.props;
 
+// Normalise canonical URL — accept either prop name
+const resolvedCanonical = canonicalUrl || canonicalURL || Astro.url.href;
+
+// Normalise hreflang — accept either the old pair props or the new hreflangPairs array
+const resolvedHreflangEn = hreflangEn || hreflangPairs?.find(p => p.lang === 'en')?.url;
+const resolvedHreflangDe = hreflangDe || hreflangPairs?.find(p => p.lang === 'de')?.url;
+
+// Normalise schema — accept either pageSchema or schema prop
+const resolvedSchema = schema || pageSchema;
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+const siteName = 'Sabine Salowsky — Workplace Wellbeing Consultancy';
 const isDE = lang === 'de';
+const ogLocale = isDE ? 'de_DE' : 'en_GB';
+
 const navLinks = isDE
   ? [
       { href: '/de/leistungen', label: 'Leistungen' },
+      { href: '/de/tools', label: 'Tools' },
       { href: '/de/ueber-uns', label: 'Über uns' },
       { href: '/de/kontakt', label: 'Kontakt' },
     ]
   : [
       { href: '/services', label: 'Services' },
+      { href: '/tools', label: 'Tools' },
       { href: '/about', label: 'About' },
       { href: '/contact', label: 'Contact' },
     ];
 
-const langSwitchHref = isDE ? '/' : '/de';
+// Page-aware language switcher
+// Maps known DE paths to their EN counterparts and vice versa
+const pagePath = Astro.url.pathname;
+const toolPathMap: Record<string, string> = {
+  '/de/tools/ergonomische-gefaehrdungsbeurteilung': '/tools/ergonomic-risk-assessment',
+  '/de/tools/homeoffice-beurteilung': '/tools/home-office-assessment',
+  '/de/tools/psychosoziale-gefaehrdungsbeurteilung': '/tools/psychosocial-risk-assessment',
+  '/de/tools/gefaehrdungsbeurteilung-erstellen': '/tools/risk-assessment-builder',
+  '/de/tools': '/tools',
+  '/tools/ergonomic-risk-assessment': '/de/tools/ergonomische-gefaehrdungsbeurteilung',
+  '/tools/home-office-assessment': '/de/tools/homeoffice-beurteilung',
+  '/tools/psychosocial-risk-assessment': '/de/tools/psychosoziale-gefaehrdungsbeurteilung',
+  '/tools/risk-assessment-builder': '/de/tools/gefaehrdungsbeurteilung-erstellen',
+  '/tools': '/de/tools',
+};
+const mappedSwitchHref = toolPathMap[pagePath.replace(/\/$/, '')];
+const langSwitchHref = mappedSwitchHref ?? (isDE ? '/' : '/de');
 const langSwitchLabel = isDE ? 'EN' : 'DE';
+
+// Global Organisation schema — injected on every page
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${siteURL}/#organization`,
+  "name": "Sabine Salowsky — Workplace Wellbeing Consultancy",
+  "url": siteURL,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteURL}/og-default.jpg`
+  },
+  "description": "Boutique workplace wellbeing consultancy for remote and hybrid SMEs in the DACH region, UK, Ireland, and Australia. Founded by Sabine Salowsky, B.Sc. Ergotherapie, Dipl.-Biol.",
+  "founder": {
+    "@type": "Person",
+    "@id": `${siteURL}/#sabine`,
+    "name": "Sabine Salowsky",
+    "jobTitle": "Workplace Wellbeing Consultant",
+    "knowsAbout": ["Ergonomics", "Workplace Wellbeing", "Occupational Health", "Remote Work", "Gefährdungsbeurteilung"],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": "B.Sc. Ergotherapie (Occupational Therapy)",
+        "recognizedBy": { "@type": "Organization", "name": "Fachhochschule Wiener Neustadt" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": "Diplom-Biologin (Physiological Psychology)",
+        "recognizedBy": { "@type": "Organization", "name": "Eberhard-Karls-Universität Tübingen" }
+      }
+    ]
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" },
+    { "@type": "Country", "name": "United Kingdom" },
+    { "@type": "Country", "name": "Ireland" },
+    { "@type": "Country", "name": "Australia" }
+  ],
+  "knowsLanguage": ["en", "de"],
+  "serviceType": [
+    "Workplace Wellbeing Consultancy",
+    "Ergonomic Assessment",
+    "Occupational Health Advisory",
+    "Remote Work Risk Assessment"
+  ],
+  "sameAs": []
+};
+
+// WebSite schema — injected on every page for sitelinks search box eligibility
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteURL}/#website`,
+  "url": siteURL,
+  "name": siteName,
+  "description": "Workplace wellbeing consultancy for remote and hybrid SMEs. Ergonomic assessments, wellbeing audits, and ongoing advisory. DACH, UK, Ireland, Australia.",
+  "inLanguage": ["en-GB", "de-DE"],
+  "publisher": { "@id": `${siteURL}/#organization` }
+};
+
+// BreadcrumbList schema — only when breadcrumbs are provided
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": crumb.name,
+    "item": `${siteURL}${crumb.url}`
+  }))
+} : null;
 ---
 
 <!doctype html>
@@ -43,35 +164,58 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    }
 
-    <!-- Hreflang for EN/DE -->
-    {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
-    {hreflangDe && <link rel="alternate" hreflang="de" href={hreflangDe} />}
-    {hreflangEn && hreflangDe && <link rel="alternate" hreflang="x-default" href={hreflangEn} />}
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href={resolvedCanonical} />
+    {resolvedHreflangEn && <link rel="alternate" hreflang="en" href={resolvedHreflangEn} />}
+    {resolvedHreflangDe && <link rel="alternate" hreflang="de" href={resolvedHreflangDe} />}
+    {resolvedHreflangEn && resolvedHreflangDe && <link rel="alternate" hreflang="x-default" href={resolvedHreflangEn} />}
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={ogLocale} />
+    {resolvedHreflangEn && resolvedHreflangDe && (
+      <meta property="og:locale:alternate" content={isDE ? 'en_GB' : 'de_DE'} />
+    )}
 
-    <!-- Structured Data: Organisation -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Sabine — Workplace Risk & Ergonomics Consultancy",
-      "description": "Boutique workplace risk and ergonomics consultancy for remote-first SMEs in the UK, Ireland, DACH region, and Australia.",
-      "url": "https://example.com",
-      "areaServed": ["GB", "IE", "DE", "AT", "CH", "AU"],
-      "knowsLanguage": ["en", "de"],
-      "serviceType": "Workplace Risk Consultancy"
-    })} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
-    <!-- Favicon placeholder -->
+    <!-- Global JSON-LD: Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+    <!-- Global JSON-LD: WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+    <!-- BreadcrumbList (page-specific, only when provided) -->
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+
+    <!-- Page-specific schema (Service, Person, FAQ, etc.) -->
+    {resolvedSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
+    )}
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Preconnect for Google Fonts -->
@@ -80,13 +224,13 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
   </head>
   <body>
     <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border shadow-sm">
       <div class="container-wide">
         <nav class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <a href={isDE ? '/de' : '/'} class="flex items-center gap-3 group">
+          <a href={isDE ? '/de' : '/'} class="flex items-center gap-3 group" aria-label={isDE ? 'Sabine — Startseite' : 'Sabine — Home'}>
             <div class="w-8 h-8 bg-brand-accent rounded-sm flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect x="2" y="2" width="5" height="5" fill="white" opacity="0.9"/>
                 <rect x="9" y="2" width="5" height="5" fill="white" opacity="0.6"/>
                 <rect x="2" y="9" width="5" height="5" fill="white" opacity="0.6"/>
@@ -94,19 +238,19 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
               </svg>
             </div>
             <div>
-              <span class="font-serif font-semibold text-brand-dark text-base leading-tight block">Sabine</span>
-              <span class="text-xs text-slate-500 leading-tight block tracking-wide">Workplace Risk Consultancy</span>
+              <span class="font-serif font-semibold text-brand-dark text-base leading-tight block" style="color:#0A2463">Sabine Salowsky</span>
+              <span class="text-xs text-brand-textLight leading-tight block tracking-wide">{isDE ? 'Betriebliches Wohlbefinden' : 'Workplace Wellbeing'}</span>
             </div>
           </a>
 
           <!-- Desktop Nav -->
           <div class="hidden md:flex items-center gap-8">
             {navLinks.map(link => (
-              <a href={link.href} class="text-sm font-medium text-slate-600 hover:text-brand-accent transition-colors duration-150 tracking-wide">
+              <a href={link.href} class="text-sm font-medium text-brand-textLight hover:text-brand-accent transition-colors duration-150 tracking-wide">
                 {link.label}
               </a>
             ))}
-            <a href={langSwitchHref} class="text-xs font-semibold text-slate-400 hover:text-brand-accent border border-slate-200 px-2.5 py-1 rounded-sm transition-colors duration-150 tracking-widest uppercase">
+            <a href={langSwitchHref} class="text-xs font-semibold text-brand-textLight hover:text-brand-accent border border-brand-border px-2.5 py-1 rounded-sm transition-colors duration-150 tracking-widest uppercase" aria-label={isDE ? 'Switch to English' : 'Zur deutschen Version wechseln'}>
               {langSwitchLabel}
             </a>
             <a href={isDE ? '/de/kontakt' : '/contact'} class="btn-primary text-xs py-2 px-5">
@@ -115,8 +259,8 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
           </div>
 
           <!-- Mobile Menu Button -->
-          <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600" aria-label="Open menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600" aria-label={isDE ? 'Menü öffnen' : 'Open menu'} aria-expanded="false" aria-controls="mobile-menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <line x1="3" y1="6" x2="21" y2="6"/>
               <line x1="3" y1="12" x2="21" y2="12"/>
               <line x1="3" y1="18" x2="21" y2="18"/>
@@ -125,14 +269,14 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
         </nav>
 
         <!-- Mobile Nav -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-slate-100 pt-4">
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-brand-border pt-4">
           {navLinks.map(link => (
-            <a href={link.href} class="block py-2 text-sm font-medium text-slate-600 hover:text-brand-accent">
+            <a href={link.href} class="block py-2 text-sm font-medium text-brand-textLight hover:text-brand-accent">
               {link.label}
             </a>
           ))}
           <div class="flex items-center gap-4 mt-4">
-            <a href={langSwitchHref} class="text-xs font-semibold text-slate-400 border border-slate-200 px-2.5 py-1 rounded-sm uppercase tracking-widest">
+            <a href={langSwitchHref} class="text-xs font-semibold text-brand-textLight border border-brand-border px-2.5 py-1 rounded-sm uppercase tracking-widest">
               {langSwitchLabel}
             </a>
             <a href={isDE ? '/de/kontakt' : '/contact'} class="btn-primary text-xs py-2 px-5">
@@ -144,7 +288,7 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
@@ -156,43 +300,58 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="w-7 h-7 bg-brand-accent rounded-sm flex items-center justify-center">
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <rect x="2" y="2" width="5" height="5" fill="white" opacity="0.9"/>
                   <rect x="9" y="2" width="5" height="5" fill="white" opacity="0.6"/>
                   <rect x="2" y="9" width="5" height="5" fill="white" opacity="0.6"/>
                   <rect x="9" y="9" width="5" height="5" fill="white" opacity="0.9"/>
                 </svg>
               </div>
-              <span class="font-serif font-semibold text-white">Sabine</span>
+              <span class="font-serif font-semibold text-white">Sabine Salowsky</span>
             </div>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Workplace Risk & Ergonomics Consultancy for remote-first SMEs. Serving the UK, Ireland, DACH region, and Australia.
+              {isDE
+                ? 'Betriebliches Wohlbefinden für Remote- und Hybrid-KMU. Tätig in Deutschland, Österreich, der Schweiz, UK und Irland.'
+                : 'Workplace wellbeing consultancy for remote and hybrid SMEs. Serving the DACH region, UK, Ireland, and Australia.'}
             </p>
           </div>
 
           <!-- Services -->
           <div>
-            <h3 class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-4">Services</h3>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-4">
+              {isDE ? 'Leistungen' : 'Services'}
+            </h3>
             <ul class="space-y-2">
               {isDE ? (
                 <>
-                  <li><a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="text-slate-400 text-sm hover:text-white transition-colors">Ergonomische Gefährdungsbeurteilung</a></li>
-                  <li><a href="/de/leistungen/arbeitsschutz-audit" class="text-slate-400 text-sm hover:text-white transition-colors">Arbeitsschutz-Audit</a></li>
-                  <li><a href="/de/leistungen/arbeitsschutz-retainer" class="text-slate-400 text-sm hover:text-white transition-colors">Arbeitsschutz-Retainer</a></li>
+                  <li><a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="text-slate-400 text-sm hover:text-white transition-colors">Persönliche Ergonomie-Analyse</a></li>
+                  <li><a href="/de/leistungen/arbeitsschutz-audit" class="text-slate-400 text-sm hover:text-white transition-colors">Wohlbefindens-Analyse für KMU</a></li>
+                  <li><a href="/de/leistungen/arbeitsschutz-retainer" class="text-slate-400 text-sm hover:text-white transition-colors">Laufende Wohlbefindens-Partnerschaft</a></li>
                 </>
               ) : (
                 <>
                   <li><a href="/services/remote-ergonomic-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Remote Ergonomic Assessment</a></li>
-                  <li><a href="/services/sme-risk-audit" class="text-slate-400 text-sm hover:text-white transition-colors">SME Workplace Risk Audit</a></li>
-                  <li><a href="/services/workplace-risk-retainer" class="text-slate-400 text-sm hover:text-white transition-colors">Workplace Risk Retainer</a></li>
+                  <li><a href="/services/sme-risk-audit" class="text-slate-400 text-sm hover:text-white transition-colors">SME Workplace Wellbeing Audit</a></li>
+                  <li><a href="/services/workplace-risk-retainer" class="text-slate-400 text-sm hover:text-white transition-colors">Ongoing Wellbeing Partnership</a></li>
                 </>
               )}
             </ul>
           </div>
 
-          <!-- Contact & Compliance -->
+          <!-- Tools -->
           <div>
-            <h3 class="text-xs font-semibold uppercase tracking-widest text-brand-accentLight mb-4">
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-4">Tools</h3>
+            <ul class="space-y-2">
+              <li><a href="/tools/ergonomic-risk-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Ergonomic Risk Assessment</a></li>
+              <li><a href="/tools/home-office-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Home Office Assessment</a></li>
+              <li><a href="/tools/psychosocial-risk-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Psychosocial Assessment</a></li>
+              <li><a href="/tools/risk-assessment-builder" class="text-slate-400 text-sm hover:text-white transition-colors">Risk Assessment Builder</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-4">
               {isDE ? 'Kontakt' : 'Contact'}
             </h3>
             <ul class="space-y-2 text-slate-400 text-sm">
@@ -202,20 +361,26 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
                 </a>
               </li>
               <li class="pt-4 text-xs text-slate-500">
-                Aligned with: HSE (UK) · HSA (Ireland) · ArbSchG / ArbStättV (DE) · Safe Work Australia
+                {isDE
+                  ? 'Konform mit: ArbSchG · ArbStättV · DGUV (DE) · ASchG (AT) · ArGV 3 (CH) · HSE (UK) · HSA (IE)'
+                  : 'Aligned with: HSE (UK) · HSA (Ireland) · ArbSchG / ArbStättV (DE) · Safe Work Australia'}
               </li>
             </ul>
           </div>
         </div>
 
-        <div class="border-t border-slate-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p class="text-slate-500 text-xs">
-            &copy; {new Date().getFullYear()} Sabine — Workplace Risk & Ergonomics Consultancy. All rights reserved.
+            &copy; {new Date().getFullYear()} Sabine Salowsky — Workplace Wellbeing Consultancy. All rights reserved.
           </p>
           <div class="flex gap-6">
-            <a href="/privacy-policy" class="text-slate-500 text-xs hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="/terms" class="text-slate-500 text-xs hover:text-slate-300 transition-colors">Terms</a>
-            <a href={isDE ? '/' : '/de'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors uppercase tracking-widest">
+            <a href={isDE ? '/de/datenschutz' : '/privacy-policy'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors">
+              {isDE ? 'Datenschutz' : 'Privacy Policy'}
+            </a>
+            <a href={isDE ? '/de/impressum' : '/terms'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors">
+              {isDE ? 'Impressum' : 'Terms'}
+            </a>
+            <a href={isDE ? '/' : '/de'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors uppercase tracking-widest" aria-label={isDE ? 'Switch to English' : 'Zur deutschen Version wechseln'}>
               {isDE ? 'EN' : 'DE'}
             </a>
           </div>
@@ -223,13 +388,15 @@ const langSwitchLabel = isDE ? 'EN' : 'DE';
       </div>
     </footer>
 
-    <!-- Mobile menu toggle script (minimal inline JS) -->
+    <!-- Mobile menu toggle -->
     <script>
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
       if (btn && menu) {
         btn.addEventListener('click', () => {
+          const isOpen = !menu.classList.contains('hidden');
           menu.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', String(!isOpen));
         });
       }
     </script>

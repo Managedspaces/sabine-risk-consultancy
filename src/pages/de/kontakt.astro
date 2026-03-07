@@ -1,20 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "Kontakt | Beratung anfragen | Sabine Arbeitsschutz Beratung";
-const description = "Kostenloses 20-minütiges Erstgespräch zu Ihrem Arbeitsschutz- und Ergonomie-Bedarf. Vollständig digital. Deutschland, Österreich, Schweiz, UK, Irland, Australien.";
+const title = "Beratung anfragen | Sabine Salowsky Betriebliches Wohlbefinden";
+const description = "Kostenloses 20-minütiges Erstgespräch zu Ihrem Wohlbefindens-Bedarf. Vollständig digital. Deutschland, Österreich, Schweiz, UK und Irland. Unverbindlich.";
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="de"
-  hreflangEn="https://example.com/contact"
-  hreflangDe="https://example.com/de/kontakt"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/de/kontakt"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/contact"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/kontakt"
+  breadcrumbs={[{name:'Startseite',url:'/de'},{name:'Kontakt',url:'/de/kontakt'}]}
 >
 
-  <section class="bg-brand-dark py-20 md:py-24">
-    <div class="container-wide">
+  <section class="relative bg-brand-dark py-20 md:py-24 overflow-hidden" style="min-height:360px">
+    <div class="absolute inset-0">
+      <img src="/images/hero-contact.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
+      <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.90) 0%, rgba(10,36,99,0.75) 60%, rgba(10,36,99,0.55) 100%);"></div>
+    </div>
+    <div class="container-wide relative">
       <p class="section-label text-brand-accentLight mb-4">Kontakt</p>
       <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-xl">
         Lassen Sie uns Ihren Bedarf besprechen.

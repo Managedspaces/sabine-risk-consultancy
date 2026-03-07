@@ -1,26 +1,45 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const title = "Arbeitsschutz & Ergonomie Leistungen für KMU | Sabine";
-const description = "Ergonomische Gefährdungsbeurteilungen, Arbeitsschutz-Audits und laufende Betreuung für KMU mit Remote- und Hybrid-Belegschaft. Konform mit ArbSchG, ArbStättV und DGUV.";
+const title = "Leistungen | Betriebliches Wohlbefinden für KMU | Sabine Salowsky";
+const description = "Ergonomie-Analysen, Wohlbefindens-Audits und laufende Beratung für Remote- und Hybrid-KMU in Deutschland, Österreich und der Schweiz. Ab 350 € pro Mitarbeiter.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const deServicesListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Leistungen für betriebliches Wohlbefinden",
+  "description": "Drei fokussierte Wohlbefindens-Leistungen für Remote- und Hybrid-KMU.",
+  "url": `${siteURL}/de/leistungen`,
+  "numberOfItems": 3,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Persönliche Ergonomie-Analyse", "url": `${siteURL}/de/leistungen/ergonomische-gefaehrdungsbeurteilung` },
+    { "@type": "ListItem", "position": 2, "name": "Wohlbefindens-Analyse für KMU", "url": `${siteURL}/de/leistungen/arbeitsschutz-audit` },
+    { "@type": "ListItem", "position": 3, "name": "Laufende Wohlbefindens-Partnerschaft", "url": `${siteURL}/de/leistungen/arbeitsschutz-retainer` }
+  ]
+};
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="de"
-  hreflangEn="https://example.com/services"
-  hreflangDe="https://example.com/de/leistungen"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/de/leistungen"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/services"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/leistungen"
+  breadcrumbs={[{name:'Startseite',url:'/de'},{name:'Leistungen',url:'/de/leistungen'}]}
+  pageSchema={deServicesListSchema}
 >
 
   <section class="bg-brand-dark py-20 md:py-28">
     <div class="container-wide">
       <p class="section-label text-brand-accentLight mb-4">Unsere Leistungen</p>
       <h1 class="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 max-w-2xl">
-        Strukturierter Arbeitsschutz für Remote-First KMU
+        Praktisches Wohlbefinden für Remote- und Hybrid-Teams
       </h1>
       <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
-        Drei fokussierte Leistungen, die Sie von der Compliance-Lücke zur dokumentierten, rechtssicheren Absicherung führen. Vollständig digital, konform mit deutschen, österreichischen, schweizerischen und britischen Vorschriften.
+        Drei fokussierte Leistungen, die Ihren Mitarbeitern helfen, besser zu arbeiten, sich besser zu fühlen und länger zu bleiben. Vollständig digital, klinisch fundiert und auf die gesetzlichen Anforderungen in Ihrem Markt abgestimmt.
       </p>
     </div>
   </section>
@@ -30,16 +49,22 @@ const description = "Ergonomische Gefährdungsbeurteilungen, Arbeitsschutz-Audit
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <div>
-          <p class="section-label mb-3">Individuelle Compliance</p>
-          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Ergonomische Gefährdungsbeurteilung (Remote)</h2>
-          <p class="text-slate-600 leading-relaxed mb-6">Individuelle Beurteilung für Mitarbeiter im Homeoffice oder in hybrider Arbeitsweise. Fragebogen, Foto-Auswertung, schriftlicher Bericht und prüfungsfeste Dokumentation gemäss ArbSchG, ArbStättV und Bildschirmarbeitsverordnung.</p>
+          <p class="section-label mb-3">Jedem Einzelnen helfen, sein Bestes zu geben</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Persönliche Ergonomie-Analyse (Remote)</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">Eine individuelle Analyse für jeden Mitarbeiter im Homeoffice oder in hybrider Arbeitsweise. Wir betrachten das gesamte Bild — Arbeitsplatzaufbau, Körperhaltung, Beleuchtung, Bildschirmumgebung und Arbeitsgewohnheiten — und erstellen einen klaren, praktischen Verbesserungsplan, damit jeder Mensch sich besser fühlt und besser arbeitet. Die gesetzliche Dokumentation ist ein natürliches Ergebnis.</p>
           <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">Ab 345 EUR pro Mitarbeiter</p>
           <a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="btn-primary">Details ansehen</a>
         </div>
         <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
           <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
           <ul class="space-y-3">
-            {["Strukturierter Fragebogen zur Arbeitsplatzsituation", "Foto-Auswertung des Homeoffice-Arbeitsplatzes", "Schriftlicher Gefährdungsbeurteilungsbericht mit priorisierten Massnahmen", "Prüfungsfeste Dokumentation für HR und Compliance-Unterlagen", "Mitarbeiterzusammenfassung in verständlicher Sprache"].map(item => (
+            {[
+              "Wohlbefindens-Fragebogen zu physischem Aufbau und Arbeitsumgebung",
+              "Foto-Auswertung des Homeoffice-Arbeitsplatzes",
+              "Persönlicher Verbesserungsplan mit priorisierten Empfehlungen",
+              "Mitarbeiterzusammenfassung in verständlicher Sprache — zum Handeln, nicht zum Ablegen",
+              "Begleitende Dokumentation gemäss den geltenden Vorschriften",
+            ].map(item => (
               <li class="flex items-start gap-3 text-sm text-slate-600">
                 <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {item}
@@ -51,16 +76,23 @@ const description = "Ergonomische Gefährdungsbeurteilungen, Arbeitsschutz-Audit
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <div>
-          <p class="section-label mb-3">Umfassende Compliance</p>
-          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Arbeitsschutz-Audit für KMU</h2>
-          <p class="text-slate-600 leading-relaxed mb-6">Projektbasierte Analyse Ihrer gesamten Arbeitsschutz-Compliance. Richtlinienprüfung, Risikomatrix, Massnahmenplan und Ausrichtung an ArbSchG, ArbStättV und DGUV-Vorgaben. Geeignet für Betriebsprüfungen, Versicherungsfälle und Due-Diligence-Prozesse.</p>
+          <p class="section-label mb-3">Verstehen, wo Ihr Team Energie und Fokus verliert</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Wohlbefindens-Analyse für KMU</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">Eine umfassende Bestandsaufnahme, wie Ihr Remote- oder Hybrid-Team tatsächlich arbeitet — physische Umgebung, sensorische Bedingungen und Arbeitsabläufe im gesamten Unternehmen. Sie erhalten ein klares Bild, wo Ihre Mitarbeiter Energie und Konzentration verlieren, und einen priorisierten Plan zur Verbesserung. Die gesetzliche Dokumentation ist im Ergebnis enthalten.</p>
           <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">Projektbasiert ab 2.100 EUR</p>
           <a href="/de/leistungen/arbeitsschutz-audit" class="btn-primary">Details ansehen</a>
         </div>
         <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
           <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
           <ul class="space-y-3">
-            {["Prüfung bestehender Arbeitsschutzrichtlinien", "Risikoerfassung der Remote- und Hybrid-Belegschaft", "Strukturierte Risikomatrix (Wahrscheinlichkeit, Schwere, Priorität)", "Management-Summary für Geschäftsführung und Beirat", "Priorisierter Massnahmenplan mit Umsetzungshinweisen", "Ausrichtungscheck an ArbSchG, ArbStättV und DGUV"].map(item => (
+            {[
+              "Prüfung bestehender Gesundheits- und Wohlbefindens-Richtlinien",
+              "Umgebungserfassung der Remote- und Hybrid-Belegschaft",
+              "Wohlbefindens-Lückenanalyse mit priorisierten Verbesserungsbereichen",
+              "Management-Summary für Geschäftsführung und Beirat",
+              "Priorisierter Massnahmenplan mit Umsetzungshinweisen",
+              "Bestätigung der Ausrichtung an ArbSchG, ArbStättV und DGUV",
+            ].map(item => (
               <li class="flex items-start gap-3 text-sm text-slate-600">
                 <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {item}
@@ -72,16 +104,22 @@ const description = "Ergonomische Gefährdungsbeurteilungen, Arbeitsschutz-Audit
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <div>
-          <p class="section-label mb-3">Laufende Betreuung</p>
-          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Arbeitsschutz-Retainer</h2>
-          <p class="text-slate-600 leading-relaxed mb-6">Monatliche Betreuung für wachsende KMU. Quartalsweise Überprüfungen, Beurteilungen für neue Mitarbeiter, Aktualisierungen bei Rechtsänderungen und priorisierter Beratungszugang. Ihre Dokumentation bleibt aktuell, während Ihr Team wächst.</p>
+          <p class="section-label mb-3">Kontinuierliche Begleitung, während Ihr Team wächst</p>
+          <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-5">Laufende Wohlbefindens-Partnerschaft</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">Monatliche Begleitung für wachsende KMU, die ihre Mitarbeiter dauerhaft gut unterstützen möchten — nicht nur zu einem einmaligen Zeitpunkt. Neue Mitarbeiter werden zeitnah analysiert. Quartalsweise Reviews halten das Programm aktuell. Und Sie haben jederzeit Zugang zu Expertenrat, wenn sich Ihr Team oder seine Arbeitsumgebung verändert.</p>
           <p class="text-sm font-semibold text-brand-accent uppercase tracking-wide mb-8">Ab 650 EUR pro Monat</p>
           <a href="/de/leistungen/arbeitsschutz-retainer" class="btn-primary">Details ansehen</a>
         </div>
         <div class="bg-white rounded-sm border border-slate-100 p-8 shadow-sm">
           <h3 class="font-serif text-lg font-semibold text-brand-dark mb-5">Leistungsumfang</h3>
           <ul class="space-y-3">
-            {["Quartalsweise Compliance-Überprüfung und Dokumentationsaktualisierung", "Gefährdungsbeurteilungen für neue Mitarbeiter (bis 5 pro Monat)", "Richtlinienaktualisierungen bei Rechtsänderungen", "Priorisierter E-Mail- und Videokonsultationszugang", "Jährlicher Arbeitsschutz-Zusammenfassungsbericht"].map(item => (
+            {[
+              "Quartalsweise Wohlbefindens-Überprüfung und Programmaktualisierung",
+              "Ergonomie-Analysen für neue Mitarbeiter (bis 5 pro Monat)",
+              "Beratungsaktualisierungen bei Veränderungen im Team",
+              "Priorisierter E-Mail- und Videokonsultationszugang",
+              "Jährlicher Wohlbefindens-Zusammenfassungsbericht für die Geschäftsführung",
+            ].map(item => (
               <li class="flex items-start gap-3 text-sm text-slate-600">
                 <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {item}
@@ -94,11 +132,40 @@ const description = "Ergonomische Gefährdungsbeurteilungen, Arbeitsschutz-Audit
     </div>
   </section>
 
+  <!-- Regulatory reassurance — secondary, not lead -->
+  <section class="py-16 bg-white border-t border-slate-100">
+    <div class="container-wide">
+      <div class="text-center mb-10">
+        <p class="section-label mb-3">Auf soliden Grundlagen gebaut</p>
+        <h2 class="font-serif text-2xl font-semibold text-brand-dark">Jede Leistung ist auf die geltenden Vorschriften in Ihrem Markt abgestimmt</h2>
+        <p class="text-slate-500 text-sm mt-4 max-w-xl mx-auto">Gesetzliche Compliance ist ein natürliches Ergebnis eines gut gestalteten Wohlbefindens-Programms. Jeder Bericht und jede Analyse ist so strukturiert, dass er die geltenden Anforderungen in Ihrem Markt erfüllt — damit Sie sich nicht zwischen der Fürsorge für Ihre Mitarbeiter und Ihren gesetzlichen Pflichten entscheiden müssen.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">Deutschland</p>
+          <p class="text-xs text-slate-500">ArbSchG · ArbStättV · Bildschirmarbeitsverordnung · DGUV</p>
+        </div>
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">Österreich</p>
+          <p class="text-xs text-slate-500">ASchG · AStV · Homeoffice-Gesetz 2021</p>
+        </div>
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">Schweiz</p>
+          <p class="text-xs text-slate-500">ArGV 3 · SECO-Richtlinien · Bildschirmarbeitsplatz-Anforderungen</p>
+        </div>
+        <div class="text-center p-6 border border-slate-100 rounded-sm">
+          <p class="font-semibold text-brand-dark text-sm mb-1">UK &amp; Irland</p>
+          <p class="text-xs text-slate-500">HSE · DSE Regulations 1992 · HSA Ireland</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 bg-brand-dark">
     <div class="container-narrow text-center">
-      <p class="section-label text-brand-accentLight mb-4">Nicht sicher, welche Leistung passt?</p>
+      <p class="section-label text-brand-accentLight mb-4">Nicht sicher, wo Sie anfangen sollen?</p>
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
-        Vereinbaren Sie ein kostenloses Erstgespräch.
+        Vereinbaren Sie ein unverbindliches Gespräch — wir helfen Ihnen, den richtigen Einstieg zu finden.
       </h2>
       <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beratung anfragen</a>
     </div>

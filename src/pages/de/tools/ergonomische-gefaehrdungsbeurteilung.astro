@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { TOOLS_APP_URL } from '../../../config/site';
+
+const title = "Ergonomische Gefährdungsbeurteilung Tool | Sabine Salowsky";
+const description = "Professionelles Selbstbeurteilungstool zur Bewertung der Büroergonomie in sechs Dimensionen. Erstellt sofort rechtssichere Berichte gemäß ArbStättV und DGUV.";
+
+const canonicalUrl = "https://sabine-risk-consultancy.netlify.app/de/tools/ergonomische-gefaehrdungsbeurteilung";
+const hreflangPairs = [
+  { lang: "en", url: "https://sabine-risk-consultancy.netlify.app/tools/ergonomic-risk-assessment" },
+  { lang: "de", url: "https://sabine-risk-consultancy.netlify.app/de/tools/ergonomische-gefaehrdungsbeurteilung" },
+  { lang: "x-default", url: "https://sabine-risk-consultancy.netlify.app/tools/ergonomic-risk-assessment" }
+];
+
+const breadcrumbs = [
+  { name: "Startseite", url: "/de" },
+  { name: "Tools", url: "/de/tools" },
+  { name: "Ergonomische Gefährdungsbeurteilung", url: "/de/tools/ergonomische-gefaehrdungsbeurteilung" }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was ist eine ergonomische Gefährdungsbeurteilung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine ergonomische Gefährdungsbeurteilung ist eine systematische Analyse des Arbeitsplatzes, bei der körperliche Belastungen, Haltung, Ausstattung und Umgebungsfaktoren bewertet werden. Sie ist nach ArbSchG und ArbStättV für alle Bildschirmarbeitsplätze gesetzlich vorgeschrieben."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist die Gefährdungsbeurteilung für Homeoffice-Arbeitsplätze Pflicht?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Der Arbeitgeber trägt die Fürsorgepflicht auch für Heimarbeitsplätze. Die Gefährdungsbeurteilung muss dokumentiert und regelmäßig aktualisiert werden — unabhängig davon, ob die Arbeit im Büro oder zu Hause stattfindet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert die Selbstbeurteilung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die 29 Fragen sind in der Regel in 5 bis 10 Minuten zu beantworten. Der Bericht wird sofort nach Abschluss generiert."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  canonicalUrl={canonicalUrl}
+  hreflangPairs={hreflangPairs}
+  breadcrumbs={breadcrumbs}
+  schema={faqSchema}
+  lang="de"
+>
+
+  <section class="pt-32 pb-20 bg-brand-dark text-white">
+    <div class="container-narrow">
+      <a href="/de/tools" class="inline-block text-brand-accentLight hover:text-white transition-colors mb-8">&larr; Zurück zu allen Tools</a>
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <div class="flex-1">
+          <p class="section-label text-brand-accentLight mb-4">Selbstbeurteilungstool</p>
+          <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight mb-6">
+            Ergonomische Gefährdungsbeurteilung
+          </h1>
+          <p class="text-xl text-slate-300 leading-relaxed mb-8">
+            Bewerten Sie die Ergonomie Ihres Büroarbeitsplatzes in sechs Dimensionen der körperlichen Gesundheit. Ein strukturiertes 29-Fragen-Assessment, das die Ursachen von Muskel-Skelett-Beschwerden identifiziert — und rechtssichere Dokumentation gemäß ArbStättV erstellt.
+          </p>
+          <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary text-base px-8 py-4">Beurteilung starten</a>
+        </div>
+        <div class="w-full md:w-1/3 bg-white/5 border border-white/10 rounded-sm p-8">
+          <h3 class="font-serif text-xl font-semibold mb-4">Tool-Spezifikationen</h3>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Fragen</span> <span class="font-semibold text-white">29</span>
+            </li>
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Kategorien</span> <span class="font-semibold text-white">6</span>
+            </li>
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Rechtsrahmen</span> <span class="font-semibold text-white">ArbSchG · ArbStättV · DGUV</span>
+            </li>
+            <li class="flex justify-between pb-2">
+              <span>Zeitaufwand</span> <span class="font-semibold text-white">5–10 Min.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="container-narrow">
+      <div class="max-w-3xl">
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-6">Was dieses Tool bewertet</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-10">
+          Einfache DSE-Checklisten fragen nur, ob der Monitor auf der richtigen Höhe steht. Dieses Tool geht tiefer: Es bewertet das Zusammenspiel von Mensch, Ausstattung und Umgebung — und liefert damit die Grundlage für eine wirklich wirksame Gefährdungsbeurteilung.
+        </p>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">1. Arbeitsplatzausstattung</h3>
+            <p class="text-slate-600">Bewertet Eignung, Einstellbarkeit und korrekte Nutzung von Stuhl, Schreibtisch, Bildschirm und Eingabegeräten gemäß ArbStättV Anhang 6.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">2. Körperhaltung &amp; Positionierung</h3>
+            <p class="text-slate-600">Analysiert die neutrale Gelenkstellung, unterstützte Sitzhaltung und das Vorhandensein von ungünstigen oder anhaltenden Körperhaltungen.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">3. Arbeitsorganisation &amp; Bildschirmzeit</h3>
+            <p class="text-slate-600">Bewertet Kurzpausen, Aufgabenwechsel und das Verhältnis von statischem Sitzen zu dynamischer Bewegung — gemäß DGUV Information 215-410.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">4. Umgebungsfaktoren</h3>
+            <p class="text-slate-600">Prüft Beleuchtungsqualität, Blendung, Temperatur und Lärmpegel — Faktoren, die kognitive Ermüdung maßgeblich beeinflussen.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">5. Sehvermögen &amp; Augenbelastung</h3>
+            <p class="text-slate-600">Misst Sehabstand, Bildschirmkontrast und Sehpausen zur Vorbeugung des Computer-Vision-Syndroms.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">6. Psychosoziale Arbeitsbelastung</h3>
+            <p class="text-slate-600">Ein kurzer Basiswert für kognitive Belastung und Stress — da diese die körperliche Muskelspannung direkt verstärken.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-brand-cream">
+    <div class="container-narrow max-w-3xl">
+      <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-10">Häufige Fragen</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Was ist eine ergonomische Gefährdungsbeurteilung?</h3>
+          <p class="text-slate-600">Eine ergonomische Gefährdungsbeurteilung ist eine systematische Analyse des Arbeitsplatzes, bei der körperliche Belastungen, Haltung, Ausstattung und Umgebungsfaktoren bewertet werden. Sie ist nach ArbSchG und ArbStättV für alle Bildschirmarbeitsplätze gesetzlich vorgeschrieben.</p>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Ist die Gefährdungsbeurteilung für Homeoffice-Arbeitsplätze Pflicht?</h3>
+          <p class="text-slate-600">Ja. Der Arbeitgeber trägt die Fürsorgepflicht auch für Heimarbeitsplätze. Die Gefährdungsbeurteilung muss dokumentiert und regelmäßig aktualisiert werden — unabhängig davon, ob die Arbeit im Büro oder zu Hause stattfindet.</p>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Wie lange dauert die Selbstbeurteilung?</h3>
+          <p class="text-slate-600">Die 29 Fragen sind in der Regel in 5 bis 10 Minuten zu beantworten. Der Bericht wird sofort nach Abschluss generiert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white">
+    <div class="container-narrow">
+      <div class="bg-brand-cream p-10 md:p-16 rounded-sm border border-slate-200 text-center">
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-4">Professionelle Auswertung gewünscht?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+          Das Selbstbeurteilungstool liefert eine ausgezeichnete Grundlage. Wenn der Bericht Hochrisikobereiche aufzeigt oder ein Mitarbeiter bereits Beschwerden hat, brauchen Sie eine Fachspezialistin.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">Kostenlose Beurteilung starten</a>
+          <a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="px-6 py-3 border-2 border-brand-dark text-brand-dark font-semibold rounded-sm hover:bg-brand-dark hover:text-white transition-colors">Professionelle Analyse buchen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

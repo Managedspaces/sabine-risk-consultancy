@@ -1,33 +1,61 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "Arbeitsschutz & Ergonomie Beratung für Remote-Teams | Sabine";
-const description = "Rechtssichere ergonomische Gefährdungsbeurteilungen und Arbeitsschutz-Audits für KMU mit Remote- und Hybrid-Belegschaft. Konform mit ArbSchG, ArbStättV und DGUV-Vorgaben.";
+const title = "Betriebliches Wohlbefinden für Remote-KMU | Sabine Salowsky";
+const description = "Praktisches Wohlbefinden am Arbeitsplatz für Remote- und Hybrid-KMU mit 10–250 Mitarbeitern. Ergonomie-Analysen, Wohlbefindens-Audits und laufende Beratung im DACH-Raum — direkt von Sabine Salowsky, B.Sc. Ergotherapie.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const deHomepageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteURL}/de#webpage`,
+  "url": `${siteURL}/de`,
+  "name": title,
+  "description": description,
+  "inLanguage": "de-DE",
+  "isPartOf": { "@id": `${siteURL}/#website` },
+  "about": { "@id": `${siteURL}/#organization` },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Startseite", "item": `${siteURL}/de` }]
+  }
+};
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="de"
-  hreflangEn="https://example.com/"
-  hreflangDe="https://example.com/de"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/de"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de"
+  pageSchema={deHomepageSchema}
 >
 
   <!-- Hero -->
-  <section class="relative bg-brand-dark overflow-hidden">
-    <div class="container-wide relative py-24 md:py-32">
+  <section class="relative bg-brand-dark overflow-hidden" style="min-height:600px">
+    <div class="absolute inset-0">
+      <img src="/images/hero-homepage.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" loading="eager" />
+      <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.88) 0%, rgba(10,36,99,0.72) 50%, rgba(10,36,99,0.55) 100%);"></div>
+    </div>
+    <div class="container-wide relative py-28 md:py-36">
       <div class="max-w-3xl">
-        <p class="section-label text-brand-accentLight mb-6">Arbeitsschutz &amp; Ergonomie Beratung</p>
-        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-8">
-          Rechtssicher.<br />
-          <span class="text-brand-accentLight">Prüfungsfest. Praxisnah.</span>
+        <p class="section-label text-brand-accentLight mb-6">Betriebliches Wohlbefinden für Remote- und Hybrid-Teams</p>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-6">
+          Gesundes Unternehmen.<br />
+          Gesunde Menschen.<br />
+          <span class="text-brand-accentLight">Gesunde Teams.</span>
         </h1>
-        <p class="text-slate-300 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
-          Ergonomische Gefährdungsbeurteilungen und Arbeitsschutz-Audits für KMU mit Remote- und Hybrid-Belegschaft. Konform mit ArbSchG, ArbStättV und DGUV-Vorgaben. Vollständig digital durchführbar.
+        <p class="text-slate-300 text-lg md:text-xl leading-relaxed mb-6 max-w-2xl">
+          Sie brauchen keine globale Arbeitsschutzabteilung. Sie brauchen praktische, evidenzbasierte Systeme, die für ein 40-köpfiges Remote-Team wirklich funktionieren — und eine Spezialistin, die direkt mit Ihnen arbeitet.
+        </p>
+        <p class="text-slate-400 text-base leading-relaxed mb-10 max-w-2xl">
+          Sabine Salowsky arbeitet mit KMU von 10 bis 250 Mitarbeitern in Deutschland, Österreich, der Schweiz, Grossbritannien und Irland — und hilft verteilten Teams, Arbeitsumgebungen zu gestalten, in denen Menschen wirklich aufblühen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="/de/leistungen" class="btn-primary">Unsere Leistungen</a>
-          <a href="/de/kontakt" class="inline-block border border-slate-400 text-slate-300 font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-white hover:text-brand-dark">Beratung anfragen</a>
+          <a href="/de/kontakt" class="inline-block border border-slate-400 text-slate-300 font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-white hover:text-brand-dark">Gespräch anfragen</a>
         </div>
       </div>
     </div>
@@ -39,19 +67,15 @@ const description = "Rechtssichere ergonomische Gefährdungsbeurteilungen und Ar
       <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-xs font-semibold text-slate-500 uppercase tracking-widest">
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          ArbSchG konform
+          Sie arbeiten direkt mit Sabine
         </span>
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          ArbStattV &amp; BildscharbV
+          KMU mit 10–250 Mitarbeitern
         </span>
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          DGUV-Leitlinien
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          HSE (UK) &amp; HSA (Irland)
+          🇩🇪 🇨🇭 🇦🇹 🇬🇧 🇮🇪 DACH &amp; UK/Irland
         </span>
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -61,20 +85,257 @@ const description = "Rechtssichere ergonomische Gefährdungsbeurteilungen und Ar
     </div>
   </section>
 
-  <!-- Risk Framing DE -->
+  <!-- Wellbeing & Productivity — LEAD SECTION DE -->
+  <section class="relative py-20 md:py-28 overflow-hidden" style="background-color:#0A2463">
+    <div class="absolute inset-0">
+      <img src="/images/wellbeing-bg.webp" alt="" role="presentation" class="w-full h-full object-cover opacity-15" />
+    </div>
+    <div class="container-wide relative">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="section-label text-brand-accentLight mb-4">Der Wohlbefindens-Vorteil</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-white leading-tight mb-6">
+          Die gesamte Umgebung zählt.<br />
+          <span class="text-brand-accentLight">Nicht nur der Arbeitsplatz.</span>
+        </h2>
+        <p class="text-slate-300 leading-relaxed">
+          Die Wissenschaft des betrieblichen Wohlbefindens hat sich weit über Tischhöhe und Monitorposition hinausentwickelt. Die physische Umgebung, die sensorische Umgebung, der Zugang zu Erholungsräumen, die Qualität des Lichts, sogar die Schriftart auf einem Bildschirm — all das beeinflusst, wie Ihre Mitarbeiter denken, fühlen und arbeiten. Und die Belege, die diese Umgebung mit Unternehmensergebnissen verknüpfen, sind heute eindeutig.
+        </p>
+      </div>
+
+      <!-- Two-column: narrative + stat grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+        <div>
+          <h3 class="font-serif text-2xl font-semibold text-white mb-5">Das Leistungspotenzial, das Sie noch nicht ausschöpfen.</h3>
+          <p class="text-slate-300 leading-relaxed mb-5">
+            Eine Studie der Universität Oxford ergab, dass zufriedene Mitarbeiter 13 Prozent produktiver sind. Eine globale Studie mit 7.600 Beschäftigten zeigte, dass Mitarbeiter mit natürlichen Elementen und Grünblick in ihrer Arbeitsumgebung 6 Prozent produktiver waren und 15 Prozent höhere Wohlbefindenswerte berichteten. Zirkadian ausgerichtetes Licht reduziert messbar die Nachmittagsmüdigkeit. Sogar Schriftarten und Zeilenabstände auf dem Bildschirm beeinflussen die kognitive Belastung und wie schnell Menschen ermüden.
+          </p>
+          <p class="text-slate-300 leading-relaxed mb-5">
+            Das ist nicht abstrakt. Es ist der kumulierte Effekt von Dutzenden kleiner Umgebungsentscheidungen — die die meisten Remote- und Hybrid-Mitarbeiter ohne jede Anleitung treffen. Ein Heimarbeitsplatz wird selten gestaltet. Er wird aus dem zusammengestellt, was gerade verfügbar ist. Und die kumulativen Kosten dieser Improvisation, in Energie, Konzentration und Leistung, sind erheblich.
+          </p>
+          <p class="text-slate-300 leading-relaxed mb-8">
+            Allein in Deutschland kosten Muskel-Skelett-Erkrankungen Unternehmen jährlich über 17 Milliarden Euro an Produktivitätsverlust. Aber die körperlichen Beschwerden sind nur ein Teil des Bildes. Addiert man die kognitive Belastung durch schlechte Beleuchtung, die mentale Erschöpfung durch eine unruhige sensorische Umgebung und das Fehlen jeglicher Erholungsräume, sind die wahren Kosten einer schlecht gestalteten Arbeitsumgebung erheblich höher.
+          </p>
+          <div class="border-l-4 pl-5" style="border-color:#C65A1E">
+            <p class="text-white font-medium leading-relaxed">
+              Forschungen des Center for Occupational and Environmental Health der UC Berkeley zeigen, dass Ergonomie- und Arbeitsschutzprogramme im Durchschnitt mit einer 66-prozentigen Produktivitätssteigerung und einem Kosten-Nutzen-Verhältnis von 2:1 bis 10:1 verbunden sind. Jeder investierte Euro bringt zwischen zwei und zehn Euro messbaren Nutzen zurück.
+            </p>
+            <p class="text-slate-400 text-xs mt-3">Quelle: UC Berkeley Center for Occupational and Environmental Health, 2021</p>
+          </div>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="bg-brand-accent/20 border border-brand-accent/30 rounded-sm p-6">
+            <p class="font-serif text-4xl font-semibold text-brand-accentLight mb-3">66%</p>
+            <p class="text-slate-300 text-sm leading-snug mb-2">Durchschnittliche Produktivitätssteigerung durch Ergonomie- und Arbeitsschutzprogramme in wissenschaftlichen Fallstudien.</p>
+            <p class="text-slate-500 text-xs">Quelle: UC Berkeley COEH, 2021</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-sm p-6">
+            <p class="font-serif text-4xl font-semibold text-brand-accentLight mb-3">2–10×</p>
+            <p class="text-slate-300 text-sm leading-snug mb-2">Return on Investment durch ergonomische Massnahmen. Für jeden investierten Euro erzielen Unternehmen zwischen 2 und 10 Euro messbaren Nutzen.</p>
+            <p class="text-slate-500 text-xs">Quelle: UC Berkeley COEH, 2021</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-sm p-6">
+            <p class="font-serif text-4xl font-semibold text-brand-accentLight mb-3">60%</p>
+            <p class="text-slate-300 text-sm leading-snug mb-2">Der Arbeitnehmer berichten in einem 12-Monats-Zeitraum über mindestens eine Muskel-Skelett-Erkrankung. Die meisten arbeiten weiter — aber unter ihrem eigentlichen Potenzial.</p>
+            <p class="text-slate-500 text-xs">Quelle: EU-OSHA / PMC, 2025</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-sm p-6">
+            <p class="font-serif text-4xl font-semibold text-brand-accentLight mb-3">24,7%</p>
+            <p class="text-slate-300 text-sm leading-snug mb-2">Der europäischen Arbeitnehmer berichten über Rückenschmerzen am Arbeitsplatz — die häufigste und kostspieligste Ursache für Produktivitätsverluste.</p>
+            <p class="text-slate-500 text-xs">Quelle: ESWC / EU-OSHA</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three-column benefit summary -->
+      <div class="border-t border-white/10 pt-12">
+        <p class="text-center text-xs font-semibold uppercase tracking-widest text-slate-500 mb-10">Was ein ganzheitliches Wohlbefindens-Programm liefert</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-brand-accent/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-accentLight" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-white mb-2">Schärferer Fokus, bessere Ergebnisse</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Wenn die physische Umgebung den Körper und die sensorische Umgebung den Geist unterstützt, denken Menschen klarer, ermüden langsamer und liefern qualitativ hochwertigere Arbeit. Die Oxford-Forschung beziffert den Produktivitätsgewinn auf 13 Prozent.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-brand-accent/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-accentLight" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-white mb-2">Echte Freude an der Arbeit</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Zugang zu natürlichem Licht, Grünblick, Erholungsräumen und einer durchdachten Umgebung verbessert die Stimmung, reduziert Stress und erhöht das Wohlbefinden. Mitarbeiter, die sich wertgeschätzt fühlen, sind engagierter, loyaler und bleiben länger.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-brand-accent/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-accentLight" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-white mb-2">Messbare Unternehmensergebnisse</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Gallup-Forschung verknüpft hohes Mitarbeiterengagement mit 21 Prozent höherer Rentabilität. UC Berkeley fand einen 2- bis 10-fachen Return on Investment aus strukturierten Wohlbefindens-Programmen. Zufriedene Menschen sind nicht nur ein moralisches Gut — sie sind ein wirtschaftliches.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services DE -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-wide">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="section-label mb-4">Unsere Leistungen</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-brand-dark leading-tight mb-4">
+          Praktisches Wohlbefinden für KMU
+        </h2>
+        <p class="text-slate-600 leading-relaxed">
+          Drei fokussierte Leistungen, die das Arbeitsumfeld Ihres Teams in jeder Dimension verbessern — physisch, sensorisch und psychologisch — damit Ihre Mitarbeiter jeden Tag ihr Bestes geben können.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="group border border-slate-100 rounded-sm p-8 hover:border-brand-accent hover:shadow-md transition-all duration-200 bg-white">
+          <div class="w-10 h-10 bg-brand-cream rounded-sm flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 01.75 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.376-.694-4.59-1.893-6.455"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Persönliche Ergonomie-Analyse</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">Eine individuelle Analyse für Remote- und Hybrid-Mitarbeiter. Wir schauen genau hin, was sie körperlich zurückhält, und liefern einen klaren, umsetzbaren Verbesserungsplan — damit sie sich besser fühlen und besser arbeiten.</p>
+          <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Ab 345 EUR pro Mitarbeiter</p>
+          <a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
+            Mehr erfahren
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="group border border-brand-accent rounded-sm p-8 hover:shadow-md transition-all duration-200 bg-white relative">
+          <div class="absolute top-4 right-4 bg-brand-accent text-white text-xs font-semibold px-2 py-1 rounded-sm uppercase tracking-wide">Beliebt</div>
+          <div class="w-10 h-10 bg-brand-cream rounded-sm flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Wohlbefindens-Analyse für KMU</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">Eine umfassende Bestandsaufnahme, wie Ihr Remote- oder Hybrid-Team tatsächlich arbeitet — physische Umgebung, sensorische Bedingungen, Arbeitsabläufe. Sie erhalten ein klares Bild, wo Ihr Team Energie und Fokus verliert, und einen priorisierten Plan zur Verbesserung.</p>
+          <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Projektbasiert ab 2.100 EUR</p>
+          <a href="/de/leistungen/arbeitsschutz-audit" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
+            Mehr erfahren
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="group border border-slate-100 rounded-sm p-8 hover:border-brand-accent hover:shadow-md transition-all duration-200 bg-white">
+          <div class="w-10 h-10 bg-brand-cream rounded-sm flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Laufende Wohlbefindens-Partnerschaft</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">Kontinuierliche Begleitung, während Ihr Team wächst und sich verändert. Quartalsweise Check-ins, Onboarding-Analysen für neue Mitarbeiter und ein direkter Draht zu Expertenrat — damit das Arbeitsumfeld Ihres Teams immer ihre beste Leistung unterstützt.</p>
+          <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Ab 650 EUR pro Monat</p>
+          <a href="/de/leistungen/arbeitsschutz-retainer" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
+            Mehr erfahren
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Für wen wir arbeiten DE -->
+  <section class="py-16 md:py-20 bg-brand-cream">
+    <div class="container-wide">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <p class="section-label mb-4">Für wen wir arbeiten</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-brand-dark leading-tight mb-4">
+          Für wachsende, verteilte Teams.
+        </h2>
+        <p class="text-slate-600 leading-relaxed">
+          Wir arbeiten nicht mit Grosskonzernen. Wir arbeiten mit Unternehmen, in denen der Gründer noch jeden beim Namen kennt — und in denen das Arbeitsumfeld direkt widerspiegelt, wie sehr die Führung ihre Mitarbeiter schätzt.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white rounded-sm p-6 border border-brand-border shadow-sm">
+          <div class="w-10 h-10 bg-brand-accent/10 rounded-sm flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/></svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Remote-First-Unternehmen</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Technologieunternehmen, Agenturen und Beratungen, bei denen das Team überwiegend oder vollständig im Homeoffice arbeitet — und bei denen diese Umgebungen noch nie systematisch bewertet wurden.</p>
+        </div>
+        <div class="bg-white rounded-sm p-6 border border-brand-border shadow-sm">
+          <div class="w-10 h-10 bg-brand-accent/10 rounded-sm flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/></svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Wachsende KMU (10–250 MA)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Inhabergeführte Unternehmen, die über den Punkt hinausgewachsen sind, an dem informelle Regelungen funktionieren — und bei denen ein strukturierter, verhältnismässiger Ansatz für Wohlbefinden überfällig ist.</p>
+        </div>
+        <div class="bg-white rounded-sm p-6 border border-brand-border shadow-sm">
+          <div class="w-10 h-10 bg-brand-accent/10 rounded-sm flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Grenzüberschreitende Arbeitgeber</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Unternehmen, die von UK oder Irland nach Deutschland, Österreich oder in die Schweiz expandieren — oder umgekehrt — und die ihre Pflichten in beiden Rechtssystemen gleichzeitig verstehen müssen.</p>
+        </div>
+        <div class="bg-white rounded-sm p-6 border border-brand-border shadow-sm">
+          <div class="w-10 h-10 bg-brand-accent/10 rounded-sm flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Hybrid-Teams im Wandel</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Organisationen, die von Vollbüro auf Hybrid oder vollständig Remote umstellen — bei denen sich das Arbeitsumfeld grundlegend verändert hat, das Wohlbefindens-Programm aber nicht Schritt gehalten hat.</p>
+        </div>
+      </div>
+      <div class="bg-brand-dark rounded-sm p-8 max-w-3xl mx-auto text-center">
+        <p class="font-serif text-white text-xl font-medium leading-relaxed mb-3">&ldquo;Sie brauchen keine Unternehmens-Bürokratie. Sie brauchen praktische, remote-taugliche Systeme, die für Ihr Team funktionieren — und jemanden, der die Namen Ihrer Mitarbeiter wirklich kennt.&rdquo;</p>
+        <p class="text-brand-accentLight text-sm font-semibold uppercase tracking-wide">Sabine Salowsky, Gründerin</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Founder DE -->
+  <section class="py-20 md:py-28 bg-brand-cream">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1">
+          <p class="section-label mb-4">Über die Gründerin</p>
+          <h2 class="font-serif text-3xl md:text-4xl font-semibold text-brand-dark leading-tight mb-6">
+            Klinische Präzision. Wirtschaftliches Verständnis.
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Sabine Salowsky besitzt einen B.Sc. in Ergotherapie und ein Diplom als Biologin mit Schwerpunkt Physiologische Psychologie. Sie bringt direkte betriebsmedizinische Erfahrung — unter anderem aus der Arbeitsmedizin der D. Swarovski KG — und ein tiefes Verständnis der menschlichen Leistungsfähigkeit in den KMU-Markt.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Wenn Sie mit Sabine arbeiten, arbeiten Sie mit Sabine. Kein Junior-Berater, kein Account-Manager, keine Weitergabe. Jede Analyse, jeder Bericht, jedes Gespräch ist mit der Person, deren Name auf dem Türschild steht.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            Sie arbeitet exklusiv mit Organisationen von 10 bis 250 Mitarbeitern zusammen und bringt klinische Präzision und echtes menschliches Verständnis in die Aufgabe, Remote- und Hybrid-Arbeit wirklich gut zu gestalten.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="text-xs font-semibold bg-white border border-brand-border text-brand-dark px-3 py-1.5 rounded-sm uppercase tracking-wide">B.Sc. Ergotherapie</span>
+            <span class="text-xs font-semibold bg-white border border-brand-border text-brand-dark px-3 py-1.5 rounded-sm uppercase tracking-wide">Dipl.-Biol.</span>
+            <span class="text-xs font-semibold bg-white border border-brand-border text-brand-dark px-3 py-1.5 rounded-sm uppercase tracking-wide">Zweisprachig DE / EN</span>
+            <span class="text-xs font-semibold bg-white border border-brand-border text-brand-dark px-3 py-1.5 rounded-sm uppercase tracking-wide">Betriebsmedizin-Erfahrung</span>
+          </div>
+          <a href="/de/ueber-uns" class="btn-outline">Vollständiges Profil lesen</a>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="bg-brand-dark rounded-sm aspect-[4/5] relative overflow-hidden">
+            <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-full h-full object-cover" loading="lazy" width="400" height="400" />
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="bg-brand-dark/80 backdrop-blur-sm rounded-sm p-4 border border-white/10">
+                <p class="font-serif text-white text-lg font-semibold">Sabine Salowsky</p>
+                <p class="text-brand-accentLight text-xs mt-1">B.Sc. Ergotherapie, Dipl.-Biol.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Reality DE — reinforcing argument -->
   <section class="py-20 md:py-28 bg-brand-bg">
     <div class="container-wide">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="section-label mb-4">Die rechtliche Realität</p>
+          <p class="section-label mb-4">Auf Wissenschaft gebaut. Rechtlich abgesichert.</p>
           <h2 class="font-serif text-3xl md:text-4xl font-semibold text-brand-dark leading-tight mb-6">
-            Ergonomie ist keine Kür. Sie ist eine gesetzliche Pflicht.
+            Gesunde Arbeitsplätze sind auch gut dokumentierte.
           </h2>
           <p class="text-slate-600 leading-relaxed mb-6">
-            Das Arbeitsschutzgesetz (ArbSchG) verpflichtet Arbeitgeber, für jeden Arbeitsplatz eine Gefährdungsbeurteilung durchzuführen und zu dokumentieren. Das gilt ausdrücklich auch für Homeoffice-Arbeitsplätze. Die Arbeitsstättenverordnung (ArbStättV) und die Bildschirmarbeitsverordnung konkretisieren diese Anforderungen für Büro- und Bildschirmarbeitsplätze.
+            In Deutschland, Österreich und der Schweiz haben Arbeitgeber eine Fürsorgepflicht gegenüber jedem Mitarbeiter — auch im Homeoffice. Ein gut strukturiertes Wohlbefindens-Programm erzeugt ganz natürlich die Dokumentation, die diese Pflichten erfüllt. Sie müssen nicht zwischen der Fürsorge für Ihre Mitarbeiter und Ihren gesetzlichen Pflichten wählen. Richtig umgesetzt, sind es zwei Seiten derselben Medaille.
           </p>
           <p class="text-slate-600 leading-relaxed mb-8">
-            Die meisten KMU verfügen weder über eine aktuelle Gefährdungsbeurteilung für ihre Remote-Mitarbeiter noch über die Dokumentation, die im Falle einer Betriebsprüfung, eines Versicherungsfalles oder einer arbeitsrechtlichen Auseinandersetzung erforderlich wäre. Genau hier setzen wir an.
+            Wenn Sie wirklich in das Arbeitsumfeld Ihrer Mitarbeiter investieren, ergibt sich die Dokumentation von selbst. Das Ziel ist ein gesünderes, glücklicheres Team. Alles andere folgt daraus.
           </p>
           <a href="/de/leistungen" class="btn-primary">Unsere Leistungen entdecken</a>
         </div>
@@ -92,63 +353,9 @@ const description = "Rechtssichere ergonomische Gefährdungsbeurteilungen und Ar
             <p class="text-sm text-slate-600 leading-snug">der deutschen Unternehmen haben keine dokumentierte Gefährdungsbeurteilung für Homeoffice-Arbeitsplätze</p>
           </div>
           <div class="bg-brand-dark rounded-sm p-6">
-            <p class="font-serif text-3xl font-semibold text-brand-accentLight mb-2">3 Tage</p>
-            <p class="text-sm text-slate-300 leading-snug">Durchschnittliche Homeoffice-Nutzung pro Woche in deutschen KMU seit 2023</p>
+            <p class="font-serif text-3xl font-semibold text-brand-accentLight mb-2">2–10×</p>
+            <p class="text-sm text-slate-300 leading-snug">ROI auf Ergonomie-Investitionen — jeder investierte Euro bringt 2 bis 10 Euro messbaren Nutzen zurück</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services DE -->
-  <section class="py-20 md:py-28 bg-white">
-    <div class="container-wide">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <p class="section-label mb-4">Unsere Leistungen</p>
-        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-brand-dark leading-tight mb-4">
-          Strukturierter Arbeitsschutz für KMU
-        </h2>
-        <p class="text-slate-600 leading-relaxed">
-          Drei fokussierte Leistungen, die Sie von der Compliance-Lücke zur dokumentierten, rechtssicheren Absicherung führen.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="group border border-slate-100 rounded-sm p-8 hover:border-brand-accent hover:shadow-md transition-all duration-200 bg-white">
-          <div class="w-10 h-10 bg-brand-cream rounded-sm flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 01.75 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.376-.694-4.59-1.893-6.455"/></svg>
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Ergonomische Gefährdungsbeurteilung</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">Individuelle Beurteilung für Remote- und Hybrid-Mitarbeiter. Fragebogen, Foto-Auswertung, schriftlicher Bericht und prüfungsfeste Dokumentation gemäss ArbSchG und BildscharbV.</p>
-          <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Ab 345 EUR pro Mitarbeiter</p>
-          <a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
-            Mehr erfahren
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="group border border-brand-accent rounded-sm p-8 hover:shadow-md transition-all duration-200 bg-white relative">
-          <div class="absolute top-4 right-4 bg-brand-accent text-white text-xs font-semibold px-2 py-1 rounded-sm uppercase tracking-wide">Beliebt</div>
-          <div class="w-10 h-10 bg-brand-cream rounded-sm flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Arbeitsschutz-Audit für KMU</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">Umfassende Compliance-Analyse für Ihre Remote- und Hybrid-Belegschaft. Richtlinienprüfung, Risikomatrix, Massnahmenplan und Ausrichtung an ArbSchG, ArbStättV und DGUV-Vorgaben.</p>
-          <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Projektbasiert ab 2.100 EUR</p>
-          <a href="/de/leistungen/arbeitsschutz-audit" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
-            Mehr erfahren
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="group border border-slate-100 rounded-sm p-8 hover:border-brand-accent hover:shadow-md transition-all duration-200 bg-white">
-          <div class="w-10 h-10 bg-brand-cream rounded-sm flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Arbeitsschutz-Retainer</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">Laufende Betreuung für wachsende KMU. Quartalsweise Überprüfungen, Beurteilungen für neue Mitarbeiter, Aktualisierungen bei Rechtsänderungen und priorisierter Beratungszugang.</p>
-          <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Ab 650 EUR pro Monat</p>
-          <a href="/de/leistungen/arbeitsschutz-retainer" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
-            Mehr erfahren
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
         </div>
       </div>
     </div>
@@ -159,10 +366,10 @@ const description = "Rechtssichere ergonomische Gefährdungsbeurteilungen und Ar
     <div class="container-narrow text-center">
       <p class="section-label text-brand-accentLight mb-4">Jetzt handeln</p>
       <h2 class="font-serif text-3xl md:text-4xl font-semibold text-white leading-tight mb-6">
-        Lassen Sie uns Ihre Compliance-Situation gemeinsam analysieren.
+        Investieren Sie in Ihr Team. Erleben Sie, wie es aufblüht.
       </h2>
       <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-        Vereinbaren Sie ein kostenloses 20-minütiges Erstgespräch, um Ihren Handlungsbedarf zu besprechen.
+        Vereinbaren Sie ein unverbindliches Erstgespräch und entdecken Sie, was ein gesünderes, energiegeladeneres Arbeitsumfeld für Ihr Team bedeuten könnte.
       </p>
       <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beratung anfragen</a>
     </div>

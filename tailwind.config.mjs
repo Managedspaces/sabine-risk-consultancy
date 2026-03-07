@@ -4,21 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        slate: {
-          950: '#0B1120',
-        },
         brand: {
-          dark: '#1E293B',
-          mid: '#334155',
-          accent: '#4A7C59',
-          accentLight: '#6BAF7A',
-          bg: '#F8FAFC',
-          cream: '#F1F5F0',
+          // Primary
+          dark:        '#0A2463',   // Deep Navy — hero bg, footer, dark sections
+          blue:        '#3E92CC',   // Professional Blue — links, secondary highlights
+          // Accent
+          accent:      '#C65A1E',   // Burnt Orange — CTAs, icons, active borders
+          accentHover: '#A34716',   // Darker Burnt Orange — hover states
+          accentLight: '#F6E6DC',   // Soft Accent Background — card tints, cream areas
+          // Neutrals
+          bg:          '#F5F7FA',   // Soft Off-White — page background
+          cream:       '#F6E6DC',   // Alias for accentLight (used in templates)
+          border:      '#E2E8F0',   // Borders
+          textMain:    '#2A2A2A',   // Body text
+          textLight:   '#6B7280',   // Muted / secondary text
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+        sans:  ['Inter', '"Helvetica Neue"', 'Arial', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        sm: '6px',
       },
     },
   },

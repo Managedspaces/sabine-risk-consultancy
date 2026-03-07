@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TOOLS_APP_URL } from '../../config/site';
+
+const title = "Home Office Risk Assessment Tool | Sabine Salowsky";
+const description = "A structured 30-question self-assessment tool to evaluate the safety and suitability of remote workspaces. Covers ergonomics, fire, and electrical safety.";
+
+const canonicalUrl = "https://sabine-risk-consultancy.netlify.app/tools/home-office-assessment";
+const hreflangPairs = [
+  { lang: "en", url: "https://sabine-risk-consultancy.netlify.app/tools/home-office-assessment" }
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Tools", url: "/tools" },
+  { name: "Home Office Assessment", url: "/tools/home-office-assessment" }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Home Office Risk Assessment Tool",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "WebBrowser",
+  "description": "Assess the safety of remote workspaces across six key risk categories.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+};
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  canonicalUrl={canonicalUrl}
+  hreflangPairs={hreflangPairs}
+  breadcrumbs={breadcrumbs}
+  schema={schema}
+>
+
+  <section class="pt-32 pb-20 bg-brand-dark text-white">
+    <div class="container-narrow">
+      <a href="/tools" class="inline-block text-brand-accentLight hover:text-white transition-colors mb-8">&larr; Back to all tools</a>
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <div class="flex-1">
+          <p class="section-label text-brand-accentLight mb-4">Self-Assessment Tool</p>
+          <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight mb-6">
+            Home Office Risk Assessment
+          </h1>
+          <p class="text-xl text-slate-300 leading-relaxed mb-8">
+            Assess the safety of your remote workspace across six key risk categories. A 30-question tool designed to identify hazards that are invisible to the employer but legally their responsibility.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary text-base px-8 py-4">Launch Assessment Tool</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 bg-white/5 border border-white/10 rounded-sm p-8">
+          <h3 class="font-serif text-xl font-semibold mb-4">Tool Specifications</h3>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Questions</span> <span class="font-semibold text-white">30</span>
+            </li>
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Categories</span> <span class="font-semibold text-white">6</span>
+            </li>
+            <li class="flex justify-between border-b border-white/10 pb-2">
+              <span>Jurisdictions</span> <span class="font-semibold text-white">6</span>
+            </li>
+            <li class="flex justify-between pb-2">
+              <span>Time required</span> <span class="font-semibold text-white">10 mins</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="container-narrow">
+      <div class="max-w-3xl">
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-6">The invisible workplace</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-10">
+          When an employee works from home, their dining table or spare room becomes an extension of your workplace. You hold the same duty of care for that environment as you do for the corporate office, but you cannot see it. This tool bridges that gap.
+        </p>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">1. Workspace Environment</h3>
+            <p class="text-slate-600">Evaluates space adequacy, ventilation, temperature control, and the physical separation between work and living areas.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">2. Electrical Safety</h3>
+            <p class="text-slate-600">Identifies overloaded sockets, trailing cables, and the condition of employer-provided electrical equipment.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">3. Fire Safety</h3>
+            <p class="text-slate-600">Checks for basic domestic fire safety provisions, clear exit routes, and safe storage of work materials.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">4. Ergonomics</h3>
+            <p class="text-slate-600">A high-level check of the physical setup (chair, desk, screen height) to flag immediate musculoskeletal risks.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">5. Work Organisation</h3>
+            <p class="text-slate-600">Assesses the ability to disconnect, the clarity of working hours, and communication frequency with the team.</p>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">6. Trip & Fall Hazards</h3>
+            <p class="text-slate-600">Identifies physical hazards in the immediate working area that could lead to an injury claim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-cream">
+    <div class="container-narrow">
+      <div class="bg-white p-10 md:p-16 rounded-sm shadow-sm border border-slate-200 text-center">
+        <h2 class="font-serif text-3xl font-semibold text-brand-dark mb-4">Rolling this out to a team?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+          If you have more than 10 remote employees, managing self-assessments manually becomes an administrative burden. We can manage the entire audit process for you.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">Try the Tool</a>
+          <a href="/services/sme-risk-audit" class="px-6 py-3 border-2 border-brand-dark text-brand-dark font-semibold rounded-sm hover:bg-brand-dark hover:text-white transition-colors">Explore the SME Audit Service</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

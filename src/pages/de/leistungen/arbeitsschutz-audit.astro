@@ -1,16 +1,42 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const title = "Arbeitsschutz-Audit für KMU | Remote & Hybrid Compliance | Sabine";
-const description = "Umfassendes Arbeitsschutz-Audit für KMU mit Remote- und Hybrid-Belegschaft. Risikomatrix, Massnahmenplan, ArbSchG-konform. Projektbasiert ab 2.100 EUR.";
+const title = "Wohlbefindens-Analyse für KMU | Sabine Salowsky";
+const description = "Umfassende Wohlbefindens-Analyse für Remote- und Hybrid-KMU in Deutschland, Österreich und der Schweiz. Priorisierter Verbesserungsplan inklusive. Ab 2.100 €.";
+
+const siteURL = 'https://sabine-risk-consultancy.netlify.app';
+
+const deAuditSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteURL}/de/leistungen/arbeitsschutz-audit#service`,
+  "name": "Wohlbefindens-Analyse für KMU",
+  "url": `${siteURL}/de/leistungen/arbeitsschutz-audit`,
+  "description": "Umfassende Wohlbefindens-Analyse für KMU mit Remote- und Hybrid-Belegschaft. Umgebungsanalyse, Lückenanalyse, priorisierter Verbesserungsplan und gesetzliche Ausrichtung.",
+  "provider": { "@id": `${siteURL}/#organization` },
+  "areaServed": [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" }
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "Kleines Team (bis 30 Mitarbeiter)", "price": "2100", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "Mittleres Team (31-100 Mitarbeiter)", "price": "3300", "priceCurrency": "EUR" }
+  ],
+  "serviceType": "Wohlbefindens-Audit",
+  "inLanguage": "de-DE"
+};
 ---
 
 <BaseLayout
   title={title}
   description={description}
   lang="de"
-  hreflangEn="https://example.com/services/sme-risk-audit"
-  hreflangDe="https://example.com/de/leistungen/arbeitsschutz-audit"
+  canonicalURL="https://sabine-risk-consultancy.netlify.app/de/leistungen/arbeitsschutz-audit"
+  hreflangEn="https://sabine-risk-consultancy.netlify.app/services/sme-risk-audit"
+  hreflangDe="https://sabine-risk-consultancy.netlify.app/de/leistungen/arbeitsschutz-audit"
+  breadcrumbs={[{name:'Startseite',url:'/de'},{name:'Leistungen',url:'/de/leistungen'},{name:'Wohlbefindens-Analyse für KMU',url:'/de/leistungen/arbeitsschutz-audit'}]}
+  pageSchema={deAuditSchema}
 >
 
   <section class="bg-brand-dark py-20 md:py-28">
@@ -115,11 +141,27 @@ const description = "Umfassendes Arbeitsschutz-Audit für KMU mit Remote- und Hy
     </div>
   </section>
 
+  <!-- Direkt mit Sabine -->
+  <section class="py-16 bg-brand-cream">
+    <div class="container-narrow">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0">
+          <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-28 h-28 rounded-sm object-cover object-top shadow-md" loading="lazy" width="400" height="400" />
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">So arbeiten wir</p>
+          <p class="font-serif text-xl font-semibold text-brand-dark mb-3">Sie arbeiten während des gesamten Audits direkt mit Sabine. Keine Übergaben, keine Junior-Berater.</p>
+          <p class="text-slate-600 leading-relaxed">Das Audit wird persönlich von Sabine Salowsky, B.Sc. Ergotherapie, Dipl.-Biol., durchgeführt. Sie analysiert die Arbeitsumgebungen Ihres Teams, verfasst den Bericht, präsentiert die Ergebnisse und steht für Rückfragen zur Verfügung. Für ein KMU ist dieser direkte Zugang zu einer Fachspezialistin wirklich ungewöhnlich — und genau das macht den Unterschied zwischen einem Bericht, der in der Schublade landet, und einem, der tatsächlich umgesetzt wird.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 bg-brand-dark">
     <div class="container-narrow text-center">
-      <p class="section-label text-brand-accentLight mb-4">Ihre Compliance-Basis schaffen</p>
+      <p class="section-label text-brand-accentLight mb-4">Bereit, das Arbeitsumfeld Ihres Teams zu verstehen?</p>
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
-        Handeln Sie, bevor Ihr Versicherer oder die Aufsichtsbehörde es tut.
+        Wohlbefindens-Analyse für KMU anfragen und das vollständige Bild sehen.
       </h2>
       <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Audit anfragen</a>
     </div>
