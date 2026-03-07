@@ -37,7 +37,7 @@ const homepageSchema = {
   <section class="relative bg-brand-dark overflow-hidden" style="min-height:600px">
     <!-- Full-bleed hero image with navy overlay -->
     <div class="absolute inset-0">
-      <img src="/images/hero-homepage.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" loading="eager" />
+      <img src={`${import.meta.env.BASE_URL}/images/hero-homepage.webp`} alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" loading="eager" />
       <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.88) 0%, rgba(10,36,99,0.72) 50%, rgba(10,36,99,0.55) 100%);"></div>
     </div>
     <div class="container-wide relative py-28 md:py-36">
@@ -94,7 +94,7 @@ const homepageSchema = {
   <section class="relative py-20 md:py-28 overflow-hidden" style="background-color:#0A2463">
     <!-- Subtle biophilic background image -->
     <div class="absolute inset-0">
-      <img src="/images/wellbeing-bg.webp" alt="" role="presentation" class="w-full h-full object-cover opacity-15" />
+      <img src={`${import.meta.env.BASE_URL}/images/wellbeing-bg.webp`} alt="" role="presentation" class="w-full h-full object-cover opacity-15" />
     </div>
     <div class="container-wide">
       <div class="relative text-center max-w-2xl mx-auto mb-16">
@@ -290,7 +290,7 @@ const homepageSchema = {
   <!-- About Founder -->
   <section class="relative py-20 md:py-28 overflow-hidden" style="background-color:#F5EFE6">
     <div class="absolute inset-0">
-      <img src="/images/about-bg.webp" alt="" role="presentation" class="w-full h-full object-cover opacity-8" style="opacity:0.06" />
+      <img src={`${import.meta.env.BASE_URL}/images/about-bg.webp`} alt="" role="presentation" class="w-full h-full object-cover opacity-8" style="opacity:0.06" />
     </div>
     <div class="container-wide">
       <div class="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -318,7 +318,7 @@ const homepageSchema = {
         </div>
         <div class="order-1 md:order-2">
           <div class="bg-brand-dark rounded-sm aspect-[4/5] relative overflow-hidden">
-            <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-full h-full object-cover" loading="lazy" width="400" height="400" />
+            <img src={`${import.meta.env.BASE_URL}/sabine-salowsky.webp`} alt="Sabine Salowsky" class="w-full h-full object-cover" loading="lazy" width="400" height="400" />
             <div class="absolute bottom-6 left-6 right-6">
               <div class="bg-brand-dark/80 backdrop-blur-sm rounded-sm p-4 border border-white/10">
                 <p class="font-serif text-white text-lg font-semibold">Sabine Salowsky</p>
@@ -443,7 +443,7 @@ const homepageSchema = {
   <!-- CTA Banner -->
   <section class="relative py-20 overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-homepage.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
+      <img src={`${import.meta.env.BASE_URL}/images/hero-homepage.webp`} alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
       <div class="absolute inset-0" style="background: rgba(10,36,99,0.88);"></div>
     </div>
     <div class="container-narrow text-center relative">

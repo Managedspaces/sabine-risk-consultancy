@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://managedspaces.github.io',
-  base: '/sabine-risk-consultancy',
+  base: '/sabine-risk-consultancy/',
   trailingSlash: 'never',
   vite: {
     preview: {

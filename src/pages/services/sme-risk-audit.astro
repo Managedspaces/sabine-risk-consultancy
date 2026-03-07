@@ -43,7 +43,7 @@ const auditServiceSchema = {
   <!-- Page Header -->
   <section class="relative bg-brand-dark py-20 md:py-28 overflow-hidden" style="min-height:380px">
     <div class="absolute inset-0">
-      <img src="/images/hero-audit.webp" alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
+      <img src={`${import.meta.env.BASE_URL}/images/hero-audit.webp`} alt="" role="presentation" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1080" />
       <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,36,99,0.90) 0%, rgba(10,36,99,0.75) 60%, rgba(10,36,99,0.50) 100%);"></div>
     </div>
     <div class="container-wide relative">
@@ -189,7 +189,7 @@ const auditServiceSchema = {
     <div class="container-narrow">
       <div class="flex flex-col md:flex-row items-center gap-10">
         <div class="flex-shrink-0">
-          <img src="/sabine-salowsky.webp" alt="Sabine Salowsky" class="w-28 h-28 rounded-sm object-cover object-top shadow-md" loading="lazy" width="400" height="400" />
+          <img src={`${import.meta.env.BASE_URL}/sabine-salowsky.webp`} alt="Sabine Salowsky" class="w-28 h-28 rounded-sm object-cover object-top shadow-md" loading="lazy" width="400" height="400" />
         </div>
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">A note on how we work</p>
