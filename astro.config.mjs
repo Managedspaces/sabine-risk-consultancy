@@ -5,7 +5,8 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://example.com',
+  site: 'https://managedspaces.github.io',
+  base: '/sabine-risk-consultancy',
   trailingSlash: 'never',
   vite: {
     preview: {
