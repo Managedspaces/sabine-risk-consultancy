@@ -42,9 +42,9 @@ const deAuditSchema = {
   <section class="bg-brand-dark py-20 md:py-28">
     <div class="container-wide">
       <nav class="text-xs text-slate-500 mb-8">
-        <a href="/de" class="hover:text-slate-300 transition-colors">Startseite</a>
+        <a href={`${import.meta.env.BASE_URL}/de`} class="hover:text-slate-300 transition-colors">Startseite</a>
         <span class="mx-2">/</span>
-        <a href="/de/leistungen" class="hover:text-slate-300 transition-colors">Leistungen</a>
+        <a href={`${import.meta.env.BASE_URL}/de/leistungen`} class="hover:text-slate-300 transition-colors">Leistungen</a>
         <span class="mx-2">/</span>
         <span class="text-slate-400">Arbeitsschutz-Audit</span>
       </nav>
@@ -56,7 +56,7 @@ const deAuditSchema = {
         Strukturierte, projektbasierte Analyse Ihrer gesamten Arbeitsschutz-Compliance. Richtlinienprüfung, Risikomatrix, Massnahmenplan und Ausrichtung an ArbSchG, ArbStättV und DGUV-Vorgaben.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
-        <a href="/de/kontakt" class="btn-primary">Audit anfragen</a>
+        <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary">Audit anfragen</a>
         <div class="text-slate-400 text-sm py-3">
           <span class="font-semibold text-white">Ab 2.100 EUR</span> &nbsp;|&nbsp; Projektbasiert, Festpreis
         </div>
@@ -163,7 +163,7 @@ const deAuditSchema = {
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
         Wohlbefindens-Analyse für KMU anfragen und das vollständige Bild sehen.
       </h2>
-      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Audit anfragen</a>
+      <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary text-base px-8 py-4">Audit anfragen</a>
     </div>
   </section>
 

@@ -54,8 +54,8 @@ const deHomepageSchema = {
           Sabine Salowsky arbeitet mit KMU von 10 bis 250 Mitarbeitern in Deutschland, Österreich, der Schweiz, Grossbritannien und Irland — und hilft verteilten Teams, Arbeitsumgebungen zu gestalten, in denen Menschen wirklich aufblühen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/de/leistungen" class="btn-primary">Unsere Leistungen</a>
-          <a href="/de/kontakt" class="inline-block border border-slate-400 text-slate-300 font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-white hover:text-brand-dark">Gespräch anfragen</a>
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen`} class="btn-primary">Unsere Leistungen</a>
+          <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="inline-block border border-slate-400 text-slate-300 font-semibold px-6 py-3 rounded-sm tracking-wide text-sm uppercase transition-all duration-200 hover:bg-white hover:text-brand-dark">Gespräch anfragen</a>
         </div>
       </div>
     </div>
@@ -198,7 +198,7 @@ const deHomepageSchema = {
           <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Persönliche Ergonomie-Analyse</h3>
           <p class="text-slate-600 text-sm leading-relaxed mb-6">Eine individuelle Analyse für Remote- und Hybrid-Mitarbeiter. Wir schauen genau hin, was sie körperlich zurückhält, und liefern einen klaren, umsetzbaren Verbesserungsplan — damit sie sich besser fühlen und besser arbeiten.</p>
           <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Ab 345 EUR pro Mitarbeiter</p>
-          <a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen/ergonomische-gefaehrdungsbeurteilung`} class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
             Mehr erfahren
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
@@ -211,7 +211,7 @@ const deHomepageSchema = {
           <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Wohlbefindens-Analyse für KMU</h3>
           <p class="text-slate-600 text-sm leading-relaxed mb-6">Eine umfassende Bestandsaufnahme, wie Ihr Remote- oder Hybrid-Team tatsächlich arbeitet — physische Umgebung, sensorische Bedingungen, Arbeitsabläufe. Sie erhalten ein klares Bild, wo Ihr Team Energie und Fokus verliert, und einen priorisierten Plan zur Verbesserung.</p>
           <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Projektbasiert ab 2.100 EUR</p>
-          <a href="/de/leistungen/arbeitsschutz-audit" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen/arbeitsschutz-audit`} class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
             Mehr erfahren
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
@@ -223,7 +223,7 @@ const deHomepageSchema = {
           <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Laufende Wohlbefindens-Partnerschaft</h3>
           <p class="text-slate-600 text-sm leading-relaxed mb-6">Kontinuierliche Begleitung, während Ihr Team wächst und sich verändert. Quartalsweise Check-ins, Onboarding-Analysen für neue Mitarbeiter und ein direkter Draht zu Expertenrat — damit das Arbeitsumfeld Ihres Teams immer ihre beste Leistung unterstützt.</p>
           <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-6">Ab 650 EUR pro Monat</p>
-          <a href="/de/leistungen/arbeitsschutz-retainer" class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen/arbeitsschutz-retainer`} class="text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors flex items-center gap-2">
             Mehr erfahren
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
@@ -305,7 +305,7 @@ const deHomepageSchema = {
             <span class="text-xs font-semibold bg-white border border-brand-border text-brand-dark px-3 py-1.5 rounded-sm uppercase tracking-wide">Zweisprachig DE / EN</span>
             <span class="text-xs font-semibold bg-white border border-brand-border text-brand-dark px-3 py-1.5 rounded-sm uppercase tracking-wide">Betriebsmedizin-Erfahrung</span>
           </div>
-          <a href="/de/ueber-uns" class="btn-outline">Vollständiges Profil lesen</a>
+          <a href={`${import.meta.env.BASE_URL}/de/ueber-uns`} class="btn-outline">Vollständiges Profil lesen</a>
         </div>
         <div class="order-1 md:order-2">
           <div class="bg-brand-dark rounded-sm aspect-[4/5] relative overflow-hidden">
@@ -337,7 +337,7 @@ const deHomepageSchema = {
           <p class="text-slate-600 leading-relaxed mb-8">
             Wenn Sie wirklich in das Arbeitsumfeld Ihrer Mitarbeiter investieren, ergibt sich die Dokumentation von selbst. Das Ziel ist ein gesünderes, glücklicheres Team. Alles andere folgt daraus.
           </p>
-          <a href="/de/leistungen" class="btn-primary">Unsere Leistungen entdecken</a>
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen`} class="btn-primary">Unsere Leistungen entdecken</a>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-white rounded-sm p-6 border border-slate-100 shadow-sm">
@@ -371,7 +371,7 @@ const deHomepageSchema = {
       <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
         Vereinbaren Sie ein unverbindliches Erstgespräch und entdecken Sie, was ein gesünderes, energiegeladeneres Arbeitsumfeld für Ihr Team bedeuten könnte.
       </p>
-      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beratung anfragen</a>
+      <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary text-base px-8 py-4">Beratung anfragen</a>
     </div>
   </section>
 

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+// Helper: prepend base path to internal links
+const b = (path: string) => `${import.meta.env.BASE_URL}/${path}`.replace(/\/\//g, '/');
 
 interface Props {
   title: string;
@@ -52,35 +54,35 @@ const ogLocale = isDE ? 'de_DE' : 'en_GB';
 
 const navLinks = isDE
   ? [
-      { href: '/de/leistungen', label: 'Leistungen' },
-      { href: '/de/tools', label: 'Tools' },
-      { href: '/de/ueber-uns', label: 'Über uns' },
-      { href: '/de/kontakt', label: 'Kontakt' },
+      { href: b('/de/leistungen'), label: 'Leistungen' },
+      { href: b('/de/tools'), label: 'Tools' },
+      { href: b('/de/ueber-uns'), label: 'Über uns' },
+      { href: b('/de/kontakt'), label: 'Kontakt' },
     ]
   : [
-      { href: '/services', label: 'Services' },
-      { href: '/tools', label: 'Tools' },
-      { href: '/about', label: 'About' },
-      { href: '/contact', label: 'Contact' },
+      { href: b('/services'), label: 'Services' },
+      { href: b('/tools'), label: 'Tools' },
+      { href: b('/about'), label: 'About' },
+      { href: b('/contact'), label: 'Contact' },
     ];
 
 // Page-aware language switcher
 // Maps known DE paths to their EN counterparts and vice versa
 const pagePath = Astro.url.pathname;
 const toolPathMap: Record<string, string> = {
-  '/de/tools/ergonomische-gefaehrdungsbeurteilung': '/tools/ergonomic-risk-assessment',
-  '/de/tools/homeoffice-beurteilung': '/tools/home-office-assessment',
-  '/de/tools/psychosoziale-gefaehrdungsbeurteilung': '/tools/psychosocial-risk-assessment',
-  '/de/tools/gefaehrdungsbeurteilung-erstellen': '/tools/risk-assessment-builder',
-  '/de/tools': '/tools',
-  '/tools/ergonomic-risk-assessment': '/de/tools/ergonomische-gefaehrdungsbeurteilung',
-  '/tools/home-office-assessment': '/de/tools/homeoffice-beurteilung',
-  '/tools/psychosocial-risk-assessment': '/de/tools/psychosoziale-gefaehrdungsbeurteilung',
-  '/tools/risk-assessment-builder': '/de/tools/gefaehrdungsbeurteilung-erstellen',
-  '/tools': '/de/tools',
+  '/de/tools/ergonomische-gefaehrdungsbeurteilung': b('/tools/ergonomic-risk-assessment'),
+  '/de/tools/homeoffice-beurteilung': b('/tools/home-office-assessment'),
+  '/de/tools/psychosoziale-gefaehrdungsbeurteilung': b('/tools/psychosocial-risk-assessment'),
+  '/de/tools/gefaehrdungsbeurteilung-erstellen': b('/tools/risk-assessment-builder'),
+  '/de/tools': b('/tools'),
+  '/tools/ergonomic-risk-assessment': b('/de/tools/ergonomische-gefaehrdungsbeurteilung'),
+  '/tools/home-office-assessment': b('/de/tools/homeoffice-beurteilung'),
+  '/tools/psychosocial-risk-assessment': b('/de/tools/psychosoziale-gefaehrdungsbeurteilung'),
+  '/tools/risk-assessment-builder': b('/de/tools/gefaehrdungsbeurteilung-erstellen'),
+  '/tools': b('/de/tools'),
 };
 const mappedSwitchHref = toolPathMap[pagePath.replace(/\/$/, '')];
-const langSwitchHref = mappedSwitchHref ?? (isDE ? '/' : '/de');
+const langSwitchHref = mappedSwitchHref ?? (isDE ? b('/') : b('/de'));
 const langSwitchLabel = isDE ? 'EN' : 'DE';
 
 // Global Organisation schema — injected on every page
@@ -228,7 +230,7 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
       <div class="container-wide">
         <nav class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <a href={isDE ? '/de' : '/'} class="flex items-center gap-3 group" aria-label={isDE ? 'Sabine — Startseite' : 'Sabine — Home'}>
+          <a href={isDE ? b('/de') : b('/')} class="flex items-center gap-3 group" aria-label={isDE ? 'Sabine — Startseite' : 'Sabine — Home'}>
             <div class="w-8 h-8 bg-brand-accent rounded-sm flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect x="2" y="2" width="5" height="5" fill="white" opacity="0.9"/>
@@ -253,7 +255,7 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
             <a href={langSwitchHref} class="text-xs font-semibold text-brand-textLight hover:text-brand-accent border border-brand-border px-2.5 py-1 rounded-sm transition-colors duration-150 tracking-widest uppercase" aria-label={isDE ? 'Switch to English' : 'Zur deutschen Version wechseln'}>
               {langSwitchLabel}
             </a>
-            <a href={isDE ? '/de/kontakt' : '/contact'} class="btn-primary text-xs py-2 px-5">
+            <a href={isDE ? b('/de/kontakt') : b('/contact')} class="btn-primary text-xs py-2 px-5">
               {isDE ? 'Anfrage stellen' : 'Book a Consultation'}
             </a>
           </div>
@@ -279,7 +281,7 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
             <a href={langSwitchHref} class="text-xs font-semibold text-brand-textLight border border-brand-border px-2.5 py-1 rounded-sm uppercase tracking-widest">
               {langSwitchLabel}
             </a>
-            <a href={isDE ? '/de/kontakt' : '/contact'} class="btn-primary text-xs py-2 px-5">
+            <a href={isDE ? b('/de/kontakt') : b('/contact')} class="btn-primary text-xs py-2 px-5">
               {isDE ? 'Anfrage stellen' : 'Book a Consultation'}
             </a>
           </div>
@@ -324,15 +326,15 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
             <ul class="space-y-2">
               {isDE ? (
                 <>
-                  <li><a href="/de/leistungen/ergonomische-gefaehrdungsbeurteilung" class="text-slate-400 text-sm hover:text-white transition-colors">Persönliche Ergonomie-Analyse</a></li>
-                  <li><a href="/de/leistungen/arbeitsschutz-audit" class="text-slate-400 text-sm hover:text-white transition-colors">Wohlbefindens-Analyse für KMU</a></li>
-                  <li><a href="/de/leistungen/arbeitsschutz-retainer" class="text-slate-400 text-sm hover:text-white transition-colors">Laufende Wohlbefindens-Partnerschaft</a></li>
+                  <li><a href={b("/de/leistungen/ergonomische-gefaehrdungsbeurteilung")} class="text-slate-400 text-sm hover:text-white transition-colors">Persönliche Ergonomie-Analyse</a></li>
+                  <li><a href={b("/de/leistungen/arbeitsschutz-audit")} class="text-slate-400 text-sm hover:text-white transition-colors">Wohlbefindens-Analyse für KMU</a></li>
+                  <li><a href={b("/de/leistungen/arbeitsschutz-retainer")} class="text-slate-400 text-sm hover:text-white transition-colors">Laufende Wohlbefindens-Partnerschaft</a></li>
                 </>
               ) : (
                 <>
-                  <li><a href="/services/remote-ergonomic-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Remote Ergonomic Assessment</a></li>
-                  <li><a href="/services/sme-risk-audit" class="text-slate-400 text-sm hover:text-white transition-colors">SME Workplace Wellbeing Audit</a></li>
-                  <li><a href="/services/workplace-risk-retainer" class="text-slate-400 text-sm hover:text-white transition-colors">Ongoing Wellbeing Partnership</a></li>
+                  <li><a href={b("/services/remote-ergonomic-assessment")} class="text-slate-400 text-sm hover:text-white transition-colors">Remote Ergonomic Assessment</a></li>
+                  <li><a href={b("/services/sme-risk-audit")} class="text-slate-400 text-sm hover:text-white transition-colors">SME Workplace Wellbeing Audit</a></li>
+                  <li><a href={b("/services/workplace-risk-retainer")} class="text-slate-400 text-sm hover:text-white transition-colors">Ongoing Wellbeing Partnership</a></li>
                 </>
               )}
             </ul>
@@ -342,10 +344,10 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-4">Tools</h3>
             <ul class="space-y-2">
-              <li><a href="/tools/ergonomic-risk-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Ergonomic Risk Assessment</a></li>
-              <li><a href="/tools/home-office-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Home Office Assessment</a></li>
-              <li><a href="/tools/psychosocial-risk-assessment" class="text-slate-400 text-sm hover:text-white transition-colors">Psychosocial Assessment</a></li>
-              <li><a href="/tools/risk-assessment-builder" class="text-slate-400 text-sm hover:text-white transition-colors">Risk Assessment Builder</a></li>
+              <li><a href={b("/tools/ergonomic-risk-assessment")} class="text-slate-400 text-sm hover:text-white transition-colors">Ergonomic Risk Assessment</a></li>
+              <li><a href={b("/tools/home-office-assessment")} class="text-slate-400 text-sm hover:text-white transition-colors">Home Office Assessment</a></li>
+              <li><a href={b("/tools/psychosocial-risk-assessment")} class="text-slate-400 text-sm hover:text-white transition-colors">Psychosocial Assessment</a></li>
+              <li><a href={b("/tools/risk-assessment-builder")} class="text-slate-400 text-sm hover:text-white transition-colors">Risk Assessment Builder</a></li>
             </ul>
           </div>
 
@@ -356,7 +358,7 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
             </h3>
             <ul class="space-y-2 text-slate-400 text-sm">
               <li>
-                <a href={isDE ? '/de/kontakt' : '/contact'} class="hover:text-white transition-colors">
+                <a href={isDE ? b('/de/kontakt') : b('/contact')} class="hover:text-white transition-colors">
                   {isDE ? 'Anfrage stellen' : 'Book a Consultation'}
                 </a>
               </li>
@@ -374,13 +376,13 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
             &copy; {new Date().getFullYear()} Sabine Salowsky — Workplace Wellbeing Consultancy. All rights reserved.
           </p>
           <div class="flex gap-6">
-            <a href={isDE ? '/de/datenschutz' : '/privacy-policy'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors">
+            <a href={isDE ? b('/de/datenschutz') : b('/privacy-policy')} class="text-slate-500 text-xs hover:text-slate-300 transition-colors">
               {isDE ? 'Datenschutz' : 'Privacy Policy'}
             </a>
-            <a href={isDE ? '/de/impressum' : '/terms'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors">
+            <a href={isDE ? b('/de/impressum') : b('/terms')} class="text-slate-500 text-xs hover:text-slate-300 transition-colors">
               {isDE ? 'Impressum' : 'Terms'}
             </a>
-            <a href={isDE ? '/' : '/de'} class="text-slate-500 text-xs hover:text-slate-300 transition-colors uppercase tracking-widest" aria-label={isDE ? 'Switch to English' : 'Zur deutschen Version wechseln'}>
+            <a href={isDE ? b('/') : b('/de')} class="text-slate-500 text-xs hover:text-slate-300 transition-colors uppercase tracking-widest" aria-label={isDE ? 'Switch to English' : 'Zur deutschen Version wechseln'}>
               {isDE ? 'EN' : 'DE'}
             </a>
           </div>

@@ -48,9 +48,9 @@ const retainerServiceSchema = {
     </div>
     <div class="container-wide relative">
       <nav class="text-xs text-slate-500 mb-8">
-        <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+        <a href={`${import.meta.env.BASE_URL}/`} class="hover:text-slate-300 transition-colors">Home</a>
         <span class="mx-2">/</span>
-        <a href="/services" class="hover:text-slate-300 transition-colors">Services</a>
+        <a href={`${import.meta.env.BASE_URL}/services`} class="hover:text-slate-300 transition-colors">Services</a>
         <span class="mx-2">/</span>
         <span class="text-slate-400">Ongoing Wellbeing Partnership</span>
       </nav>
@@ -62,7 +62,7 @@ const retainerServiceSchema = {
         Continuous workplace wellbeing support for SMEs that are growing, changing, or simply want their people looked after properly — not just at a point in time, but as an ongoing commitment.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
-        <a href="/contact" class="btn-primary">Enquire About a Partnership</a>
+        <a href={`${import.meta.env.BASE_URL}/contact`} class="btn-primary">Enquire About a Partnership</a>
         <div class="text-slate-400 text-sm py-3">
           <span class="font-semibold text-white">From €550 per month</span> &nbsp;|&nbsp; Rolling monthly contract
         </div>
@@ -88,7 +88,7 @@ const retainerServiceSchema = {
           <p class="text-slate-600 leading-relaxed mb-8">
             Most clients begin with an SME Workplace Wellbeing Audit to establish a clear baseline, then transition to the partnership for ongoing support. This is the most effective and cost-efficient approach for growing SMEs.
           </p>
-          <a href="/services/sme-risk-audit" class="btn-outline">Start with a Wellbeing Audit</a>
+          <a href={`${import.meta.env.BASE_URL}/services/sme-risk-audit`} class="btn-outline">Start with a Wellbeing Audit</a>
         </div>
         <div class="space-y-4">
           <div class="bg-white rounded-sm border border-slate-100 p-6 shadow-sm">
@@ -215,7 +215,7 @@ const retainerServiceSchema = {
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
         Enquire about an Ongoing Wellbeing Partnership today.
       </h2>
-      <a href="/contact" class="btn-primary text-base px-8 py-4">Enquire About a Partnership</a>
+      <a href={`${import.meta.env.BASE_URL}/contact`} class="btn-primary text-base px-8 py-4">Enquire About a Partnership</a>
     </div>
   </section>
 

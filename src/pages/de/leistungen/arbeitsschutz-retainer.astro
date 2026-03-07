@@ -42,9 +42,9 @@ const deRetainerSchema = {
   <section class="bg-brand-dark py-20 md:py-28">
     <div class="container-wide">
       <nav class="text-xs text-slate-500 mb-8">
-        <a href="/de" class="hover:text-slate-300 transition-colors">Startseite</a>
+        <a href={`${import.meta.env.BASE_URL}/de`} class="hover:text-slate-300 transition-colors">Startseite</a>
         <span class="mx-2">/</span>
-        <a href="/de/leistungen" class="hover:text-slate-300 transition-colors">Leistungen</a>
+        <a href={`${import.meta.env.BASE_URL}/de/leistungen`} class="hover:text-slate-300 transition-colors">Leistungen</a>
         <span class="mx-2">/</span>
         <span class="text-slate-400">Arbeitsschutz-Retainer</span>
       </nav>
@@ -56,7 +56,7 @@ const deRetainerSchema = {
         Kontinuierliche Arbeitsschutz- und Compliance-Betreuung für KMU, die wachsen, sich verändern oder in mehreren Jurisdiktionen tätig sind. Ihre Compliance-Dokumentation bleibt aktuell, während Ihr Team wächst.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
-        <a href="/de/kontakt" class="btn-primary">Retainer anfragen</a>
+        <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary">Retainer anfragen</a>
         <div class="text-slate-400 text-sm py-3">
           <span class="font-semibold text-white">Ab 650 EUR pro Monat</span> &nbsp;|&nbsp; Monatlich kündbar
         </div>
@@ -81,7 +81,7 @@ const deRetainerSchema = {
           <p class="text-slate-600 leading-relaxed mb-8">
             Die meisten Retainer-Kunden beginnen mit einem Arbeitsschutz-Audit, um eine Basis zu schaffen, und wechseln dann zum Retainer für die laufende Verwaltung. Dies ist der kosteneffektivste und rechtssicherste Ansatz für wachsende KMU.
           </p>
-          <a href="/de/leistungen/arbeitsschutz-audit" class="btn-outline">Mit einem Audit beginnen</a>
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen/arbeitsschutz-audit`} class="btn-outline">Mit einem Audit beginnen</a>
         </div>
         <div class="space-y-4">
           <div class="bg-white rounded-sm border border-slate-100 p-6 shadow-sm">
@@ -173,7 +173,7 @@ const deRetainerSchema = {
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
         Laufende Wohlbefindens-Partnerschaft anfragen.
       </h2>
-      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Partnerschaft anfragen</a>
+      <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary text-base px-8 py-4">Partnerschaft anfragen</a>
     </div>
   </section>
 

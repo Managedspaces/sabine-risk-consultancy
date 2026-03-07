@@ -48,9 +48,9 @@ const auditServiceSchema = {
     </div>
     <div class="container-wide relative">
       <nav class="text-xs text-slate-500 mb-8">
-        <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+        <a href={`${import.meta.env.BASE_URL}/`} class="hover:text-slate-300 transition-colors">Home</a>
         <span class="mx-2">/</span>
-        <a href="/services" class="hover:text-slate-300 transition-colors">Services</a>
+        <a href={`${import.meta.env.BASE_URL}/services`} class="hover:text-slate-300 transition-colors">Services</a>
         <span class="mx-2">/</span>
         <span class="text-slate-400">SME Workplace Wellbeing Audit</span>
       </nav>
@@ -62,7 +62,7 @@ const auditServiceSchema = {
         A comprehensive review of how your remote or hybrid team actually works — covering physical environment, sensory conditions, and working patterns. You receive a clear picture of where your people are losing energy and focus, and a prioritised plan to change it.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
-        <a href="/contact" class="btn-primary">Request an Audit</a>
+        <a href={`${import.meta.env.BASE_URL}/contact`} class="btn-primary">Request an Audit</a>
         <div class="text-slate-400 text-sm py-3">
           <span class="font-semibold text-white">From €1,800</span> &nbsp;|&nbsp; Project-based, fixed scope
         </div>
@@ -207,7 +207,7 @@ const auditServiceSchema = {
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
         Book a Workplace Wellbeing Audit and see the full picture.
       </h2>
-      <a href="/contact" class="btn-primary text-base px-8 py-4">Request an Audit</a>
+      <a href={`${import.meta.env.BASE_URL}/contact`} class="btn-primary text-base px-8 py-4">Request an Audit</a>
     </div>
   </section>
 

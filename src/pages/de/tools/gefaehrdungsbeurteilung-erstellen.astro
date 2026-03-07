@@ -41,7 +41,7 @@ const schema = {
 
   <section class="pt-32 pb-20 bg-brand-dark text-white">
     <div class="container-narrow">
-      <a href="/de/tools" class="inline-block text-brand-accentLight hover:text-white transition-colors mb-8">&larr; Zurück zu allen Tools</a>
+      <a href={`${import.meta.env.BASE_URL}/de/tools`} class="inline-block text-brand-accentLight hover:text-white transition-colors mb-8">&larr; Zurück zu allen Tools</a>
       <div class="flex flex-col md:flex-row gap-12 items-start">
         <div class="flex-1">
           <p class="section-label text-brand-accentLight mb-4">Professionelles Tool</p>
@@ -116,7 +116,7 @@ const schema = {
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={TOOLS_APP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">Tool ausprobieren</a>
-          <a href="/de/leistungen/arbeitsschutz-audit" class="px-6 py-3 border-2 border-brand-dark text-brand-dark font-semibold rounded-sm hover:bg-brand-dark hover:text-white transition-colors">Professionelles Audit anfragen</a>
+          <a href={`${import.meta.env.BASE_URL}/de/leistungen/arbeitsschutz-audit`} class="px-6 py-3 border-2 border-brand-dark text-brand-dark font-semibold rounded-sm hover:bg-brand-dark hover:text-white transition-colors">Professionelles Audit anfragen</a>
         </div>
       </div>
     </div>

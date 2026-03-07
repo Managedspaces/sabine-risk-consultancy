@@ -51,9 +51,9 @@ const deAssessmentSchema = [
   <section class="bg-brand-dark py-20 md:py-28">
     <div class="container-wide">
       <nav class="text-xs text-slate-500 mb-8">
-        <a href="/de" class="hover:text-slate-300 transition-colors">Startseite</a>
+        <a href={`${import.meta.env.BASE_URL}/de`} class="hover:text-slate-300 transition-colors">Startseite</a>
         <span class="mx-2">/</span>
-        <a href="/de/leistungen" class="hover:text-slate-300 transition-colors">Leistungen</a>
+        <a href={`${import.meta.env.BASE_URL}/de/leistungen`} class="hover:text-slate-300 transition-colors">Leistungen</a>
         <span class="mx-2">/</span>
         <span class="text-slate-400">Ergonomische Gefährdungsbeurteilung</span>
       </nav>
@@ -65,7 +65,7 @@ const deAssessmentSchema = [
         Strukturierte, individuell zugeschnittene Beurteilung für Mitarbeiter im Homeoffice oder in hybrider Arbeitsweise. Prüfungsfeste Dokumentation gemäss ArbSchG, ArbStättV und Bildschirmarbeitsverordnung.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
-        <a href="/de/kontakt" class="btn-primary">Beurteilung anfragen</a>
+        <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary">Beurteilung anfragen</a>
         <div class="text-slate-400 text-sm py-3">
           <span class="font-semibold text-white">Ab 345 EUR</span> pro Mitarbeiter &nbsp;|&nbsp; Berichte innerhalb von 5 Werktagen
         </div>
@@ -178,7 +178,7 @@ const deAssessmentSchema = [
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
         Persönliche Ergonomie-Analyse für Ihr Team anfragen.
       </h2>
-      <a href="/de/kontakt" class="btn-primary text-base px-8 py-4">Beurteilung anfragen</a>
+      <a href={`${import.meta.env.BASE_URL}/de/kontakt`} class="btn-primary text-base px-8 py-4">Beurteilung anfragen</a>
     </div>
   </section>
 

@@ -102,9 +102,9 @@ const faqs = [
     </div>
     <div class="container-wide relative">
       <nav class="text-xs text-slate-500 mb-8">
-        <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+        <a href={`${import.meta.env.BASE_URL}/`} class="hover:text-slate-300 transition-colors">Home</a>
         <span class="mx-2">/</span>
-        <a href="/services" class="hover:text-slate-300 transition-colors">Services</a>
+        <a href={`${import.meta.env.BASE_URL}/services`} class="hover:text-slate-300 transition-colors">Services</a>
         <span class="mx-2">/</span>
         <span class="text-slate-400">Remote Ergonomic Assessment</span>
       </nav>
@@ -116,7 +116,7 @@ const faqs = [
         A personalised assessment for each remote or hybrid employee — looking at the whole picture of how they work, what is holding them back physically, and what practical changes will help them feel better and perform better.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 items-start">
-        <a href="/contact" class="btn-primary">Request an Assessment</a>
+        <a href={`${import.meta.env.BASE_URL}/contact`} class="btn-primary">Request an Assessment</a>
         <div class="text-slate-400 text-sm py-3">
           <span class="font-semibold text-white">From €295</span> per employee &nbsp;|&nbsp; Reports delivered within 5 working days
         </div>
@@ -287,7 +287,7 @@ const faqs = [
       <h2 class="font-serif text-3xl font-semibold text-white leading-tight mb-6">
         Book a Remote Ergonomic Assessment for your team today.
       </h2>
-      <a href="/contact" class="btn-primary text-base px-8 py-4">Request an Assessment</a>
+      <a href={`${import.meta.env.BASE_URL}/contact`} class="btn-primary text-base px-8 py-4">Request an Assessment</a>
     </div>
   </section>
 
